@@ -1,0 +1,450 @@
+{
+  "0": {
+    "name": "sqroot",
+    "expression": "1.0 + 0.5 * x - 0.125 * x * x + 0.0625 * x * x * x - 0.0390625 * x * x * x * x",
+    "range": [
+      0.0,
+      1.0
+    ],
+    "input": 0.9475234968115063,
+    "ulp": 1.92,
+    "time": 3.15406,
+    "input_layer2": 0.9475235,
+    "ulp_layer2": 1.94,
+    "error": "3.087330e-16"
+  },
+  "1": {
+    "name": "sqrt_add",
+    "expression": "1.0 / (sqrt(x + 1.0) + sqrt(x))",
+    "range": [
+      1.0,
+      1000.0
+    ],
+    "input": 258.420781149017,
+    "ulp": 2.43,
+    "time": 0.34403,
+    "input_layer2": 258.42079455,
+    "ulp_layer2": 2.24,
+    "error": "2.717255e-16"
+  },
+  "2": {
+    "name": "exp1x",
+    "expression": "(exp(x) - 1.0) / x",
+    "range": [
+      0.01,
+      0.5
+    ],
+    "input": 0.0102680349232534,
+    "ulp": 49.19,
+    "time": 1.57857,
+    "input_layer2": 0.01026803,
+    "ulp_layer2": 48.3,
+    "error": "1.086586e-14"
+  },
+  "3": {
+    "name": "exp1x_log",
+    "expression": "(exp(x) - 1.0) / log(exp(x))",
+    "range": [
+      0.01,
+      0.5
+    ],
+    "input": 0.2503253254892638,
+    "ulp": 1.29,
+    "time": 2.64572,
+    "input_layer2": 0.25032535,
+    "ulp_layer2": 1.29,
+    "error": "2.518783e-16"
+  },
+  "4": {
+    "name": "NMSEexample37",
+    "expression": "exp(x) - 1.0",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 0.0128443935221748,
+    "ulp": 64.24,
+    "time": 1.64694,
+    "input_layer2": 0.01284439,
+    "ulp_layer2": 49.78,
+    "error": "8.620102e-15"
+  },
+  "5": {
+    "name": "NMSEproblem336",
+    "expression": "log(x + 1.0) - log(x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 75.36552676634889,
+    "ulp": 511.48,
+    "time": 1.45713,
+    "input_layer2": 75.36552429199219,
+    "ulp_layer2": 509.03,
+    "error": "6.731213e-14"
+  },
+  "6": {
+    "name": "NMSEexample39",
+    "expression": "1.0 / x - 1.0 / tan(x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 0.0110857665074459,
+    "ulp": 47656.29,
+    "time": 0.353643,
+    "input_layer2": 0.0110857663676143,
+    "ulp_layer2": 47426.59,
+    "error": "5.592970e-12"
+  },
+  "7": {
+    "name": "NMSEproblem341",
+    "expression": "(1.0 - cos(x)) / (x * x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 6.283185483177097,
+    "ulp": 28494029909503.5,
+    "time": 0.43636,
+    "input_layer2": 6.2831854820251465,
+    "ulp_layer2": 18286142381194.62,
+    "error": "3.581055e-03"
+  },
+  "8": {
+    "name": "NMSEsection311",
+    "expression": "exp(x) / (exp(x) - 1.0)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 0.012844393042296,
+    "ulp": 47.34,
+    "time": 1.96892,
+    "input_layer2": 0.01284439,
+    "ulp_layer2": 36.51,
+    "error": "8.586375e-15"
+  },
+  "9": {
+    "name": "NMSEproblem345",
+    "expression": "(x - sin(x)) / (x - tan(x))",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 0.0099983650650404,
+    "ulp": 70140.47,
+    "time": 0.492546,
+    "input_layer2": 0.0099983643740416,
+    "ulp_layer2": 69469.51,
+    "error": "7.787507e-12"
+  },
+  "10": {
+    "name": "NMSEproblem337",
+    "expression": "exp(x) - 2.0 + exp(-x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 0.0105394485936052,
+    "ulp": 12242.5,
+    "time": 1.10711,
+    "input_layer2": 0.010539447888732,
+    "ulp_layer2": 12262.57,
+    "error": "1.493656e-12"
+  },
+  "11": {
+    "name": "verhulst",
+    "expression": "(4.0 * x) / (x / 1.11 + 1.0)",
+    "range": [
+      0.1,
+      0.3
+    ],
+    "input": 0.1391795651431005,
+    "ulp": 1.48,
+    "time": 0.303936,
+    "input_layer2": 0.13917957,
+    "ulp_layer2": 1.43,
+    "error": "1.660094e-16"
+  },
+  "12": {
+    "name": "predatorPrey",
+    "expression": "(4.0 * x * x) / (1 + x / 1.11 + x / 1.11)",
+    "range": [
+      0.1,
+      0.3
+    ],
+    "input": 0.2038767065478421,
+    "ulp": 2.76,
+    "time": 0.371268,
+    "input_layer2": 0.20387671,
+    "ulp_layer2": 2.71,
+    "error": "3.152213e-16"
+  },
+  "13": {
+    "name": "logexp",
+    "expression": "log(exp(x) - 1.0)",
+    "range": [
+      0.01,
+      8.0
+    ],
+    "input": 0.6933694532937099,
+    "ulp": 4094.68,
+    "time": 1.9378,
+    "input_layer2": 0.693369448184967,
+    "ulp_layer2": 4085.45,
+    "error": "4.993815e-13"
+  },
+  "14": {
+    "name": "sine",
+    "expression": "x - (x * x * x) / 6.0 + (x * x * x * x * x) / 120.0 - (x * x * x * x * x * x * x) / 5040.0",
+    "range": [
+      -1.57079632679,
+      1.57079632679
+    ],
+    "input": -1.510257683388978,
+    "ulp": 2.46,
+    "time": 7.33741,
+    "input_layer2": -1.51025771,
+    "ulp_layer2": 2.31,
+    "error": "2.740185e-16"
+  },
+  "15": {
+    "name": "carbonGas",
+    "expression": "((35000000.0 + ((0.401 * (1000.0 / x)) * (1000.0 / x))) * (x - (1000.0 * 4.27e-5))) - ((1.3806503e-23 * 1000.0) * 300.0)",
+    "range": [
+      0.1,
+      0.5
+    ],
+    "input": 0.2151158667249352,
+    "ulp": 2.34,
+    "time": 0.457649,
+    "input_layer2": 0.21511587,
+    "ulp_layer2": 2.23,
+    "error": "2.890819e-16"
+  },
+  "16": {
+    "name": "NMSEproblem341",
+    "expression": "(1.0 - cos(x)) / (x * x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 6.283185483177097,
+    "ulp": 28494029909503.5,
+    "time": 0.48389,
+    "input_layer2": 6.2831854820251465,
+    "ulp_layer2": 18286142381194.62,
+    "error": "3.581055e-03"
+  },
+  "17": {
+    "name": "NMSEexample38",
+    "expression": "(((x + 1.0) * log(x + 1.0)) - (x * log(x))) - 1.0",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 0.542211419737508,
+    "ulp": 2739092982183.09,
+    "time": 1.51749,
+    "input_layer2": 0.5422114133834839,
+    "ulp_layer2": 123234885.03,
+    "error": "5.578738e-04"
+  },
+  "18": {
+    "name": "NMSEproblem334",
+    "expression": "cbrt(x + 1) - cbrt(x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 99.5398938635648,
+    "ulp": 1902.78,
+    "time": 0.273639,
+    "input_layer2": 99.53988647460938,
+    "ulp_layer2": 1319.11,
+    "error": "2.133963e-13"
+  },
+  "19": {
+    "name": "NMSEproblem333",
+    "expression": "((1.0 / (x + 1.0)) - (2.0 / x)) + (1.0 / (x - 1.0))",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 96.62841791739832,
+    "ulp": 8074.62,
+    "time": 0.214787,
+    "input_layer2": 96.62841033935547,
+    "ulp_layer2": 7893.99,
+    "error": "1.542520e-12"
+  },
+  "20": {
+    "name": "NMSEproblem331",
+    "expression": "1.0/(x+1) - (1.0/x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 98.00440032366319,
+    "ulp": 127.77,
+    "time": 0.178402,
+    "input_layer2": 98.00439453125,
+    "ulp_layer2": 127.29,
+    "error": "1.680124e-14"
+  },
+  "21": {
+    "name": "NMSEexample36",
+    "expression": "1.0/sqrt(x) - 1.0 / sqrt(x+1)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 63.56549214276435,
+    "ulp": 428.44,
+    "time": 0.21442,
+    "input_layer2": 63.56549072265625,
+    "ulp_layer2": 364.5,
+    "error": "4.763743e-14"
+  },
+  "22": {
+    "name": "NMSEexample35",
+    "expression": "1.0 / tan(x + 1) - 1.0 / tan(x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 63.993471609908575,
+    "ulp": 47.58,
+    "time": 1.6067,
+    "input_layer2": 63.99346999,
+    "ulp_layer2": 46.81,
+    "error": "9.567065e-15"
+  },
+  "23": {
+    "name": "NMSEexample34",
+    "expression": "(1.0 - cos(x)) / sin(x)",
+    "range": [
+      0.01,
+      100.0
+    ],
+    "input": 6.283185483177097,
+    "ulp": 23810429721724.57,
+    "time": 0.990957,
+    "input_layer2": 6.2831854820251465,
+    "ulp_layer2": 15381099120073.77,
+    "error": "3.581055e-03"
+  },
+  "24": {
+    "name": "NMSEexample31",
+    "expression": "sqrt(x + 1) - sqrt(x)",
+    "range": [
+      0.0,
+      100.0
+    ],
+    "input": 84.7814456539969,
+    "ulp": 255.33,
+    "time": 1.62964,
+    "input_layer2": 84.78144073486328,
+    "ulp_layer2": 254.2,
+    "error": "3.272244e-14"
+  },
+  "25": {
+    "name": "test05_nonlin1_r4",
+    "expression": "(x - 1) / (x * x - 1)",
+    "range": [
+      1.00001,
+      2.0
+    ],
+    "input": 1.0000115650339847,
+    "ulp": 43233.51,
+    "time": 0.283336,
+    "input_layer2": 1.00001163,
+    "ulp_layer2": 17053.13,
+    "error": "4.799911e-12"
+  },
+  "26": {
+    "name": "test05_nonlin1_test2",
+    "expression": "1.0 / (x + 1.0)",
+    "range": [
+      1.00001,
+      2.0
+    ],
+    "input": 1.0036839093827405,
+    "ulp": 1.5,
+    "time": 0.243187,
+    "input_layer2": 1.00368391,
+    "ulp_layer2": 1.49,
+    "error": "1.664311e-16"
+  },
+  "27": {
+    "name": "intro_example_mixed",
+    "expression": "x / ( x + 1)",
+    "range": [
+      1.0,
+      999.0
+    ],
+    "input": 127.04006096126729,
+    "ulp": 1.49,
+    "time": 0.242282,
+    "input_layer2": 127.04005466,
+    "ulp_layer2": 1.48,
+    "error": "1.669353e-16"
+  },
+  "28": {
+    "name": "sineOrder3",
+    "expression": "(0.954929658551372 * x) - (0.12900613773279798 * ((x * x) * x))",
+    "range": [
+      -2.0,
+      2.0
+    ],
+    "input": 1.992619871643447,
+    "ulp": 2.97,
+    "time": 3.51623,
+    "input_layer2": 1.99261982,
+    "ulp_layer2": 2.41,
+    "error": "3.733047e-16"
+  },
+  "29": {
+    "name": "bsplines3",
+    "expression": "(-x * x * x) / 6.0",
+    "range": [
+      0.0,
+      1.0
+    ],
+    "input": 0.3589641674135399,
+    "ulp": 1.95,
+    "time": 1.47297,
+    "input_layer2": 0.35896417,
+    "ulp_layer2": 1.89,
+    "error": "2.193487e-16"
+  },
+  "30": {
+    "name": "NMSEexample310",
+    "expression": "log(1 - x) / log(1 + x)",
+    "range": [
+      0.001,
+      1.0
+    ],
+    "input": 0.0010017313766124,
+    "ulp": 501.01,
+    "time": 2.92322,
+    "input_layer2": 0.00100173,
+    "ulp_layer2": 499.42,
+    "error": "1.111356e-13"
+  },
+  "31": {
+    "name": "NMSEproblem343",
+    "expression": "log((1 - x) / (1 + x))",
+    "range": [
+      0.001,
+      1.0
+    ],
+    "input": 0.0018170075271676,
+    "ulp": 383.33,
+    "time": 1.24502,
+    "input_layer2": 0.0018170074326918,
+    "ulp_layer2": 128.88,
+    "error": "4.574661e-14"
+  }
+}
