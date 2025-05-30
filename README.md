@@ -19,7 +19,7 @@ Usage: detector [--help] [--version] [--relerr] lib mode input output
 
 Positional arguments:
   lib            Specify the library to use (gsl/hsed/matrix) [required]
-  mode           Specify the mode (range/input/matrix) [required]
+  mode           Specify the mode (input/matrix) [required]
   input          Specify the input file path [required]
   output         Specify the output file path [required]
 
