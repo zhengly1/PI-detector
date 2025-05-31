@@ -30,4 +30,4 @@ Optional arguments:
 ```
 
 ## Usage
-### **For the details about data reproduction, see [final_script](script/final_script.ipynb).**
+### **For the details about data reproduction, see [result_reproduction](script/result_reproduction.ipynb).**
