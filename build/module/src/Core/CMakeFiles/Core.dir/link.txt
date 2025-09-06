@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libCore.a CMakeFiles/Core.dir/RangeSolver.cc.o
+/usr/bin/ranlib ../../../lib/libCore.a

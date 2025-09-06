@@ -1,0 +1,2 @@
+/PI-detector/build/lib/libhsed.a
+/PI-detector/build/include/hsed/hsed.h

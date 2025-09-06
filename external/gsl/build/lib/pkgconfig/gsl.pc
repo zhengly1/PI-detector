@@ -1,0 +1,11 @@
+prefix=/PI-detector/external/gsl/build
+exec_prefix=/PI-detector/external/gsl/build
+libdir=/PI-detector/external/gsl/build/lib
+includedir=/PI-detector/external/gsl/build/include
+GSL_CBLAS_LIB=-lgslcblas
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 2.5
+Libs: -L/PI-detector/external/gsl/build/lib -lgsl ${GSL_CBLAS_LIB} -lm -lm 
+Cflags: -I/PI-detector/external/gsl/build/include

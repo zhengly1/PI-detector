@@ -4,7 +4,7 @@ namespace fpUtil {
 bool enablePertubation = true;
 int loopCycle = -1;
 int perturbCount = 0;
-double condNumThreshold = 1e5;
+double condNumThreshold = 1e-5;
 std::unordered_map<int, std::string> op_map = {
     {OP_ADD, "OP_ADD"},   {OP_SUB, "OP_SUB"},     {OP_MUL, "OP_MUL"},
     {OP_DIV, "OP_DIV"},   {OP_SIN, "OP_SIN"},     {OP_COS, "OP_COS"},

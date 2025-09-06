@@ -1,0 +1,187 @@
+; ModuleID = 'zaxpy.ll'
+source_filename = "zaxpy.c"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @cblas_zaxpy(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 !dbg !15 {
+  tail call void @llvm.dbg.value(metadata i32 %0, metadata !24, metadata !DIExpression()), !dbg !43
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !25, metadata !DIExpression()), !dbg !43
+  tail call void @llvm.dbg.value(metadata ptr %2, metadata !26, metadata !DIExpression()), !dbg !43
+  tail call void @llvm.dbg.value(metadata i32 %3, metadata !27, metadata !DIExpression()), !dbg !43
+  tail call void @llvm.dbg.value(metadata ptr %4, metadata !28, metadata !DIExpression()), !dbg !43
+  tail call void @llvm.dbg.value(metadata i32 %5, metadata !29, metadata !DIExpression()), !dbg !43
+  tail call void @llvm.dbg.value(metadata i32 poison, metadata !34, metadata !DIExpression()), !dbg !44
+  tail call void @llvm.dbg.value(metadata i32 poison, metadata !35, metadata !DIExpression()), !dbg !44
+  %7 = load double, ptr %1, align 8, !dbg !45, !tbaa !46
+  tail call void @llvm.dbg.value(metadata double %7, metadata !36, metadata !DIExpression()), !dbg !44
+  %8 = getelementptr inbounds double, ptr %1, i64 1, !dbg !50
+  %9 = load double, ptr %8, align 8, !dbg !50, !tbaa !46
+  tail call void @llvm.dbg.value(metadata double %9, metadata !37, metadata !DIExpression()), !dbg !44
+  %10 = fcmp une double %7, 0.000000e+00, !dbg !51
+  %11 = fcmp une double %9, 0.000000e+00
+  %12 = select i1 %10, i1 true, i1 %11, !dbg !53
+  tail call void @llvm.dbg.value(metadata i32 0, metadata !30, metadata !DIExpression()), !dbg !44
+  tail call void @llvm.dbg.value(metadata i32 poison, metadata !34, metadata !DIExpression()), !dbg !44
+  tail call void @llvm.dbg.value(metadata i32 poison, metadata !35, metadata !DIExpression()), !dbg !44
+  %13 = icmp sgt i32 %0, 0
+  %14 = and i1 %12, %13, !dbg !53
+  br i1 %14, label %15, label %57, !dbg !53
+
+15:                                               ; preds = %6
+  %16 = icmp sgt i32 %5, 0, !dbg !54
+  %17 = sub nsw i32 1, %0, !dbg !55
+  %18 = mul i32 %17, %5, !dbg !54
+  %19 = select i1 %16, i32 0, i32 %18, !dbg !54
+  tail call void @llvm.dbg.value(metadata i32 %19, metadata !35, metadata !DIExpression()), !dbg !44
+  %20 = icmp sgt i32 %3, 0, !dbg !55
+  %21 = mul i32 %17, %3, !dbg !55
+  %22 = select i1 %20, i32 0, i32 %21, !dbg !55
+  tail call void @llvm.dbg.value(metadata i32 %22, metadata !34, metadata !DIExpression()), !dbg !44
+  %23 = zext i32 %22 to i64, !dbg !56
+  %24 = zext i32 %3 to i64, !dbg !56
+  %25 = zext i32 %19 to i64, !dbg !56
+  %26 = zext i32 %5 to i64, !dbg !56
+  br label %27, !dbg !56
+
+27:                                               ; preds = %27, %15
+  %28 = phi i64 [ %25, %15 ], [ %54, %27 ]
+  %29 = phi i64 [ %23, %15 ], [ %53, %27 ]
+  %30 = phi i32 [ 0, %15 ], [ %55, %27 ]
+  tail call void @llvm.dbg.value(metadata i32 %30, metadata !30, metadata !DIExpression()), !dbg !44
+  tail call void @llvm.dbg.value(metadata i64 %29, metadata !34, metadata !DIExpression()), !dbg !44
+  tail call void @llvm.dbg.value(metadata i64 %28, metadata !35, metadata !DIExpression()), !dbg !44
+  %31 = trunc i64 %29 to i32, !dbg !57
+  %32 = shl nsw i32 %31, 1, !dbg !57
+  %33 = sext i32 %32 to i64, !dbg !57
+  %34 = getelementptr inbounds double, ptr %2, i64 %33, !dbg !57
+  %35 = load double, ptr %34, align 8, !dbg !57, !tbaa !46
+  tail call void @llvm.dbg.value(metadata double %35, metadata !38, metadata !DIExpression()), !dbg !58
+  %36 = or disjoint i32 %32, 1, !dbg !59
+  %37 = sext i32 %36 to i64, !dbg !59
+  %38 = getelementptr inbounds double, ptr %2, i64 %37, !dbg !59
+  %39 = load double, ptr %38, align 8, !dbg !59, !tbaa !46
+  tail call void @llvm.dbg.value(metadata double %39, metadata !42, metadata !DIExpression()), !dbg !58
+  %40 = fmul double %7, %35, !dbg !60
+  %41 = fmul double %9, %39, !dbg !61
+  %handler_result = call double @fSubHandlerDouble(double %40, double %41), !dbg !62
+  %42 = trunc i64 %28 to i32, !dbg !62
+  %43 = shl nsw i32 %42, 1, !dbg !62
+  %44 = sext i32 %43 to i64, !dbg !62
+  %45 = getelementptr inbounds double, ptr %4, i64 %44, !dbg !62
+  %46 = load double, ptr %45, align 8, !dbg !63, !tbaa !46
+  %handler_result1 = call double @fAddHandlerDouble(double %46, double %handler_result), !dbg !63
+  store double %handler_result1, ptr %45, align 8, !dbg !63, !tbaa !46
+  %47 = fmul double %7, %39, !dbg !64
+  %48 = fmul double %9, %35, !dbg !65
+  %handler_result2 = call double @fAddHandlerDouble(double %48, double %47), !dbg !66
+  %49 = or disjoint i32 %43, 1, !dbg !66
+  %50 = sext i32 %49 to i64, !dbg !66
+  %51 = getelementptr inbounds double, ptr %4, i64 %50, !dbg !66
+  %52 = load double, ptr %51, align 8, !dbg !67, !tbaa !46
+  %handler_result3 = call double @fAddHandlerDouble(double %handler_result2, double %52), !dbg !67
+  store double %handler_result3, ptr %51, align 8, !dbg !67, !tbaa !46
+  %53 = add i64 %29, %24, !dbg !68
+  tail call void @llvm.dbg.value(metadata i64 %53, metadata !34, metadata !DIExpression()), !dbg !44
+  %54 = add i64 %28, %26, !dbg !69
+  tail call void @llvm.dbg.value(metadata i64 %54, metadata !35, metadata !DIExpression()), !dbg !44
+  %55 = add nuw nsw i32 %30, 1, !dbg !70
+  tail call void @llvm.dbg.value(metadata i32 %55, metadata !30, metadata !DIExpression()), !dbg !44
+  %56 = icmp eq i32 %55, %0, !dbg !71
+  br i1 %56, label %57, label %27, !dbg !56, !llvm.loop !72
+
+57:                                               ; preds = %27, %6
+  ret void, !dbg !75
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare void @llvm.dbg.value(metadata, metadata, metadata) #1
+
+declare double @fSubHandlerDouble(double, double)
+
+declare double @fAddHandlerDouble(double, double)
+
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+
+!llvm.dbg.cu = !{!0}
+!llvm.module.flags = !{!7, !8, !9, !10, !11, !12, !13}
+!llvm.ident = !{!14}
+
+!0 = distinct !DICompileUnit(language: DW_LANG_C11, file: !1, producer: "Ubuntu clang version 18.1.3 (1ubuntu1)", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, retainedTypes: !2, splitDebugInlining: false, nameTableKind: None)
+!1 = !DIFile(filename: "zaxpy.c", directory: "/PI-detector/external/gsl/gsl-2.5/cblas", checksumkind: CSK_MD5, checksum: "de3062236e5711107395e163f4eed151")
+!2 = !{!3, !6}
+!3 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !4, size: 64)
+!4 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !5)
+!5 = !DIBasicType(name: "double", size: 64, encoding: DW_ATE_float)
+!6 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !5, size: 64)
+!7 = !{i32 7, !"Dwarf Version", i32 5}
+!8 = !{i32 2, !"Debug Info Version", i32 3}
+!9 = !{i32 1, !"wchar_size", i32 4}
+!10 = !{i32 8, !"PIC Level", i32 2}
+!11 = !{i32 7, !"PIE Level", i32 2}
+!12 = !{i32 7, !"uwtable", i32 2}
+!13 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!14 = !{!"Ubuntu clang version 18.1.3 (1ubuntu1)"}
+!15 = distinct !DISubprogram(name: "cblas_zaxpy", scope: !1, file: !1, line: 6, type: !16, scopeLine: 8, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !23)
+!16 = !DISubroutineType(types: !17)
+!17 = !{null, !18, !20, !20, !18, !22, !18}
+!18 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !19)
+!19 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
+!20 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !21, size: 64)
+!21 = !DIDerivedType(tag: DW_TAG_const_type, baseType: null)
+!22 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: null, size: 64)
+!23 = !{!24, !25, !26, !27, !28, !29, !30, !34, !35, !36, !37, !38, !42}
+!24 = !DILocalVariable(name: "N", arg: 1, scope: !15, file: !1, line: 6, type: !18)
+!25 = !DILocalVariable(name: "alpha", arg: 2, scope: !15, file: !1, line: 6, type: !20)
+!26 = !DILocalVariable(name: "X", arg: 3, scope: !15, file: !1, line: 6, type: !20)
+!27 = !DILocalVariable(name: "incX", arg: 4, scope: !15, file: !1, line: 6, type: !18)
+!28 = !DILocalVariable(name: "Y", arg: 5, scope: !15, file: !1, line: 7, type: !22)
+!29 = !DILocalVariable(name: "incY", arg: 6, scope: !15, file: !1, line: 7, type: !18)
+!30 = !DILocalVariable(name: "i", scope: !31, file: !32, line: 21, type: !19)
+!31 = distinct !DILexicalBlock(scope: !33, file: !32, line: 20, column: 1)
+!32 = !DIFile(filename: "./source_axpy_c.h", directory: "/PI-detector/external/gsl/gsl-2.5/cblas", checksumkind: CSK_MD5, checksum: "4c27bcaa31b7c65af4c4a13885713778")
+!33 = !DILexicalBlockFile(scope: !15, file: !32, discriminator: 0)
+!34 = !DILocalVariable(name: "ix", scope: !31, file: !32, line: 22, type: !19)
+!35 = !DILocalVariable(name: "iy", scope: !31, file: !32, line: 23, type: !19)
+!36 = !DILocalVariable(name: "alpha_real", scope: !31, file: !32, line: 25, type: !4)
+!37 = !DILocalVariable(name: "alpha_imag", scope: !31, file: !32, line: 26, type: !4)
+!38 = !DILocalVariable(name: "x_real", scope: !39, file: !32, line: 33, type: !4)
+!39 = distinct !DILexicalBlock(scope: !40, file: !32, line: 32, column: 27)
+!40 = distinct !DILexicalBlock(scope: !41, file: !32, line: 32, column: 3)
+!41 = distinct !DILexicalBlock(scope: !31, file: !32, line: 32, column: 3)
+!42 = !DILocalVariable(name: "x_imag", scope: !39, file: !32, line: 34, type: !4)
+!43 = !DILocation(line: 0, scope: !15)
+!44 = !DILocation(line: 0, scope: !31)
+!45 = !DILocation(line: 25, column: 27, scope: !31)
+!46 = !{!47, !47, i64 0}
+!47 = !{!"double", !48, i64 0}
+!48 = !{!"omnipotent char", !49, i64 0}
+!49 = !{!"Simple C/C++ TBAA"}
+!50 = !DILocation(line: 26, column: 27, scope: !31)
+!51 = !DILocation(line: 28, column: 24, scope: !52)
+!52 = distinct !DILexicalBlock(scope: !31, file: !32, line: 28, column: 7)
+!53 = !DILocation(line: 28, column: 29, scope: !52)
+!54 = !DILocation(line: 23, column: 14, scope: !31)
+!55 = !DILocation(line: 22, column: 14, scope: !31)
+!56 = !DILocation(line: 32, column: 3, scope: !41)
+!57 = !DILocation(line: 33, column: 25, scope: !39)
+!58 = !DILocation(line: 0, scope: !39)
+!59 = !DILocation(line: 34, column: 25, scope: !39)
+!60 = !DILocation(line: 35, column: 32, scope: !39)
+!61 = !DILocation(line: 35, column: 54, scope: !39)
+!62 = !DILocation(line: 35, column: 5, scope: !39)
+!63 = !DILocation(line: 35, column: 17, scope: !39)
+!64 = !DILocation(line: 36, column: 32, scope: !39)
+!65 = !DILocation(line: 36, column: 54, scope: !39)
+!66 = !DILocation(line: 36, column: 5, scope: !39)
+!67 = !DILocation(line: 36, column: 17, scope: !39)
+!68 = !DILocation(line: 37, column: 8, scope: !39)
+!69 = !DILocation(line: 38, column: 8, scope: !39)
+!70 = !DILocation(line: 32, column: 23, scope: !40)
+!71 = !DILocation(line: 32, column: 17, scope: !40)
+!72 = distinct !{!72, !56, !73, !74}
+!73 = !DILocation(line: 39, column: 3, scope: !41)
+!74 = !{!"llvm.loop.mustprogress"}
+!75 = !DILocation(line: 12, column: 1, scope: !76)
+!76 = !DILexicalBlockFile(scope: !15, file: !1, discriminator: 0)

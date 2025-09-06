@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LLVM_PROJECT_PATH=/pi-detector
+LLVM_PROJECT_PATH=/PI-detector
 GSL_PREFIX=${LLVM_PROJECT_PATH}/external/gsl/build
 
 FIND_FOP_MODULE_PATH=${LLVM_PROJECT_PATH}/lib/libFindFOp.so
