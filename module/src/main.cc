@@ -13,7 +13,7 @@
 #include "fpUtil.hh"
 
 bool relativeError = false; // Flag for relative error calculation.
-bool computeDerivatives = false; // Flag for computing numerical derivatives.
+bool computeDerivatives = true; // Flag for computing numerical derivatives.
 
 // Function to load JSON data from a file and parse it.
 Ptr<Json> loadJson(const String &path) {

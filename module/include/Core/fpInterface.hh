@@ -145,6 +145,8 @@ public:
     return out;
   }
   double getNumericalDerivative(double x) {
+    bool prevPerturb = fpUtil::enablePertubation;
+    fpUtil::enablePertubation = false;
     const double h = 1e-5;
     gsl_sf_result result1, result2;
 
@@ -159,7 +161,7 @@ public:
     if (status2 != GSL_SUCCESS) {
         return 0.0; // 或者返回 NaN
     }
-
+    fpUtil::enablePertubation = prevPerturb; // 恢复扰动状态
     // 返回数值导数
     return (result1.val - result2.val) / h;
   }
@@ -198,11 +200,13 @@ public:
   }
 
   double getNumericalDerivative(double x) override {
+    bool prevPerturb = fpUtil::enablePertubation;
+    fpUtil::enablePertubation = false;
     const double h = 1e-5;
 
     double func_x_plus_h = funcRef(x + h);
     double func_x = funcRef(x);
-
+    fpUtil::enablePertubation = prevPerturb; // 恢复扰动状态
     if (std::isnan(func_x_plus_h) || std::isnan(func_x)) {
         return 0.0;
     }
@@ -244,11 +248,13 @@ public:
   }
 
   double getNumericalDerivative(double x) override {
+    bool prevPerturb = fpUtil::enablePertubation;
+    fpUtil::enablePertubation = false;
     const double h = 1e-5;
 
     double func_x_plus_h = funcRef(x + h);
     double func_x = funcRef(x);
-
+    fpUtil::enablePertubation = prevPerturb; // 恢复扰动状态
     if (std::isnan(func_x_plus_h) || std::isnan(func_x)) {
         return 0.0;
     }
