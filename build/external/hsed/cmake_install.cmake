@@ -1,4 +1,4 @@
-# Install script for directory: /PI-detector/external/hsed
+# Install script for directory: /home/runner/work/PI-detector/PI-detector/external/hsed
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,32 +37,38 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
+# Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/PI-detector/build/lib/libhsed.a")
+   "/home/runner/work/PI-detector/PI-detector/build/lib/libhsed.a")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/PI-detector/build/lib" TYPE STATIC_LIBRARY FILES "/PI-detector/build/external/hsed/libhsed.a")
+  file(INSTALL DESTINATION "/home/runner/work/PI-detector/PI-detector/build/lib" TYPE STATIC_LIBRARY FILES "/home/runner/work/PI-detector/PI-detector/build/external/hsed/libhsed.a")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/PI-detector/build/include/hsed/hsed.h")
+   "/home/runner/work/PI-detector/PI-detector/build/include/hsed/hsed.h")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/PI-detector/build/include/hsed" TYPE FILE FILES "/PI-detector/external/hsed/hsed.h")
+  file(INSTALL DESTINATION "/home/runner/work/PI-detector/PI-detector/build/include/hsed" TYPE FILE FILES "/home/runner/work/PI-detector/PI-detector/external/hsed/hsed.h")
 endif()
 
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "/home/runner/work/PI-detector/PI-detector/build/external/hsed/install_local_manifest.txt"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
