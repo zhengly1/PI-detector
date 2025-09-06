@@ -8,7 +8,7 @@
 #include <iostream>
 #include <functional>
 
-#include <hsed/hsed.h> 
+#include "hsed.h" 
 #include <gsl/gsl_sf.h>
 
 #include <gsl/gsl_matrix.h>
@@ -102,6 +102,7 @@ public:
   virtual double getResult() = 0;
   virtual double callAndGetResult(double x) = 0;
   virtual bool isSuccess() = 0;
+  virtual double getNumericalDerivative(double x) { return 0.0; } // 默认实现
   auto getInstInfoList() { return comm.getInstInfoList(); }
   void backUpInstInfoList() {
     comm.backUpInstInfoList();
@@ -143,6 +144,27 @@ public:
     call(x);
     return out;
   }
+  
+  // 新增：计算数值导数的方法
+  double getNumericalDerivative(double x) {
+    const double h = 1e-5;
+    gsl_sf_result result1, result2;
+    
+    // 计算 func(x+h)
+    int status1 = GSLFuncRef(x + h, &result1);
+    if (status1 != GSL_SUCCESS) {
+        return 0.0; // 或者返回 NaN
+    }
+    
+    // 计算 func(x)
+    int status2 = GSLFuncRef(x, &result2);
+    if (status2 != GSL_SUCCESS) {
+        return 0.0; // 或者返回 NaN
+    }
+    
+    // 返回数值导数
+    return (result1.val - result2.val) / h;
+  }
 
   double getResult() { return out; }
   bool isSuccess() { return (status == GSL_SUCCESS); }
@@ -177,6 +199,20 @@ public:
     call(x);
     return out;
   }
+  
+  // 新增：计算数值导数的方法 for SimpleFunction  
+  double getNumericalDerivative(double x) override {
+    const double h = 1e-5;
+    
+    double func_x_plus_h = funcRef(x + h);
+    double func_x = funcRef(x);
+    
+    if (std::isnan(func_x_plus_h) || std::isnan(func_x)) {
+        return 0.0;
+    }
+    
+    return (func_x_plus_h - func_x) / h;
+  }
 
   double getResult() { return out; }
   bool isSuccess() { return (status == 0); }
@@ -209,6 +245,20 @@ public:
   double callAndGetResult(double x) {
     call(x);
     return out;
+  }
+  
+  // 新增：计算数值导数的方法 for HSEDFunction  
+  double getNumericalDerivative(double x) override {
+    const double h = 1e-5;
+    
+    double func_x_plus_h = funcRef(x + h);
+    double func_x = funcRef(x);
+    
+    if (std::isnan(func_x_plus_h) || std::isnan(func_x)) {
+        return 0.0;
+    }
+    
+    return (func_x_plus_h - func_x) / h;
   }
 
   double getResult() { return out; }

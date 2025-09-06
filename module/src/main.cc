@@ -13,6 +13,7 @@
 #include "fpUtil.hh"
 
 bool relativeError = false; // Flag for relative error calculation.
+bool computeDerivatives = false; // Flag for computing numerical derivatives.
 
 // Function to load JSON data from a file and parse it.
 Ptr<Json> loadJson(const String &path) {
@@ -81,14 +82,20 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
 
     Vec<FloatVec> resultsList;
     Vec<FloatVec> resultsListP;
+    Vec<FloatVec> derivativesList; // 新增：存储导数结果
 
     Vec<Vec<BitsType>> errorsList;
     Vec<FloatVec> relErrorsList;
     for (const auto &inputs : inputsList) {
       auto func = createFunctionInstance(lib, funcIndex);
-      rangeSolver.runOneFuncWithInputs(func, inputs);
+      rangeSolver.runOneFuncWithInputs(func, inputs, computeDerivatives);
       resultsList.push_back(rangeSolver.results);
       resultsListP.push_back(rangeSolver.resultsP);
+      
+      // 如果计算了导数，则保存导数结果
+      if (computeDerivatives) {
+        derivativesList.push_back(rangeSolver.derivatives);
+      }
 
       if (relativeError) {
         relErrorsList.push_back(rangeSolver.relErrors);
@@ -112,14 +119,28 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
     }
 
     // Store results in JSON.
-    if (relativeError) {
-      (*results)[key] = {{"inputs", inputsList},
-                         {"results", resultsList},
-                         {"errors", relErrorsList}};
+    if (computeDerivatives) {
+      if (relativeError) {
+        (*results)[key] = {{"inputs", inputsList},
+                           {"results", resultsList},
+                           {"derivatives", derivativesList},
+                           {"errors", relErrorsList}};
+      } else {
+        (*results)[key] = {{"inputs", inputsList},
+                           {"results", resultsList},
+                           {"derivatives", derivativesList},
+                           {"errors", errorsList}};
+      }
     } else {
-      (*results)[key] = {{"inputs", inputsList},
-                         {"results", resultsList},
-                         {"errors", errorsList}};
+      if (relativeError) {
+        (*results)[key] = {{"inputs", inputsList},
+                           {"results", resultsList},
+                           {"errors", relErrorsList}};
+      } else {
+        (*results)[key] = {{"inputs", inputsList},
+                           {"results", resultsList},
+                           {"errors", errorsList}};
+      }
     }
   }
   return results;
@@ -148,6 +169,11 @@ Ptr<ArgumentParser> parseArg(const int argc, const char *argv[]) {
       .default_value(false)
       .implicit_value(true)
       .help("Calculate relative error instead of ulp error");
+      
+  args->add_argument("--derivatives")
+      .default_value(false)
+      .implicit_value(true)
+      .help("Compute numerical derivatives (num_value = (func(x+1e-5)-func(x))/1e-5)");
 
   try {
     args->parse_args(argc, argv);
@@ -177,12 +203,15 @@ int main(const int argc, const char *argv[]) {
   const String inputFilePath = args->get<String>("input");
   const String outputFilePath = args->get<String>("output");
   relativeError = args->get<bool>("relerr");
+  computeDerivatives = args->get<bool>("derivatives");
 
   std::cout << "lib: " << lib << std::endl;
   std::cout << "mode: " << mode << std::endl;
   std::cout << "input file path: " << inputFilePath << std::endl;
   std::cout << "output file path: " << outputFilePath << std::endl;
   std::cout << "relative error: " << (relativeError ? "true" : "false")
+            << std::endl;
+  std::cout << "compute derivatives: " << (computeDerivatives ? "true" : "false")
             << std::endl;
   
 

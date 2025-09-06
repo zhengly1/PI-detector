@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/PI-detector/module/src/main.cc" "module/CMakeFiles/detector.dir/src/main.cc.o" "gcc" "module/CMakeFiles/detector.dir/src/main.cc.o.d"
+  "/home/runner/work/PI-detector/PI-detector/module/src/main.cc" "module/CMakeFiles/detector.dir/src/main.cc.o" "gcc" "module/CMakeFiles/detector.dir/src/main.cc.o.d"
+  "" "bin/detector" "gcc" "module/CMakeFiles/detector.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
