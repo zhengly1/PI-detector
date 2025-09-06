@@ -1,0 +1,2 @@
+/home/runner/work/PI-detector/PI-detector/build/lib/libhsed.a
+/home/runner/work/PI-detector/PI-detector/build/include/hsed/hsed.h
