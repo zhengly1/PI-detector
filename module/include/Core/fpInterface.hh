@@ -199,6 +199,20 @@ public:
     call(x);
     return out;
   }
+  
+  // 新增：计算数值导数的方法 for SimpleFunction  
+  double getNumericalDerivative(double x) override {
+    const double h = 1e-5;
+    
+    double func_x_plus_h = funcRef(x + h);
+    double func_x = funcRef(x);
+    
+    if (std::isnan(func_x_plus_h) || std::isnan(func_x)) {
+        return 0.0;
+    }
+    
+    return (func_x_plus_h - func_x) / h;
+  }
 
   double getResult() { return out; }
   bool isSuccess() { return (status == 0); }
@@ -231,6 +245,20 @@ public:
   double callAndGetResult(double x) {
     call(x);
     return out;
+  }
+  
+  // 新增：计算数值导数的方法 for HSEDFunction  
+  double getNumericalDerivative(double x) override {
+    const double h = 1e-5;
+    
+    double func_x_plus_h = funcRef(x + h);
+    double func_x = funcRef(x);
+    
+    if (std::isnan(func_x_plus_h) || std::isnan(func_x)) {
+        return 0.0;
+    }
+    
+    return (func_x_plus_h - func_x) / h;
   }
 
   double getResult() { return out; }
