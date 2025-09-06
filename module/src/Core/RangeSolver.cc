@@ -22,11 +22,18 @@ void RangeSolver::runOneFuncWithInputs(Ptr<FloatingPointFunction> &func,
   resultsP = _calculateResults(inputs, true);
   if (computeDerivatives) {
     derivatives = _calculateDerivatives(inputs);
+    // Calculate condition numbers using: x * derivative / |f(x)|
+    conditionNumbers = _calculateConditionNumbers(inputs, results, derivatives);
   }
   if (relativeError) {
     relErrors = _calculateULPRelErrors(results, resultsP);
   } else {
     errors = _calculateULPErrors(results, resultsP);
+  }
+  
+  // Calculate backward errors if we have condition numbers and errors
+  if (computeDerivatives && !relativeError) {
+    backwardErrors = _calculateBackwardErrors(errors, conditionNumbers);
   }
 
   finishTime = std::chrono::steady_clock::now();
@@ -154,5 +161,40 @@ FloatVec RangeSolver::_calculateULPRelErrors(const FloatVec &results,
   return relErrors;
 }
 
+FloatVec RangeSolver::_calculateConditionNumbers(const FloatVec &inputs, 
+                                                const FloatVec &results,
+                                                const FloatVec &derivatives) {
+  FloatVec conditionNumbers(inputs.size());
+  for (size_t i = 0; i < inputs.size(); ++i) {
+    FloatType x = inputs[i];
+    FloatType fx = results[i];
+    FloatType derivative = derivatives[i];
+    FloatType abs_fx = std::abs(fx);
+    
+    // Handle special cases
+    if (abs_fx == 0.0 || derivative == 0.0) {
+      conditionNumbers[i] = 1.0; // Default condition number
+    } else {
+      // Calculate condition number: x * derivative / |f(x)|
+      conditionNumbers[i] = std::abs(x * derivative / abs_fx);
+    }
+  }
+  return conditionNumbers;
+}
 
-
+FloatVec RangeSolver::_calculateBackwardErrors(const Vec<BitsType> &errors,
+                                              const FloatVec &conditionNumbers) {
+  FloatVec backwardErrors(errors.size());
+  std::transform(
+      errors.begin(), errors.end(), conditionNumbers.begin(), backwardErrors.begin(),
+      [](BitsType error, FloatType condNum) {
+        // Handle special cases
+        if (condNum == 0.0) {
+          return 0.0; // If condition number is 0, backward error is 0
+        }
+        
+        // Calculate backward error: error / condition_number
+        return static_cast<FloatType>(error) / condNum;
+      });
+  return backwardErrors;
+}
