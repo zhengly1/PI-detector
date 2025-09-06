@@ -102,6 +102,7 @@ public:
   virtual double getResult() = 0;
   virtual double callAndGetResult(double x) = 0;
   virtual bool isSuccess() = 0;
+  virtual double getNumericalDerivative(double x) { return 0.0; } // 默认实现
   auto getInstInfoList() { return comm.getInstInfoList(); }
   void backUpInstInfoList() {
     comm.backUpInstInfoList();
@@ -142,6 +143,27 @@ public:
   double callAndGetResult(double x) {
     call(x);
     return out;
+  }
+  
+  // 新增：计算数值导数的方法
+  double getNumericalDerivative(double x) {
+    const double h = 1e-5;
+    gsl_sf_result result1, result2;
+    
+    // 计算 func(x+h)
+    int status1 = GSLFuncRef(x + h, &result1);
+    if (status1 != GSL_SUCCESS) {
+        return 0.0; // 或者返回 NaN
+    }
+    
+    // 计算 func(x)
+    int status2 = GSLFuncRef(x, &result2);
+    if (status2 != GSL_SUCCESS) {
+        return 0.0; // 或者返回 NaN
+    }
+    
+    // 返回数值导数
+    return (result1.val - result2.val) / h;
   }
 
   double getResult() { return out; }
