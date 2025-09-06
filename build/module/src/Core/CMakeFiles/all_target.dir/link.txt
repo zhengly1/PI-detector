@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../lib/liball_target.a targetExample.pic.o targetExample.o
-/usr/bin/ranlib ../../../lib/liball_target.a

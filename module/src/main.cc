@@ -98,7 +98,7 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
       if (computeDerivatives) {
         derivativesList.push_back(rangeSolver.derivatives);
         conditionNumbersList.push_back(rangeSolver.conditionNumbers);
-        if (!relativeError) {
+        if (relativeError) {
           backwardErrorsList.push_back(rangeSolver.backwardErrors);
         }
       }
@@ -131,13 +131,13 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
                            {"results", resultsList},
                            {"derivatives", derivativesList},
                            {"condition_numbers", conditionNumbersList},
+                           {"backward_errors", backwardErrorsList},
                            {"errors", relErrorsList}};
       } else {
         (*results)[key] = {{"inputs", inputsList},
                            {"results", resultsList},
                            {"derivatives", derivativesList},
                            {"condition_numbers", conditionNumbersList},
-                           {"backward_errors", backwardErrorsList},
                            {"errors", errorsList}};
       }
     } else {

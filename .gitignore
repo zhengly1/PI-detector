@@ -1,0 +1,32 @@
+# Build artifacts
+build/
+obj/
+
+# Compiled binaries
+*.o
+*.a
+*.so
+*.exe
+
+# LLVM IR files
+*.ll
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
