@@ -26,6 +26,8 @@ public:
   FloatVec derivatives;
   Vec<BitsType> errors;
   FloatVec relErrors;
+  FloatVec conditionNumbers;
+  FloatVec backwardErrors;
 
 public:
   RangeSolver(const FloatVec &halfValues = {}) : halfValues(halfValues) {}
@@ -53,6 +55,13 @@ private:
 
   FloatVec _calculateULPRelErrors(const FloatVec &results,
                                     const FloatVec &resultsP);
+
+  FloatVec _calculateConditionNumbers(const FloatVec &inputs, 
+                                     const FloatVec &results,
+                                     const FloatVec &derivatives);
+
+  FloatVec _calculateBackwardErrors(const Vec<BitsType> &errors,
+                                   const FloatVec &conditionNumbers);
 
   void printInstructionPair(const InstInfo &inst1, const InstInfo &inst2,
                             double ulpErrorResult, double ulpErrorOp1,

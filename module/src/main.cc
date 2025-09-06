@@ -83,6 +83,8 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
     Vec<FloatVec> resultsList;
     Vec<FloatVec> resultsListP;
     Vec<FloatVec> derivativesList; // 新增：存储导数结果
+    Vec<FloatVec> conditionNumbersList; // 新增：存储条件数结果
+    Vec<FloatVec> backwardErrorsList; // 新增：存储后向误差结果
 
     Vec<Vec<BitsType>> errorsList;
     Vec<FloatVec> relErrorsList;
@@ -95,6 +97,10 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
       // 如果计算了导数，则保存导数结果
       if (computeDerivatives) {
         derivativesList.push_back(rangeSolver.derivatives);
+        conditionNumbersList.push_back(rangeSolver.conditionNumbers);
+        if (!relativeError) {
+          backwardErrorsList.push_back(rangeSolver.backwardErrors);
+        }
       }
 
       if (relativeError) {
@@ -124,11 +130,14 @@ Ptr<Json> runWithInputs(const String &lib, const Ptr<Json> &inputsData) {
         (*results)[key] = {{"inputs", inputsList},
                            {"results", resultsList},
                            {"derivatives", derivativesList},
+                           {"condition_numbers", conditionNumbersList},
                            {"errors", relErrorsList}};
       } else {
         (*results)[key] = {{"inputs", inputsList},
                            {"results", resultsList},
                            {"derivatives", derivativesList},
+                           {"condition_numbers", conditionNumbersList},
+                           {"backward_errors", backwardErrorsList},
                            {"errors", errorsList}};
       }
     } else {

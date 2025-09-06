@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall  -fdiagnostics-color=always -fvisibility-inlines-hidden -g CMakeFiles/detector.dir/src/main.cc.o -o ../bin/detector   -L/usr/lib/llvm-18/lib  -Wl,-rpath,/usr/lib/llvm-18/lib ../lib/libCore.a ../lib/liball_target.a /PI-detector/external/gsl/build/lib/libgsl.a ../external/hsed/libhsed.a -lm 
