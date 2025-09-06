@@ -62,7 +62,8 @@ private:
 
   FloatVec _calculateBackwardErrors(const Vec<BitsType> &errors,
                                    const FloatVec &conditionNumbers);
-
+  FloatVec _calculateBackwardErrors(const FloatVec &errors,
+                                   const FloatVec &conditionNumbers);
   void printInstructionPair(const InstInfo &inst1, const InstInfo &inst2,
                             double ulpErrorResult, double ulpErrorOp1,
                             double ulpErrorOp2);
