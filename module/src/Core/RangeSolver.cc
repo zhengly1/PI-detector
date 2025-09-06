@@ -8,7 +8,7 @@
 extern bool relativeError; // Flag for relative error calculation.
 
 void RangeSolver::runOneFuncWithInputs(Ptr<FloatingPointFunction> &func,
-                                       const FloatVec &inputs) {
+                                       const FloatVec &inputs, bool computeDerivatives) {
 
   _init(func);
 
@@ -20,7 +20,9 @@ void RangeSolver::runOneFuncWithInputs(Ptr<FloatingPointFunction> &func,
 
   results = _calculateResults(inputs, false);
   resultsP = _calculateResults(inputs, true);
-
+  if (computeDerivatives) {
+    derivatives = _calculateDerivatives(inputs);
+  }
   if (relativeError) {
     relErrors = _calculateULPRelErrors(results, resultsP);
   } else {
@@ -121,6 +123,17 @@ void RangeSolver::_calculateResults2(const FloatVec &inputs) {
     results.emplace_back(res);
     resultsP.emplace_back(resP);
   }
+}
+
+FloatVec RangeSolver::_calculateDerivatives(const FloatVec &inputs) {
+  FloatVec derivatives;
+  derivatives.reserve(inputs.size());
+
+  for (const auto &input : inputs) {
+    double derivative = func->getNumericalDerivative(input);
+    derivatives.emplace_back(derivative);
+  }
+  return derivatives;
 }
 
 Vec<BitsType> RangeSolver::_calculateULPErrors(const FloatVec &results,

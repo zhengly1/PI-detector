@@ -4,7 +4,7 @@
 #include <functional>
 
 // 包含所有需要的 GSL 模块头文件
-#include <gsl/gsl_sf.h>、 
+#include <gsl/gsl_sf.h> 
 #include <gsl/gsl_sf_airy.h>
 #include <gsl/gsl_sf_bessel.h>
 #include <gsl/gsl_sf_clausen.h>
@@ -56,7 +56,26 @@
 
 // 为 s4, s5, s6 定义一个全局的 epsilon
 const double epsilon = 1e-6;
+__attribute__((noinline))
+double numerical_derivative(int (*func)(double, gsl_sf_result*), double x) {
+    const double h = 1e-5;
+    gsl_sf_result result1, result2;
 
+    // 计算 func(x+h)
+    int status1 = func(x + h, &result1);
+    if (status1 != GSL_SUCCESS) {
+        return 0.0; // 或者返回 NaN
+    }
+
+    // 计算 func(x)
+    int status2 = func(x, &result2);
+    if (status2 != GSL_SUCCESS) {
+        return 0.0; // 或者返回 NaN
+    }
+
+    // 返回数值导数
+    return (result1.val - result2.val) / h;
+}
 // ==============================================================================
 // Part (a): 17 个涉及 GSL/ALGLIB 库调用的函数
 // ==============================================================================

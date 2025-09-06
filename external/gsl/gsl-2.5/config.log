@@ -610,7 +610,7 @@ configure:12304: $? = 0
 configure:12304: result: yes
 configure:12310: checking for _doprnt
 configure:12310: clang-18 -o conftest -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/conftest-608295.o: in function `main':
+/usr/bin/ld: /tmp/conftest-54104a.o: in function `main':
 /PI-detector/external/gsl/gsl-2.5/conftest.c:61:(.text+0x4): undefined reference to `_doprnt'
 clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:12310: $? = 1

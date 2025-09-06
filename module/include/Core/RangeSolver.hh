@@ -23,6 +23,7 @@ public:
   FloatVec inputs;
   FloatVec results;
   FloatVec resultsP;
+  FloatVec derivatives;
   Vec<BitsType> errors;
   FloatVec relErrors;
 
@@ -30,7 +31,7 @@ public:
   RangeSolver(const FloatVec &halfValues = {}) : halfValues(halfValues) {}
 
   void runOneFuncWithInputs(Ptr<FloatingPointFunction> &func,
-                            const FloatVec &inputs);
+                            const FloatVec &inputs, bool computeDerivatives = false);
 
   // double getElapsedTime() { return elapsedTime.count(); }
 
@@ -44,7 +45,9 @@ private:
   FloatVec _calculateResults(const FloatVec &inputs, bool enablePerturbation);
 
   void _calculateResults2(const FloatVec &inputs);
-
+  
+  FloatVec _calculateDerivatives(const FloatVec &inputs); 
+  
   Vec<BitsType> _calculateULPErrors(const FloatVec &results,
                                     const FloatVec &resultsP);
 

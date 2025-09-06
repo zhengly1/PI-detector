@@ -8,742 +8,777 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %struct.gsl_sf_result_struct = type { double, double }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z26gsl_sf_bessel_I1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1244 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1254
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1247, metadata !DIExpression(), metadata !1254, metadata ptr %2, metadata !DIExpression()), !dbg !1255
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1246, metadata !DIExpression()), !dbg !1255
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1256
-  %3 = call i32 @gsl_sf_bessel_I1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1256
-  %4 = load double, ptr %2, align 8, !dbg !1256, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1256
-  ret double %4, !dbg !1256
+define dso_local noundef double @_Z20numerical_derivativePFidP20gsl_sf_result_structEd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 !dbg !1244 {
+  %3 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1265
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1261, metadata !DIExpression(), metadata !1265, metadata ptr %3, metadata !DIExpression()), !dbg !1266
+  %4 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1267
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1262, metadata !DIExpression(), metadata !1267, metadata ptr %4, metadata !DIExpression()), !dbg !1266
+  tail call void @llvm.dbg.value(metadata ptr %0, metadata !1258, metadata !DIExpression()), !dbg !1266
+  tail call void @llvm.dbg.value(metadata double %1, metadata !1259, metadata !DIExpression()), !dbg !1266
+  tail call void @llvm.dbg.value(metadata double 1.000000e-05, metadata !1260, metadata !DIExpression()), !dbg !1266
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !dbg !1268
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8, !dbg !1268
+  %5 = fadd double %1, 1.000000e-05, !dbg !1269
+  %6 = call noundef i32 %0(double noundef %5, ptr noundef nonnull %3), !dbg !1270
+  tail call void @llvm.dbg.value(metadata i32 %6, metadata !1263, metadata !DIExpression()), !dbg !1266
+  %7 = icmp eq i32 %6, 0, !dbg !1271
+  br i1 %7, label %8, label %16, !dbg !1273
+
+8:                                                ; preds = %2
+  %9 = call noundef i32 %0(double noundef %1, ptr noundef nonnull %4), !dbg !1274
+  tail call void @llvm.dbg.value(metadata i32 %9, metadata !1264, metadata !DIExpression()), !dbg !1266
+  %10 = icmp eq i32 %9, 0, !dbg !1275
+  %11 = load double, ptr %3, align 8, !dbg !1277
+  %12 = load double, ptr %4, align 8, !dbg !1277
+  %13 = fsub double %11, %12, !dbg !1277
+  %14 = fdiv double %13, 1.000000e-05, !dbg !1277
+  %15 = select i1 %10, double %14, double 0.000000e+00, !dbg !1277
+  br label %16
+
+16:                                               ; preds = %2, %8
+  %17 = phi double [ %15, %8 ], [ 0.000000e+00, %2 ], !dbg !1266
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8, !dbg !1278
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8, !dbg !1278
+  ret double %17, !dbg !1278
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
-declare !dbg !1262 i32 @gsl_sf_bessel_I1_e(double noundef, ptr noundef) local_unnamed_addr #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1267 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1271
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1270, metadata !DIExpression(), metadata !1271, metadata ptr %2, metadata !DIExpression()), !dbg !1272
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1269, metadata !DIExpression()), !dbg !1272
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1273
-  %3 = call i32 @gsl_sf_exp_e(double noundef %0, ptr noundef nonnull %2), !dbg !1273
-  %4 = load double, ptr %2, align 8, !dbg !1273, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1273
-  ret double %4, !dbg !1273
+define dso_local noundef double @_Z26gsl_sf_bessel_I1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1279 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1283
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1282, metadata !DIExpression(), metadata !1283, metadata ptr %2, metadata !DIExpression()), !dbg !1284
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1281, metadata !DIExpression()), !dbg !1284
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1285
+  %3 = call i32 @gsl_sf_bessel_I1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1285
+  %4 = load double, ptr %2, align 8, !dbg !1285, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1285
+  ret double %4, !dbg !1285
 }
 
-declare !dbg !1274 i32 @gsl_sf_exp_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1291 i32 @gsl_sf_bessel_I1_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f1dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1276 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1280, metadata !DIExpression()), !dbg !1282
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1281, metadata !DIExpression()), !dbg !1282
-  %3 = tail call noundef double @_Z26gsl_sf_bessel_I1_e_wrapperd(double noundef %0), !dbg !1283
-  %4 = tail call double @exp(double noundef %3) #8, !dbg !1284
-  %5 = fadd double %4, -1.000000e+00, !dbg !1285
-  %6 = fdiv double %5, %0, !dbg !1286
-  store double %6, ptr %1, align 8, !dbg !1287, !tbaa !1257
-  ret i32 0, !dbg !1288
+define dso_local noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1295 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1299
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1298, metadata !DIExpression(), metadata !1299, metadata ptr %2, metadata !DIExpression()), !dbg !1300
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1297, metadata !DIExpression()), !dbg !1300
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1301
+  %3 = call i32 @gsl_sf_exp_e(double noundef %0, ptr noundef nonnull %2), !dbg !1301
+  %4 = load double, ptr %2, align 8, !dbg !1301, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1301
+  ret double %4, !dbg !1301
+}
+
+declare !dbg !1302 i32 @gsl_sf_exp_e(double noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef i32 @_Z7func_f1dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1304 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1306, metadata !DIExpression()), !dbg !1308
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1307, metadata !DIExpression()), !dbg !1308
+  %3 = tail call noundef double @_Z26gsl_sf_bessel_I1_e_wrapperd(double noundef %0), !dbg !1309
+  %4 = tail call double @exp(double noundef %3) #8, !dbg !1310
+  %5 = fadd double %4, -1.000000e+00, !dbg !1311
+  %6 = fdiv double %5, %0, !dbg !1312
+  store double %6, ptr %1, align 8, !dbg !1313, !tbaa !1286
+  ret i32 0, !dbg !1314
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare !dbg !77 double @exp(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z26gsl_sf_bessel_J0_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1289 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1293
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1292, metadata !DIExpression(), metadata !1293, metadata ptr %2, metadata !DIExpression()), !dbg !1294
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1291, metadata !DIExpression()), !dbg !1294
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1295
-  %3 = call i32 @gsl_sf_bessel_J0_e(double noundef %0, ptr noundef nonnull %2), !dbg !1295
-  %4 = load double, ptr %2, align 8, !dbg !1295, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1295
-  ret double %4, !dbg !1295
+define dso_local noundef double @_Z26gsl_sf_bessel_J0_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1315 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1319
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1318, metadata !DIExpression(), metadata !1319, metadata ptr %2, metadata !DIExpression()), !dbg !1320
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1317, metadata !DIExpression()), !dbg !1320
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1321
+  %3 = call i32 @gsl_sf_bessel_J0_e(double noundef %0, ptr noundef nonnull %2), !dbg !1321
+  %4 = load double, ptr %2, align 8, !dbg !1321, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1321
+  ret double %4, !dbg !1321
 }
 
-declare !dbg !1296 i32 @gsl_sf_bessel_J0_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1322 i32 @gsl_sf_bessel_J0_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1297 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1301
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1300, metadata !DIExpression(), metadata !1301, metadata ptr %2, metadata !DIExpression()), !dbg !1302
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1299, metadata !DIExpression()), !dbg !1302
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1303
-  %3 = call i32 @gsl_sf_sin_e(double noundef %0, ptr noundef nonnull %2), !dbg !1303
-  %4 = load double, ptr %2, align 8, !dbg !1303, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1303
-  ret double %4, !dbg !1303
+define dso_local noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1323 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1327
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1326, metadata !DIExpression(), metadata !1327, metadata ptr %2, metadata !DIExpression()), !dbg !1328
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1325, metadata !DIExpression()), !dbg !1328
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1329
+  %3 = call i32 @gsl_sf_sin_e(double noundef %0, ptr noundef nonnull %2), !dbg !1329
+  %4 = load double, ptr %2, align 8, !dbg !1329, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1329
+  ret double %4, !dbg !1329
 }
 
-declare !dbg !1304 i32 @gsl_sf_sin_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1330 i32 @gsl_sf_sin_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f2dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1306 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1308, metadata !DIExpression()), !dbg !1310
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1309, metadata !DIExpression()), !dbg !1310
-  %3 = tail call noundef double @_Z26gsl_sf_bessel_J0_e_wrapperd(double noundef %0), !dbg !1311
-  %4 = fsub double 1.000000e+00, %3, !dbg !1312
-  %5 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1313
-  %6 = fdiv double %4, %5, !dbg !1314
-  store double %6, ptr %1, align 8, !dbg !1315, !tbaa !1257
-  ret i32 0, !dbg !1316
+define dso_local noundef i32 @_Z7func_f2dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1332 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1334, metadata !DIExpression()), !dbg !1336
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1335, metadata !DIExpression()), !dbg !1336
+  %3 = tail call noundef double @_Z26gsl_sf_bessel_J0_e_wrapperd(double noundef %0), !dbg !1337
+  %4 = fsub double 1.000000e+00, %3, !dbg !1338
+  %5 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1339
+  %6 = fdiv double %4, %5, !dbg !1340
+  store double %6, ptr %1, align 8, !dbg !1341, !tbaa !1286
+  ret i32 0, !dbg !1342
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z22gsl_sf_dilog_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1317 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1321
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1320, metadata !DIExpression(), metadata !1321, metadata ptr %2, metadata !DIExpression()), !dbg !1322
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1319, metadata !DIExpression()), !dbg !1322
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1323
-  %3 = call i32 @gsl_sf_dilog_e(double noundef %0, ptr noundef nonnull %2), !dbg !1323
-  %4 = load double, ptr %2, align 8, !dbg !1323, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1323
-  ret double %4, !dbg !1323
+define dso_local noundef double @_Z22gsl_sf_dilog_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1343 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1347
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1346, metadata !DIExpression(), metadata !1347, metadata ptr %2, metadata !DIExpression()), !dbg !1348
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1345, metadata !DIExpression()), !dbg !1348
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1349
+  %3 = call i32 @gsl_sf_dilog_e(double noundef %0, ptr noundef nonnull %2), !dbg !1349
+  %4 = load double, ptr %2, align 8, !dbg !1349, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1349
+  ret double %4, !dbg !1349
 }
 
-declare !dbg !1324 i32 @gsl_sf_dilog_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1350 i32 @gsl_sf_dilog_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f3dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1326 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1328, metadata !DIExpression()), !dbg !1330
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1329, metadata !DIExpression()), !dbg !1330
-  %3 = tail call noundef double @_Z22gsl_sf_dilog_e_wrapperd(double noundef %0), !dbg !1331
-  %4 = fdiv double 1.000000e+00, %3, !dbg !1332
-  %5 = tail call double @tan(double noundef %0) #8, !dbg !1333
-  %6 = fdiv double 1.000000e+00, %5, !dbg !1334
-  %7 = fsub double %4, %6, !dbg !1335
-  store double %7, ptr %1, align 8, !dbg !1336, !tbaa !1257
-  ret i32 0, !dbg !1337
+define dso_local noundef i32 @_Z7func_f3dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1352 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1354, metadata !DIExpression()), !dbg !1356
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1355, metadata !DIExpression()), !dbg !1356
+  %3 = tail call noundef double @_Z22gsl_sf_dilog_e_wrapperd(double noundef %0), !dbg !1357
+  %4 = fdiv double 1.000000e+00, %3, !dbg !1358
+  %5 = tail call double @tan(double noundef %0) #8, !dbg !1359
+  %6 = fdiv double 1.000000e+00, %5, !dbg !1360
+  %7 = fsub double %4, %6, !dbg !1361
+  store double %7, ptr %1, align 8, !dbg !1362, !tbaa !1286
+  ret i32 0, !dbg !1363
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare !dbg !111 double @tan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z20gsl_sf_erf_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1338 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1342
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1341, metadata !DIExpression(), metadata !1342, metadata ptr %2, metadata !DIExpression()), !dbg !1343
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1340, metadata !DIExpression()), !dbg !1343
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1344
-  %3 = call i32 @gsl_sf_erf_e(double noundef %0, ptr noundef nonnull %2), !dbg !1344
-  %4 = load double, ptr %2, align 8, !dbg !1344, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1344
-  ret double %4, !dbg !1344
+define dso_local noundef double @_Z20gsl_sf_erf_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1364 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1368
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1367, metadata !DIExpression(), metadata !1368, metadata ptr %2, metadata !DIExpression()), !dbg !1369
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1366, metadata !DIExpression()), !dbg !1369
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1370
+  %3 = call i32 @gsl_sf_erf_e(double noundef %0, ptr noundef nonnull %2), !dbg !1370
+  %4 = load double, ptr %2, align 8, !dbg !1370, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1370
+  ret double %4, !dbg !1370
 }
 
-declare !dbg !1345 i32 @gsl_sf_erf_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1371 i32 @gsl_sf_erf_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1347 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1351
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1350, metadata !DIExpression(), metadata !1351, metadata ptr %2, metadata !DIExpression()), !dbg !1352
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1349, metadata !DIExpression()), !dbg !1352
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1353
-  %3 = call i32 @gsl_sf_log_e(double noundef %0, ptr noundef nonnull %2), !dbg !1353
-  %4 = load double, ptr %2, align 8, !dbg !1353, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1353
-  ret double %4, !dbg !1353
+define dso_local noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1373 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1377
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1376, metadata !DIExpression(), metadata !1377, metadata ptr %2, metadata !DIExpression()), !dbg !1378
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1375, metadata !DIExpression()), !dbg !1378
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1379
+  %3 = call i32 @gsl_sf_log_e(double noundef %0, ptr noundef nonnull %2), !dbg !1379
+  %4 = load double, ptr %2, align 8, !dbg !1379, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1379
+  ret double %4, !dbg !1379
 }
 
-declare !dbg !1354 i32 @gsl_sf_log_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1380 i32 @gsl_sf_log_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z27gsl_sf_log_1plusx_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1356 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1360
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1359, metadata !DIExpression(), metadata !1360, metadata ptr %2, metadata !DIExpression()), !dbg !1361
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1358, metadata !DIExpression()), !dbg !1361
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1362
-  %3 = call i32 @gsl_sf_log_1plusx_e(double noundef %0, ptr noundef nonnull %2), !dbg !1362
-  %4 = load double, ptr %2, align 8, !dbg !1362, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1362
-  ret double %4, !dbg !1362
+define dso_local noundef double @_Z27gsl_sf_log_1plusx_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1382 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1386
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1385, metadata !DIExpression(), metadata !1386, metadata ptr %2, metadata !DIExpression()), !dbg !1387
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1384, metadata !DIExpression()), !dbg !1387
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1388
+  %3 = call i32 @gsl_sf_log_1plusx_e(double noundef %0, ptr noundef nonnull %2), !dbg !1388
+  %4 = load double, ptr %2, align 8, !dbg !1388, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1388
+  ret double %4, !dbg !1388
 }
 
-declare !dbg !1363 i32 @gsl_sf_log_1plusx_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1389 i32 @gsl_sf_log_1plusx_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f4dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1364 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1366, metadata !DIExpression()), !dbg !1368
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1367, metadata !DIExpression()), !dbg !1368
-  %3 = tail call noundef double @_Z20gsl_sf_erf_e_wrapperd(double noundef %0), !dbg !1369
-  %4 = fsub double 1.000000e+00, %3, !dbg !1370
-  %5 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %4), !dbg !1371
-  %6 = tail call noundef double @_Z27gsl_sf_log_1plusx_e_wrapperd(double noundef %0), !dbg !1372
-  %7 = fdiv double %5, %6, !dbg !1373
-  store double %7, ptr %1, align 8, !dbg !1374, !tbaa !1257
-  ret i32 0, !dbg !1375
+define dso_local noundef i32 @_Z7func_f4dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1390 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1392, metadata !DIExpression()), !dbg !1394
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1393, metadata !DIExpression()), !dbg !1394
+  %3 = tail call noundef double @_Z20gsl_sf_erf_e_wrapperd(double noundef %0), !dbg !1395
+  %4 = fsub double 1.000000e+00, %3, !dbg !1396
+  %5 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %4), !dbg !1397
+  %6 = tail call noundef double @_Z27gsl_sf_log_1plusx_e_wrapperd(double noundef %0), !dbg !1398
+  %7 = fdiv double %5, %6, !dbg !1399
+  store double %7, ptr %1, align 8, !dbg !1400, !tbaa !1286
+  ret i32 0, !dbg !1401
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z30gsl_sf_fermi_dirac_1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1376 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1380
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1379, metadata !DIExpression(), metadata !1380, metadata ptr %2, metadata !DIExpression()), !dbg !1381
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1378, metadata !DIExpression()), !dbg !1381
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1382
-  %3 = call i32 @gsl_sf_fermi_dirac_1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1382
-  %4 = load double, ptr %2, align 8, !dbg !1382, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1382
-  ret double %4, !dbg !1382
+define dso_local noundef double @_Z30gsl_sf_fermi_dirac_1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1402 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1406
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1405, metadata !DIExpression(), metadata !1406, metadata ptr %2, metadata !DIExpression()), !dbg !1407
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1404, metadata !DIExpression()), !dbg !1407
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1408
+  %3 = call i32 @gsl_sf_fermi_dirac_1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1408
+  %4 = load double, ptr %2, align 8, !dbg !1408, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1408
+  ret double %4, !dbg !1408
 }
 
-declare !dbg !1383 i32 @gsl_sf_fermi_dirac_1_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1409 i32 @gsl_sf_fermi_dirac_1_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f5dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1385 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1387, metadata !DIExpression()), !dbg !1390
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1388, metadata !DIExpression()), !dbg !1390
-  %3 = tail call double @acos(double noundef %0) #8, !dbg !1391
-  tail call void @llvm.dbg.value(metadata double %3, metadata !1389, metadata !DIExpression()), !dbg !1390
-  %4 = fmul double %3, %3, !dbg !1392
-  %5 = tail call noundef double @_Z30gsl_sf_fermi_dirac_1_e_wrapperd(double noundef %0), !dbg !1393
-  %6 = fmul double %5, 3.000000e+00, !dbg !1394
-  %7 = fsub double %4, %6, !dbg !1395
-  store double %7, ptr %1, align 8, !dbg !1396, !tbaa !1257
-  ret i32 0, !dbg !1397
+define dso_local noundef i32 @_Z7func_f5dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1411 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1413, metadata !DIExpression()), !dbg !1416
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1414, metadata !DIExpression()), !dbg !1416
+  %3 = tail call double @acos(double noundef %0) #8, !dbg !1417
+  tail call void @llvm.dbg.value(metadata double %3, metadata !1415, metadata !DIExpression()), !dbg !1416
+  %4 = fmul double %3, %3, !dbg !1418
+  %5 = tail call noundef double @_Z30gsl_sf_fermi_dirac_1_e_wrapperd(double noundef %0), !dbg !1419
+  %6 = fmul double %5, 3.000000e+00, !dbg !1420
+  %7 = fsub double %4, %6, !dbg !1421
+  store double %7, ptr %1, align 8, !dbg !1422, !tbaa !1286
+  ret i32 0, !dbg !1423
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare !dbg !57 double @acos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z30gsl_cdf_ugaussian_Pinv_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1398 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1400, metadata !DIExpression()), !dbg !1401
-  %2 = tail call double @gsl_cdf_ugaussian_Pinv(double noundef %0), !dbg !1402
-  ret double %2, !dbg !1402
+define dso_local noundef double @_Z30gsl_cdf_ugaussian_Pinv_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1424 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1426, metadata !DIExpression()), !dbg !1427
+  %2 = tail call double @gsl_cdf_ugaussian_Pinv(double noundef %0), !dbg !1428
+  ret double %2, !dbg !1428
 }
 
-declare !dbg !1403 double @gsl_cdf_ugaussian_Pinv(double noundef) local_unnamed_addr #2
+declare !dbg !1429 double @gsl_cdf_ugaussian_Pinv(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1407 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1411
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1410, metadata !DIExpression(), metadata !1411, metadata ptr %2, metadata !DIExpression()), !dbg !1412
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1409, metadata !DIExpression()), !dbg !1412
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1413
-  %3 = call i32 @gsl_sf_cos_e(double noundef %0, ptr noundef nonnull %2), !dbg !1413
-  %4 = load double, ptr %2, align 8, !dbg !1413, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1413
-  ret double %4, !dbg !1413
+define dso_local noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1433 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1437
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1436, metadata !DIExpression(), metadata !1437, metadata ptr %2, metadata !DIExpression()), !dbg !1438
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1435, metadata !DIExpression()), !dbg !1438
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1439
+  %3 = call i32 @gsl_sf_cos_e(double noundef %0, ptr noundef nonnull %2), !dbg !1439
+  %4 = load double, ptr %2, align 8, !dbg !1439, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1439
+  ret double %4, !dbg !1439
 }
 
-declare !dbg !1414 i32 @gsl_sf_cos_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1440 i32 @gsl_sf_cos_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f6dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1415 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1417, metadata !DIExpression()), !dbg !1420
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1418, metadata !DIExpression()), !dbg !1420
-  %3 = fadd double %0, 1.000000e+00, !dbg !1421
-  %4 = fmul double %3, 5.000000e-01, !dbg !1422
-  %5 = tail call noundef double @_Z30gsl_cdf_ugaussian_Pinv_wrapperd(double noundef %4), !dbg !1423
-  %6 = fdiv double %5, 0x3FF6A09E667F3BCD, !dbg !1424
-  tail call void @llvm.dbg.value(metadata double %6, metadata !1419, metadata !DIExpression()), !dbg !1420
-  %7 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %6), !dbg !1425
-  %8 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1426
-  %9 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1427
-  %10 = fsub double %8, %9, !dbg !1428
-  %11 = fdiv double %7, %10, !dbg !1429
-  store double %11, ptr %1, align 8, !dbg !1430, !tbaa !1257
-  ret i32 0, !dbg !1431
+define dso_local noundef i32 @_Z7func_f6dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1441 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1443, metadata !DIExpression()), !dbg !1446
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1444, metadata !DIExpression()), !dbg !1446
+  %3 = fadd double %0, 1.000000e+00, !dbg !1447
+  %4 = fmul double %3, 5.000000e-01, !dbg !1448
+  %5 = tail call noundef double @_Z30gsl_cdf_ugaussian_Pinv_wrapperd(double noundef %4), !dbg !1449
+  %6 = fdiv double %5, 0x3FF6A09E667F3BCD, !dbg !1450
+  tail call void @llvm.dbg.value(metadata double %6, metadata !1445, metadata !DIExpression()), !dbg !1446
+  %7 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %6), !dbg !1451
+  %8 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1452
+  %9 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1453
+  %10 = fsub double %8, %9, !dbg !1454
+  %11 = fdiv double %7, %10, !dbg !1455
+  store double %11, ptr %1, align 8, !dbg !1456, !tbaa !1286
+  ret i32 0, !dbg !1457
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare !dbg !109 double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z28gsl_sf_legendre_Q1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1432 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1436
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1435, metadata !DIExpression(), metadata !1436, metadata ptr %2, metadata !DIExpression()), !dbg !1437
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1434, metadata !DIExpression()), !dbg !1437
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1438
-  %3 = call i32 @gsl_sf_legendre_Q1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1438
-  %4 = load double, ptr %2, align 8, !dbg !1438, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1438
-  ret double %4, !dbg !1438
+define dso_local noundef double @_Z28gsl_sf_legendre_Q1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1458 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1462
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1461, metadata !DIExpression(), metadata !1462, metadata ptr %2, metadata !DIExpression()), !dbg !1463
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1460, metadata !DIExpression()), !dbg !1463
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1464
+  %3 = call i32 @gsl_sf_legendre_Q1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1464
+  %4 = load double, ptr %2, align 8, !dbg !1464, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1464
+  ret double %4, !dbg !1464
 }
 
-declare !dbg !1439 i32 @gsl_sf_legendre_Q1_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1465 i32 @gsl_sf_legendre_Q1_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1441 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1445
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1444, metadata !DIExpression(), metadata !1445, metadata ptr %2, metadata !DIExpression()), !dbg !1446
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1443, metadata !DIExpression()), !dbg !1446
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1447
-  %3 = call i32 @gsl_sf_lambert_W0_e(double noundef %0, ptr noundef nonnull %2), !dbg !1447
-  %4 = load double, ptr %2, align 8, !dbg !1447, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1447
-  ret double %4, !dbg !1447
+define dso_local noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1467 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1471
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1470, metadata !DIExpression(), metadata !1471, metadata ptr %2, metadata !DIExpression()), !dbg !1472
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1469, metadata !DIExpression()), !dbg !1472
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1473
+  %3 = call i32 @gsl_sf_lambert_W0_e(double noundef %0, ptr noundef nonnull %2), !dbg !1473
+  %4 = load double, ptr %2, align 8, !dbg !1473, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1473
+  ret double %4, !dbg !1473
 }
 
-declare !dbg !1448 i32 @gsl_sf_lambert_W0_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1474 i32 @gsl_sf_lambert_W0_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f7dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1450 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1452, metadata !DIExpression()), !dbg !1455
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1453, metadata !DIExpression()), !dbg !1455
-  %3 = tail call noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0), !dbg !1456
-  tail call void @llvm.dbg.value(metadata double %3, metadata !1454, metadata !DIExpression()), !dbg !1455
-  %4 = tail call noundef double @_Z28gsl_sf_legendre_Q1_e_wrapperd(double noundef %0), !dbg !1457
-  %5 = fadd double %4, 1.000000e+00, !dbg !1458
-  %6 = fmul double %3, %3, !dbg !1459
-  %7 = fdiv double %5, %6, !dbg !1460
-  store double %7, ptr %1, align 8, !dbg !1461, !tbaa !1257
-  ret i32 0, !dbg !1462
-}
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z24gsl_sf_bessel_j0_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1463 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1465, metadata !DIExpression()), !dbg !1466
-  %2 = tail call double @gsl_sf_bessel_j0(double noundef %0), !dbg !1467
-  ret double %2, !dbg !1467
-}
-
-declare !dbg !1468 double @gsl_sf_bessel_j0(double noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f8dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1469 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1471, metadata !DIExpression()), !dbg !1473
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1472, metadata !DIExpression()), !dbg !1473
-  %3 = tail call noundef double @_Z24gsl_sf_bessel_j0_wrapperd(double noundef %0), !dbg !1474
-  %4 = fsub double 1.000000e+00, %3, !dbg !1475
-  %5 = tail call double @tan(double noundef %0) #8, !dbg !1476
-  %6 = fmul double %5, %0, !dbg !1477
-  %7 = fdiv double %4, %6, !dbg !1478
-  store double %7, ptr %1, align 8, !dbg !1479, !tbaa !1257
-  ret i32 0, !dbg !1480
+define dso_local noundef i32 @_Z7func_f7dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1476 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1478, metadata !DIExpression()), !dbg !1481
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1479, metadata !DIExpression()), !dbg !1481
+  %3 = tail call noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0), !dbg !1482
+  tail call void @llvm.dbg.value(metadata double %3, metadata !1480, metadata !DIExpression()), !dbg !1481
+  %4 = tail call noundef double @_Z28gsl_sf_legendre_Q1_e_wrapperd(double noundef %0), !dbg !1483
+  %5 = fadd double %4, 1.000000e+00, !dbg !1484
+  %6 = fmul double %3, %3, !dbg !1485
+  %7 = fdiv double %5, %6, !dbg !1486
+  store double %7, ptr %1, align 8, !dbg !1487, !tbaa !1286
+  ret i32 0, !dbg !1488
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z19gsl_sf_Si_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1481 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1485
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1484, metadata !DIExpression(), metadata !1485, metadata ptr %2, metadata !DIExpression()), !dbg !1486
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1483, metadata !DIExpression()), !dbg !1486
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1487
-  %3 = call i32 @gsl_sf_Si_e(double noundef %0, ptr noundef nonnull %2), !dbg !1487
-  %4 = load double, ptr %2, align 8, !dbg !1487, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1487
-  ret double %4, !dbg !1487
+define dso_local noundef double @_Z24gsl_sf_bessel_j0_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1489 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1491, metadata !DIExpression()), !dbg !1492
+  %2 = tail call double @gsl_sf_bessel_j0(double noundef %0), !dbg !1493
+  ret double %2, !dbg !1493
 }
 
-declare !dbg !1488 i32 @gsl_sf_Si_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1494 double @gsl_sf_bessel_j0(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_f9dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1490 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1492, metadata !DIExpression()), !dbg !1494
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1493, metadata !DIExpression()), !dbg !1494
-  %3 = tail call noundef double @_Z19gsl_sf_Si_e_wrapperd(double noundef %0), !dbg !1495
-  %4 = tail call double @tan(double noundef %0) #8, !dbg !1496
-  %5 = fsub double %3, %4, !dbg !1497
-  %6 = fmul double %0, %0, !dbg !1498
-  %7 = fmul double %6, %0, !dbg !1499
-  %8 = fdiv double %5, %7, !dbg !1500
-  store double %8, ptr %1, align 8, !dbg !1501, !tbaa !1257
-  ret i32 0, !dbg !1502
+define dso_local noundef i32 @_Z7func_f8dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1495 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1497, metadata !DIExpression()), !dbg !1499
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1498, metadata !DIExpression()), !dbg !1499
+  %3 = tail call noundef double @_Z24gsl_sf_bessel_j0_wrapperd(double noundef %0), !dbg !1500
+  %4 = fsub double 1.000000e+00, %3, !dbg !1501
+  %5 = tail call double @tan(double noundef %0) #8, !dbg !1502
+  %6 = fmul double %5, %0, !dbg !1503
+  %7 = fdiv double %4, %6, !dbg !1504
+  store double %7, ptr %1, align 8, !dbg !1505, !tbaa !1286
+  ret i32 0, !dbg !1506
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z26gsl_sf_bessel_y0_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1503 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1507
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1506, metadata !DIExpression(), metadata !1507, metadata ptr %2, metadata !DIExpression()), !dbg !1508
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1505, metadata !DIExpression()), !dbg !1508
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1509
-  %3 = call i32 @gsl_sf_bessel_y0_e(double noundef %0, ptr noundef nonnull %2), !dbg !1509
-  %4 = load double, ptr %2, align 8, !dbg !1509, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1509
-  ret double %4, !dbg !1509
+define dso_local noundef double @_Z19gsl_sf_Si_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1507 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1511
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1510, metadata !DIExpression(), metadata !1511, metadata ptr %2, metadata !DIExpression()), !dbg !1512
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1509, metadata !DIExpression()), !dbg !1512
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1513
+  %3 = call i32 @gsl_sf_Si_e(double noundef %0, ptr noundef nonnull %2), !dbg !1513
+  %4 = load double, ptr %2, align 8, !dbg !1513, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1513
+  ret double %4, !dbg !1513
 }
 
-declare !dbg !1510 i32 @gsl_sf_bessel_y0_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1514 i32 @gsl_sf_Si_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z22gsl_sf_psi_1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1511 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1515
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1514, metadata !DIExpression(), metadata !1515, metadata ptr %2, metadata !DIExpression()), !dbg !1516
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1513, metadata !DIExpression()), !dbg !1516
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1517
-  %3 = call i32 @gsl_sf_psi_1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1517
-  %4 = load double, ptr %2, align 8, !dbg !1517, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1517
-  ret double %4, !dbg !1517
+define dso_local noundef i32 @_Z7func_f9dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1516 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1518, metadata !DIExpression()), !dbg !1520
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1519, metadata !DIExpression()), !dbg !1520
+  %3 = tail call noundef double @_Z19gsl_sf_Si_e_wrapperd(double noundef %0), !dbg !1521
+  %4 = tail call double @tan(double noundef %0) #8, !dbg !1522
+  %5 = fsub double %3, %4, !dbg !1523
+  %6 = fmul double %0, %0, !dbg !1524
+  %7 = fmul double %6, %0, !dbg !1525
+  %8 = fdiv double %5, %7, !dbg !1526
+  store double %8, ptr %1, align 8, !dbg !1527, !tbaa !1286
+  ret i32 0, !dbg !1528
 }
 
-declare !dbg !1518 i32 @gsl_sf_psi_1_e(double noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef double @_Z26gsl_sf_bessel_y0_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1529 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1533
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1532, metadata !DIExpression(), metadata !1533, metadata ptr %2, metadata !DIExpression()), !dbg !1534
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1531, metadata !DIExpression()), !dbg !1534
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1535
+  %3 = call i32 @gsl_sf_bessel_y0_e(double noundef %0, ptr noundef nonnull %2), !dbg !1535
+  %4 = load double, ptr %2, align 8, !dbg !1535, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1535
+  ret double %4, !dbg !1535
+}
+
+declare !dbg !1536 i32 @gsl_sf_bessel_y0_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f10dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1520 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1522, metadata !DIExpression()), !dbg !1525
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1523, metadata !DIExpression()), !dbg !1525
-  %3 = fcmp ult double %0, 0.000000e+00, !dbg !1526
-  br i1 %3, label %6, label %4, !dbg !1527
+define dso_local noundef double @_Z22gsl_sf_psi_1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1537 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1541
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1540, metadata !DIExpression(), metadata !1541, metadata ptr %2, metadata !DIExpression()), !dbg !1542
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1539, metadata !DIExpression()), !dbg !1542
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1543
+  %3 = call i32 @gsl_sf_psi_1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1543
+  %4 = load double, ptr %2, align 8, !dbg !1543, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1543
+  ret double %4, !dbg !1543
+}
+
+declare !dbg !1544 i32 @gsl_sf_psi_1_e(double noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef i32 @_Z8func_f10dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1546 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1548, metadata !DIExpression()), !dbg !1551
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1549, metadata !DIExpression()), !dbg !1551
+  %3 = fcmp ult double %0, 0.000000e+00, !dbg !1552
+  br i1 %3, label %6, label %4, !dbg !1553
 
 4:                                                ; preds = %2
-  %5 = tail call double @gsl_sf_bessel_y0(double noundef %0), !dbg !1528
-  br label %10, !dbg !1527
+  %5 = tail call double @gsl_sf_bessel_y0(double noundef %0), !dbg !1554
+  br label %10, !dbg !1553
 
 6:                                                ; preds = %2
-  %7 = fneg double %0, !dbg !1529
-  %8 = tail call double @gsl_sf_bessel_y0(double noundef %7), !dbg !1530
-  %9 = fneg double %8, !dbg !1531
-  br label %10, !dbg !1527
+  %7 = fneg double %0, !dbg !1555
+  %8 = tail call double @gsl_sf_bessel_y0(double noundef %7), !dbg !1556
+  %9 = fneg double %8, !dbg !1557
+  br label %10, !dbg !1553
 
 10:                                               ; preds = %6, %4
-  %11 = phi double [ %5, %4 ], [ %9, %6 ], !dbg !1527
-  tail call void @llvm.dbg.value(metadata double %11, metadata !1524, metadata !DIExpression()), !dbg !1525
-  %12 = fmul double %11, %11, !dbg !1532
-  %13 = tail call noundef double @_Z22gsl_sf_psi_1_e_wrapperd(double noundef %0), !dbg !1533
-  %14 = fsub double %12, %13, !dbg !1534
-  store double %14, ptr %1, align 8, !dbg !1535, !tbaa !1257
-  ret i32 0, !dbg !1536
+  %11 = phi double [ %5, %4 ], [ %9, %6 ], !dbg !1553
+  tail call void @llvm.dbg.value(metadata double %11, metadata !1550, metadata !DIExpression()), !dbg !1551
+  %12 = fmul double %11, %11, !dbg !1558
+  %13 = tail call noundef double @_Z22gsl_sf_psi_1_e_wrapperd(double noundef %0), !dbg !1559
+  %14 = fsub double %12, %13, !dbg !1560
+  store double %14, ptr %1, align 8, !dbg !1561, !tbaa !1286
+  ret i32 0, !dbg !1562
 }
 
-declare !dbg !1537 double @gsl_sf_bessel_y0(double noundef) local_unnamed_addr #2
+declare !dbg !1563 double @gsl_sf_bessel_y0(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z31gsl_sf_fermi_dirac_m1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1538 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1542
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1541, metadata !DIExpression(), metadata !1542, metadata ptr %2, metadata !DIExpression()), !dbg !1543
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1540, metadata !DIExpression()), !dbg !1543
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1544
-  %3 = call i32 @gsl_sf_fermi_dirac_m1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1544
-  %4 = load double, ptr %2, align 8, !dbg !1544, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1544
-  ret double %4, !dbg !1544
+define dso_local noundef double @_Z31gsl_sf_fermi_dirac_m1_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1564 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1568
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1567, metadata !DIExpression(), metadata !1568, metadata ptr %2, metadata !DIExpression()), !dbg !1569
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1566, metadata !DIExpression()), !dbg !1569
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1570
+  %3 = call i32 @gsl_sf_fermi_dirac_m1_e(double noundef %0, ptr noundef nonnull %2), !dbg !1570
+  %4 = load double, ptr %2, align 8, !dbg !1570, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1570
+  ret double %4, !dbg !1570
 }
 
-declare !dbg !1545 i32 @gsl_sf_fermi_dirac_m1_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1571 i32 @gsl_sf_fermi_dirac_m1_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f11dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1546 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1548, metadata !DIExpression()), !dbg !1550
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1549, metadata !DIExpression()), !dbg !1550
-  %3 = tail call noundef double @_Z31gsl_sf_fermi_dirac_m1_e_wrapperd(double noundef %0), !dbg !1551
-  %4 = fmul double %3, 2.000000e+00, !dbg !1552
-  %5 = fadd double %4, -1.000000e+00, !dbg !1553
-  %6 = tail call noundef double @_Z27gsl_sf_log_1plusx_e_wrapperd(double noundef %0), !dbg !1554
-  %7 = fdiv double %5, %6, !dbg !1555
-  store double %7, ptr %1, align 8, !dbg !1556, !tbaa !1257
-  ret i32 0, !dbg !1557
-}
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z22gsl_sf_erf_Q_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1558 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1562
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1561, metadata !DIExpression(), metadata !1562, metadata ptr %2, metadata !DIExpression()), !dbg !1563
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1560, metadata !DIExpression()), !dbg !1563
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1564
-  %3 = call i32 @gsl_sf_erf_Q_e(double noundef %0, ptr noundef nonnull %2), !dbg !1564
-  %4 = load double, ptr %2, align 8, !dbg !1564, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1564
-  ret double %4, !dbg !1564
-}
-
-declare !dbg !1565 i32 @gsl_sf_erf_Q_e(double noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f12dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1566 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1568, metadata !DIExpression()), !dbg !1570
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1569, metadata !DIExpression()), !dbg !1570
-  %3 = tail call noundef double @_Z22gsl_sf_erf_Q_e_wrapperd(double noundef %0), !dbg !1571
-  %4 = fmul double %3, 2.000000e+00, !dbg !1572
-  %5 = fadd double %0, 1.000000e+00, !dbg !1573
-  %6 = tail call double @sqrt(double noundef %5) #8, !dbg !1574
-  %7 = fsub double %4, %6, !dbg !1575
-  %8 = fdiv double %7, %0, !dbg !1576
-  store double %8, ptr %1, align 8, !dbg !1577, !tbaa !1257
-  ret i32 0, !dbg !1578
+define dso_local noundef i32 @_Z8func_f11dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1572 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1574, metadata !DIExpression()), !dbg !1576
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1575, metadata !DIExpression()), !dbg !1576
+  %3 = tail call noundef double @_Z31gsl_sf_fermi_dirac_m1_e_wrapperd(double noundef %0), !dbg !1577
+  %4 = fmul double %3, 2.000000e+00, !dbg !1578
+  %5 = fadd double %4, -1.000000e+00, !dbg !1579
+  %6 = tail call noundef double @_Z27gsl_sf_log_1plusx_e_wrapperd(double noundef %0), !dbg !1580
+  %7 = fdiv double %5, %6, !dbg !1581
+  store double %7, ptr %1, align 8, !dbg !1582, !tbaa !1286
+  ret i32 0, !dbg !1583
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f13dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1579 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1581, metadata !DIExpression()), !dbg !1584
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1582, metadata !DIExpression()), !dbg !1584
-  %3 = tail call noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0), !dbg !1585
-  tail call void @llvm.dbg.value(metadata double %3, metadata !1583, metadata !DIExpression()), !dbg !1584
-  %4 = fadd double %3, -1.000000e+00, !dbg !1586
-  %5 = fmul double %3, %3, !dbg !1587
-  %6 = fadd double %5, -1.000000e+00, !dbg !1588
-  %7 = fdiv double %4, %6, !dbg !1589
-  store double %7, ptr %1, align 8, !dbg !1590, !tbaa !1257
-  ret i32 0, !dbg !1591
+define dso_local noundef double @_Z22gsl_sf_erf_Q_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1584 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1588
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1587, metadata !DIExpression(), metadata !1588, metadata ptr %2, metadata !DIExpression()), !dbg !1589
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1586, metadata !DIExpression()), !dbg !1589
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1590
+  %3 = call i32 @gsl_sf_erf_Q_e(double noundef %0, ptr noundef nonnull %2), !dbg !1590
+  %4 = load double, ptr %2, align 8, !dbg !1590, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1590
+  ret double %4, !dbg !1590
+}
+
+declare !dbg !1591 i32 @gsl_sf_erf_Q_e(double noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef i32 @_Z8func_f12dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1592 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1594, metadata !DIExpression()), !dbg !1596
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1595, metadata !DIExpression()), !dbg !1596
+  %3 = tail call noundef double @_Z22gsl_sf_erf_Q_e_wrapperd(double noundef %0), !dbg !1597
+  %4 = fmul double %3, 2.000000e+00, !dbg !1598
+  %5 = fadd double %0, 1.000000e+00, !dbg !1599
+  %6 = tail call double @sqrt(double noundef %5) #8, !dbg !1600
+  %7 = fsub double %4, %6, !dbg !1601
+  %8 = fdiv double %7, %0, !dbg !1602
+  store double %8, ptr %1, align 8, !dbg !1603, !tbaa !1286
+  ret i32 0, !dbg !1604
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f14dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1592 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1594, metadata !DIExpression()), !dbg !1597
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1595, metadata !DIExpression()), !dbg !1597
-  %3 = tail call noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0), !dbg !1598
-  tail call void @llvm.dbg.value(metadata double %3, metadata !1596, metadata !DIExpression()), !dbg !1597
-  %4 = fadd double %3, -1.000000e+00, !dbg !1599
-  %5 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %0), !dbg !1600
-  %6 = fmul double %3, %5, !dbg !1601
-  %7 = fadd double %6, -1.000000e+00, !dbg !1602
-  %8 = fdiv double %4, %7, !dbg !1603
-  store double %8, ptr %1, align 8, !dbg !1604, !tbaa !1257
-  ret i32 0, !dbg !1605
+define dso_local noundef i32 @_Z8func_f13dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1605 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1607, metadata !DIExpression()), !dbg !1610
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1608, metadata !DIExpression()), !dbg !1610
+  %3 = tail call noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0), !dbg !1611
+  tail call void @llvm.dbg.value(metadata double %3, metadata !1609, metadata !DIExpression()), !dbg !1610
+  %4 = fadd double %3, -1.000000e+00, !dbg !1612
+  %5 = fmul double %3, %3, !dbg !1613
+  %6 = fadd double %5, -1.000000e+00, !dbg !1614
+  %7 = fdiv double %4, %6, !dbg !1615
+  store double %7, ptr %1, align 8, !dbg !1616, !tbaa !1286
+  ret i32 0, !dbg !1617
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z23gsl_sf_dawson_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1606 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1610
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1609, metadata !DIExpression(), metadata !1610, metadata ptr %2, metadata !DIExpression()), !dbg !1611
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1608, metadata !DIExpression()), !dbg !1611
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1612
-  %3 = call i32 @gsl_sf_dawson_e(double noundef %0, ptr noundef nonnull %2), !dbg !1612
-  %4 = load double, ptr %2, align 8, !dbg !1612, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1612
-  ret double %4, !dbg !1612
+define dso_local noundef i32 @_Z8func_f14dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1618 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1620, metadata !DIExpression()), !dbg !1623
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1621, metadata !DIExpression()), !dbg !1623
+  %3 = tail call noundef double @_Z27gsl_sf_lambert_W0_e_wrapperd(double noundef %0), !dbg !1624
+  tail call void @llvm.dbg.value(metadata double %3, metadata !1622, metadata !DIExpression()), !dbg !1623
+  %4 = fadd double %3, -1.000000e+00, !dbg !1625
+  %5 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %0), !dbg !1626
+  %6 = fmul double %3, %5, !dbg !1627
+  %7 = fadd double %6, -1.000000e+00, !dbg !1628
+  %8 = fdiv double %4, %7, !dbg !1629
+  store double %8, ptr %1, align 8, !dbg !1630, !tbaa !1286
+  ret i32 0, !dbg !1631
 }
 
-declare !dbg !1613 i32 @gsl_sf_dawson_e(double noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef double @_Z23gsl_sf_dawson_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1632 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1636
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1635, metadata !DIExpression(), metadata !1636, metadata ptr %2, metadata !DIExpression()), !dbg !1637
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1634, metadata !DIExpression()), !dbg !1637
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1638
+  %3 = call i32 @gsl_sf_dawson_e(double noundef %0, ptr noundef nonnull %2), !dbg !1638
+  %4 = load double, ptr %2, align 8, !dbg !1638, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1638
+  ret double %4, !dbg !1638
+}
+
+declare !dbg !1639 i32 @gsl_sf_dawson_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f15dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1615 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1617, metadata !DIExpression()), !dbg !1621
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1618, metadata !DIExpression()), !dbg !1621
-  %3 = tail call noundef double @_Z23gsl_sf_dawson_e_wrapperd(double noundef %0), !dbg !1622
-  %4 = fadd double %3, 1.000000e+00, !dbg !1623
-  tail call void @llvm.dbg.value(metadata double %4, metadata !1619, metadata !DIExpression()), !dbg !1621
-  %5 = fdiv double 1.000000e+00, %0, !dbg !1624
-  tail call void @llvm.dbg.value(metadata double %5, metadata !1620, metadata !DIExpression()), !dbg !1621
-  %6 = tail call double @pow(double noundef %4, double noundef %5) #8, !dbg !1625
-  store double %6, ptr %1, align 8, !dbg !1626, !tbaa !1257
-  ret i32 0, !dbg !1627
+define dso_local noundef i32 @_Z8func_f15dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1641 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1643, metadata !DIExpression()), !dbg !1647
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1644, metadata !DIExpression()), !dbg !1647
+  %3 = tail call noundef double @_Z23gsl_sf_dawson_e_wrapperd(double noundef %0), !dbg !1648
+  %4 = fadd double %3, 1.000000e+00, !dbg !1649
+  tail call void @llvm.dbg.value(metadata double %4, metadata !1645, metadata !DIExpression()), !dbg !1647
+  %5 = fdiv double 1.000000e+00, %0, !dbg !1650
+  tail call void @llvm.dbg.value(metadata double %5, metadata !1646, metadata !DIExpression()), !dbg !1647
+  %6 = tail call double @pow(double noundef %4, double noundef %5) #8, !dbg !1651
+  store double %6, ptr %1, align 8, !dbg !1652, !tbaa !1286
+  ret i32 0, !dbg !1653
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare !dbg !103 double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z20gsl_sf_Chi_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1628 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1632
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1631, metadata !DIExpression(), metadata !1632, metadata ptr %2, metadata !DIExpression()), !dbg !1633
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1630, metadata !DIExpression()), !dbg !1633
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1634
-  %3 = call i32 @gsl_sf_Chi_e(double noundef %0, ptr noundef nonnull %2), !dbg !1634
-  %4 = load double, ptr %2, align 8, !dbg !1634, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1634
-  ret double %4, !dbg !1634
+define dso_local noundef double @_Z20gsl_sf_Chi_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1654 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1658
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1657, metadata !DIExpression(), metadata !1658, metadata ptr %2, metadata !DIExpression()), !dbg !1659
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1656, metadata !DIExpression()), !dbg !1659
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1660
+  %3 = call i32 @gsl_sf_Chi_e(double noundef %0, ptr noundef nonnull %2), !dbg !1660
+  %4 = load double, ptr %2, align 8, !dbg !1660, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1660
+  ret double %4, !dbg !1660
 }
 
-declare !dbg !1635 i32 @gsl_sf_Chi_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1661 i32 @gsl_sf_Chi_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef double @_Z19gsl_sf_Ci_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1636 {
-  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1640
-  call void @llvm.dbg.assign(metadata i1 undef, metadata !1639, metadata !DIExpression(), metadata !1640, metadata ptr %2, metadata !DIExpression()), !dbg !1641
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1638, metadata !DIExpression()), !dbg !1641
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1642
-  %3 = call i32 @gsl_sf_Ci_e(double noundef %0, ptr noundef nonnull %2), !dbg !1642
-  %4 = load double, ptr %2, align 8, !dbg !1642, !tbaa !1257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1642
-  ret double %4, !dbg !1642
+define dso_local noundef double @_Z19gsl_sf_Ci_e_wrapperd(double noundef %0) local_unnamed_addr #0 !dbg !1662 {
+  %2 = alloca %struct.gsl_sf_result_struct, align 8, !DIAssignID !1666
+  call void @llvm.dbg.assign(metadata i1 undef, metadata !1665, metadata !DIExpression(), metadata !1666, metadata ptr %2, metadata !DIExpression()), !dbg !1667
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1664, metadata !DIExpression()), !dbg !1667
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8, !dbg !1668
+  %3 = call i32 @gsl_sf_Ci_e(double noundef %0, ptr noundef nonnull %2), !dbg !1668
+  %4 = load double, ptr %2, align 8, !dbg !1668, !tbaa !1286
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8, !dbg !1668
+  ret double %4, !dbg !1668
 }
 
-declare !dbg !1643 i32 @gsl_sf_Ci_e(double noundef, ptr noundef) local_unnamed_addr #2
+declare !dbg !1669 i32 @gsl_sf_Ci_e(double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_f16dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1644 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1646, metadata !DIExpression()), !dbg !1648
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1647, metadata !DIExpression()), !dbg !1648
-  %3 = tail call noundef double @_Z20gsl_sf_Chi_e_wrapperd(double noundef %0), !dbg !1649
-  %4 = tail call noundef double @_Z19gsl_sf_Ci_e_wrapperd(double noundef %0), !dbg !1650
-  %5 = fsub double %3, %4, !dbg !1651
-  %6 = fmul double %0, %0, !dbg !1652
-  %7 = fdiv double %5, %6, !dbg !1653
-  store double %7, ptr %1, align 8, !dbg !1654, !tbaa !1257
-  ret i32 0, !dbg !1655
-}
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s1dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1656 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1658, metadata !DIExpression()), !dbg !1660
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1659, metadata !DIExpression()), !dbg !1660
-  %3 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1661
-  %4 = fsub double 1.000000e+00, %3, !dbg !1662
-  %5 = fmul double %0, %0, !dbg !1663
-  %6 = fdiv double %4, %5, !dbg !1664
-  store double %6, ptr %1, align 8, !dbg !1665, !tbaa !1257
-  ret i32 0, !dbg !1666
+define dso_local noundef i32 @_Z8func_f16dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1670 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1672, metadata !DIExpression()), !dbg !1674
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1673, metadata !DIExpression()), !dbg !1674
+  %3 = tail call noundef double @_Z20gsl_sf_Chi_e_wrapperd(double noundef %0), !dbg !1675
+  %4 = tail call noundef double @_Z19gsl_sf_Ci_e_wrapperd(double noundef %0), !dbg !1676
+  %5 = fsub double %3, %4, !dbg !1677
+  %6 = fmul double %0, %0, !dbg !1678
+  %7 = fdiv double %5, %6, !dbg !1679
+  store double %7, ptr %1, align 8, !dbg !1680, !tbaa !1286
+  ret i32 0, !dbg !1681
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s2dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1667 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1669, metadata !DIExpression()), !dbg !1671
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1670, metadata !DIExpression()), !dbg !1671
-  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1672
-  %4 = fadd double %3, -2.000000e+00, !dbg !1673
-  %5 = fneg double %0, !dbg !1674
-  %6 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %5), !dbg !1675
-  %7 = fadd double %4, %6, !dbg !1676
-  %8 = fmul double %0, %0, !dbg !1677
-  %9 = fdiv double %7, %8, !dbg !1678
-  store double %9, ptr %1, align 8, !dbg !1679, !tbaa !1257
-  ret i32 0, !dbg !1680
+define dso_local noundef i32 @_Z7func_s1dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1682 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1684, metadata !DIExpression()), !dbg !1686
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1685, metadata !DIExpression()), !dbg !1686
+  %3 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1687
+  %4 = fsub double 1.000000e+00, %3, !dbg !1688
+  %5 = fmul double %0, %0, !dbg !1689
+  %6 = fdiv double %4, %5, !dbg !1690
+  store double %6, ptr %1, align 8, !dbg !1691, !tbaa !1286
+  ret i32 0, !dbg !1692
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s3dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1681 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1683, metadata !DIExpression()), !dbg !1685
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1684, metadata !DIExpression()), !dbg !1685
-  %3 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1686
-  %4 = fsub double 1.000000e+00, %3, !dbg !1687
-  %5 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1688
-  %6 = fdiv double %4, %5, !dbg !1689
-  store double %6, ptr %1, align 8, !dbg !1690, !tbaa !1257
-  ret i32 0, !dbg !1691
+define dso_local noundef i32 @_Z7func_s2dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1693 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1695, metadata !DIExpression()), !dbg !1697
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1696, metadata !DIExpression()), !dbg !1697
+  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1698
+  %4 = fadd double %3, -2.000000e+00, !dbg !1699
+  %5 = fneg double %0, !dbg !1700
+  %6 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %5), !dbg !1701
+  %7 = fadd double %4, %6, !dbg !1702
+  %8 = fmul double %0, %0, !dbg !1703
+  %9 = fdiv double %7, %8, !dbg !1704
+  store double %9, ptr %1, align 8, !dbg !1705, !tbaa !1286
+  ret i32 0, !dbg !1706
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s4dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1692 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1694, metadata !DIExpression()), !dbg !1696
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1695, metadata !DIExpression()), !dbg !1696
-  %3 = fadd double %0, 0x3EB0C6F7A0B5ED8D, !dbg !1697
-  %4 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %3), !dbg !1698
-  %5 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1699
-  %6 = fsub double %4, %5, !dbg !1700
-  store double %6, ptr %1, align 8, !dbg !1701, !tbaa !1257
-  ret i32 0, !dbg !1702
+define dso_local noundef i32 @_Z7func_s3dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1707 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1709, metadata !DIExpression()), !dbg !1711
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1710, metadata !DIExpression()), !dbg !1711
+  %3 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1712
+  %4 = fsub double 1.000000e+00, %3, !dbg !1713
+  %5 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1714
+  %6 = fdiv double %4, %5, !dbg !1715
+  store double %6, ptr %1, align 8, !dbg !1716, !tbaa !1286
+  ret i32 0, !dbg !1717
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef i32 @_Z7func_s4dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1718 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1720, metadata !DIExpression()), !dbg !1722
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1721, metadata !DIExpression()), !dbg !1722
+  %3 = fadd double %0, 0x3EB0C6F7A0B5ED8D, !dbg !1723
+  %4 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %3), !dbg !1724
+  %5 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1725
+  %6 = fsub double %4, %5, !dbg !1726
+  store double %6, ptr %1, align 8, !dbg !1727, !tbaa !1286
+  ret i32 0, !dbg !1728
 }
 
 ; Function Attrs: mustprogress nofree noinline nounwind willreturn memory(write) uwtable
-define dso_local noundef i32 @_Z7func_s5dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 !dbg !1703 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1705, metadata !DIExpression()), !dbg !1707
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1706, metadata !DIExpression()), !dbg !1707
-  %3 = fadd double %0, 0x3EB0C6F7A0B5ED8D, !dbg !1708
-  %4 = tail call double @tan(double noundef %3) #8, !dbg !1709
-  %5 = tail call double @tan(double noundef %0) #8, !dbg !1710
-  %6 = fsub double %4, %5, !dbg !1711
-  store double %6, ptr %1, align 8, !dbg !1712, !tbaa !1257
-  ret i32 0, !dbg !1713
+define dso_local noundef i32 @_Z7func_s5dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 !dbg !1729 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1731, metadata !DIExpression()), !dbg !1733
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1732, metadata !DIExpression()), !dbg !1733
+  %3 = fadd double %0, 0x3EB0C6F7A0B5ED8D, !dbg !1734
+  %4 = tail call double @tan(double noundef %3) #8, !dbg !1735
+  %5 = tail call double @tan(double noundef %0) #8, !dbg !1736
+  %6 = fsub double %4, %5, !dbg !1737
+  store double %6, ptr %1, align 8, !dbg !1738, !tbaa !1286
+  ret i32 0, !dbg !1739
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s6dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1714 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1716, metadata !DIExpression()), !dbg !1718
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1717, metadata !DIExpression()), !dbg !1718
-  %3 = fadd double %0, 0x3EB0C6F7A0B5ED8D, !dbg !1719
-  %4 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %3), !dbg !1720
-  %5 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1721
-  %6 = fsub double %4, %5, !dbg !1722
-  store double %6, ptr %1, align 8, !dbg !1723, !tbaa !1257
-  ret i32 0, !dbg !1724
+define dso_local noundef i32 @_Z7func_s6dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1740 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1742, metadata !DIExpression()), !dbg !1744
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1743, metadata !DIExpression()), !dbg !1744
+  %3 = fadd double %0, 0x3EB0C6F7A0B5ED8D, !dbg !1745
+  %4 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %3), !dbg !1746
+  %5 = tail call noundef double @_Z20gsl_sf_cos_e_wrapperd(double noundef %0), !dbg !1747
+  %6 = fsub double %4, %5, !dbg !1748
+  store double %6, ptr %1, align 8, !dbg !1749, !tbaa !1286
+  ret i32 0, !dbg !1750
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s7dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1725 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1727, metadata !DIExpression()), !dbg !1729
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1728, metadata !DIExpression()), !dbg !1729
-  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1730
-  %4 = fneg double %0, !dbg !1731
-  %5 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %4), !dbg !1732
-  %6 = fsub double %3, %5, !dbg !1733
-  store double %6, ptr %1, align 8, !dbg !1734, !tbaa !1257
-  ret i32 0, !dbg !1735
+define dso_local noundef i32 @_Z7func_s7dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1751 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1753, metadata !DIExpression()), !dbg !1755
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1754, metadata !DIExpression()), !dbg !1755
+  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1756
+  %4 = fneg double %0, !dbg !1757
+  %5 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %4), !dbg !1758
+  %6 = fsub double %3, %5, !dbg !1759
+  store double %6, ptr %1, align 8, !dbg !1760, !tbaa !1286
+  ret i32 0, !dbg !1761
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z7func_s8dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1736 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1738, metadata !DIExpression()), !dbg !1740
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1739, metadata !DIExpression()), !dbg !1740
-  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1741
-  %4 = fadd double %3, -1.000000e+00, !dbg !1742
-  store double %4, ptr %1, align 8, !dbg !1743, !tbaa !1257
-  ret i32 0, !dbg !1744
+define dso_local noundef i32 @_Z7func_s8dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1762 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1764, metadata !DIExpression()), !dbg !1766
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1765, metadata !DIExpression()), !dbg !1766
+  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1767
+  %4 = fadd double %3, -1.000000e+00, !dbg !1768
+  store double %4, ptr %1, align 8, !dbg !1769, !tbaa !1286
+  ret i32 0, !dbg !1770
 }
 
 ; Function Attrs: mustprogress nofree noinline nounwind willreturn memory(write) uwtable
-define dso_local noundef i32 @_Z7func_s9dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 !dbg !1745 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1747, metadata !DIExpression()), !dbg !1749
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1748, metadata !DIExpression()), !dbg !1749
-  %3 = fdiv double 1.000000e+00, %0, !dbg !1750
-  %4 = tail call double @tan(double noundef %0) #8, !dbg !1751
-  %5 = fdiv double 1.000000e+00, %4, !dbg !1752
-  %6 = fsub double %3, %5, !dbg !1753
-  store double %6, ptr %1, align 8, !dbg !1754, !tbaa !1257
-  ret i32 0, !dbg !1755
+define dso_local noundef i32 @_Z7func_s9dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 !dbg !1771 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1773, metadata !DIExpression()), !dbg !1775
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1774, metadata !DIExpression()), !dbg !1775
+  %3 = fdiv double 1.000000e+00, %0, !dbg !1776
+  %4 = tail call double @tan(double noundef %0) #8, !dbg !1777
+  %5 = fdiv double 1.000000e+00, %4, !dbg !1778
+  %6 = fsub double %3, %5, !dbg !1779
+  store double %6, ptr %1, align 8, !dbg !1780, !tbaa !1286
+  ret i32 0, !dbg !1781
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_s10dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1756 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1758, metadata !DIExpression()), !dbg !1760
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1759, metadata !DIExpression()), !dbg !1760
-  %3 = fsub double 1.000000e+00, %0, !dbg !1761
-  %4 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %3), !dbg !1762
-  %5 = fadd double %0, 1.000000e+00, !dbg !1763
-  %6 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %5), !dbg !1764
-  %7 = fdiv double %4, %6, !dbg !1765
-  store double %7, ptr %1, align 8, !dbg !1766, !tbaa !1257
-  ret i32 0, !dbg !1767
+define dso_local noundef i32 @_Z8func_s10dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1782 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1784, metadata !DIExpression()), !dbg !1786
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1785, metadata !DIExpression()), !dbg !1786
+  %3 = fsub double 1.000000e+00, %0, !dbg !1787
+  %4 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %3), !dbg !1788
+  %5 = fadd double %0, 1.000000e+00, !dbg !1789
+  %6 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %5), !dbg !1790
+  %7 = fdiv double %4, %6, !dbg !1791
+  store double %7, ptr %1, align 8, !dbg !1792, !tbaa !1286
+  ret i32 0, !dbg !1793
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_s11dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1768 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1770, metadata !DIExpression()), !dbg !1772
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1771, metadata !DIExpression()), !dbg !1772
-  %3 = fsub double 1.000000e+00, %0, !dbg !1773
-  %4 = fadd double %0, 1.000000e+00, !dbg !1774
-  %5 = fdiv double %3, %4, !dbg !1775
-  %6 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %5), !dbg !1776
-  store double %6, ptr %1, align 8, !dbg !1777, !tbaa !1257
-  ret i32 0, !dbg !1778
-}
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_s12dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1779 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1781, metadata !DIExpression()), !dbg !1783
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1782, metadata !DIExpression()), !dbg !1783
-  %3 = fmul double %0, 2.000000e+00, !dbg !1784
-  %4 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %3), !dbg !1785
-  %5 = fadd double %4, -1.000000e+00, !dbg !1786
-  %6 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1787
-  %7 = fadd double %6, -1.000000e+00, !dbg !1788
-  %8 = fdiv double %5, %7, !dbg !1789
-  %9 = tail call double @sqrt(double noundef %8) #8, !dbg !1790
-  store double %9, ptr %1, align 8, !dbg !1791, !tbaa !1257
-  ret i32 0, !dbg !1792
-}
-
-; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_s13dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1793 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1795, metadata !DIExpression()), !dbg !1797
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1796, metadata !DIExpression()), !dbg !1797
-  %3 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1798
-  %4 = fsub double %0, %3, !dbg !1799
-  %5 = tail call double @tan(double noundef %0) #8, !dbg !1800
-  %6 = fsub double %0, %5, !dbg !1801
-  %7 = fdiv double %4, %6, !dbg !1802
-  store double %7, ptr %1, align 8, !dbg !1803, !tbaa !1257
+define dso_local noundef i32 @_Z8func_s11dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1794 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1796, metadata !DIExpression()), !dbg !1798
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1797, metadata !DIExpression()), !dbg !1798
+  %3 = fsub double 1.000000e+00, %0, !dbg !1799
+  %4 = fadd double %0, 1.000000e+00, !dbg !1800
+  %5 = fdiv double %3, %4, !dbg !1801
+  %6 = tail call noundef double @_Z20gsl_sf_log_e_wrapperd(double noundef %5), !dbg !1802
+  store double %6, ptr %1, align 8, !dbg !1803, !tbaa !1286
   ret i32 0, !dbg !1804
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef i32 @_Z8func_s14dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1805 {
+define dso_local noundef i32 @_Z8func_s12dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1805 {
   tail call void @llvm.dbg.value(metadata double %0, metadata !1807, metadata !DIExpression()), !dbg !1809
   tail call void @llvm.dbg.value(metadata ptr %1, metadata !1808, metadata !DIExpression()), !dbg !1809
-  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1810
-  %4 = fadd double %3, -1.000000e+00, !dbg !1811
-  %5 = fdiv double %4, %0, !dbg !1812
-  store double %5, ptr %1, align 8, !dbg !1813, !tbaa !1257
-  ret i32 0, !dbg !1814
+  %3 = fmul double %0, 2.000000e+00, !dbg !1810
+  %4 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %3), !dbg !1811
+  %5 = fadd double %4, -1.000000e+00, !dbg !1812
+  %6 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1813
+  %7 = fadd double %6, -1.000000e+00, !dbg !1814
+  %8 = fdiv double %5, %7, !dbg !1815
+  %9 = tail call double @sqrt(double noundef %8) #8, !dbg !1816
+  store double %9, ptr %1, align 8, !dbg !1817, !tbaa !1286
+  ret i32 0, !dbg !1818
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef i32 @_Z8func_s13dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1819 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1821, metadata !DIExpression()), !dbg !1823
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1822, metadata !DIExpression()), !dbg !1823
+  %3 = tail call noundef double @_Z20gsl_sf_sin_e_wrapperd(double noundef %0), !dbg !1824
+  %4 = fsub double %0, %3, !dbg !1825
+  %5 = tail call double @tan(double noundef %0) #8, !dbg !1826
+  %6 = fsub double %0, %5, !dbg !1827
+  %7 = fdiv double %4, %6, !dbg !1828
+  store double %7, ptr %1, align 8, !dbg !1829, !tbaa !1286
+  ret i32 0, !dbg !1830
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef i32 @_Z8func_s14dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 !dbg !1831 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1833, metadata !DIExpression()), !dbg !1835
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1834, metadata !DIExpression()), !dbg !1835
+  %3 = tail call noundef double @_Z20gsl_sf_exp_e_wrapperd(double noundef %0), !dbg !1836
+  %4 = fadd double %3, -1.000000e+00, !dbg !1837
+  %5 = fdiv double %4, %0, !dbg !1838
+  store double %5, ptr %1, align 8, !dbg !1839, !tbaa !1286
+  ret i32 0, !dbg !1840
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_Z8func_s15dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 !dbg !1815 {
-  tail call void @llvm.dbg.value(metadata double %0, metadata !1817, metadata !DIExpression()), !dbg !1819
-  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1818, metadata !DIExpression()), !dbg !1819
-  %3 = fadd double %0, -1.000000e+00, !dbg !1820
-  %4 = fmul double %0, %0, !dbg !1821
-  %5 = fadd double %4, -1.000000e+00, !dbg !1822
-  %6 = fdiv double %3, %5, !dbg !1823
-  store double %6, ptr %1, align 8, !dbg !1824, !tbaa !1257
-  ret i32 0, !dbg !1825
+define dso_local noundef i32 @_Z8func_s15dP20gsl_sf_result_struct(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 !dbg !1841 {
+  tail call void @llvm.dbg.value(metadata double %0, metadata !1843, metadata !DIExpression()), !dbg !1845
+  tail call void @llvm.dbg.value(metadata ptr %1, metadata !1844, metadata !DIExpression()), !dbg !1845
+  %3 = fadd double %0, -1.000000e+00, !dbg !1846
+  %4 = fmul double %0, %0, !dbg !1847
+  %5 = fadd double %4, -1.000000e+00, !dbg !1848
+  %6 = fdiv double %3, %5, !dbg !1849
+  store double %6, ptr %1, align 8, !dbg !1850, !tbaa !1286
+  ret i32 0, !dbg !1851
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -767,7 +802,7 @@ attributes #8 = { nounwind }
 !llvm.ident = !{!1243}
 
 !0 = distinct !DICompileUnit(language: DW_LANG_C_plus_plus_14, file: !1, producer: "Ubuntu clang version 18.1.3 (1ubuntu1)", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, enums: !2, globals: !42, imports: !48, splitDebugInlining: false, nameTableKind: None)
-!1 = !DIFile(filename: "/PI-detector/module/src/Core/targetExample.cc", directory: "/PI-detector/build/module/src/Core", checksumkind: CSK_MD5, checksum: "d0d454bd9224414a5b09e2f5a8f0085e")
+!1 = !DIFile(filename: "/PI-detector/module/src/Core/targetExample.cc", directory: "/PI-detector/build/module/src/Core", checksumkind: CSK_MD5, checksum: "22f3149c0273429f8208fdfd6a8feeac")
 !2 = !{!3}
 !3 = !DICompositeType(tag: DW_TAG_enumeration_type, file: !4, line: 39, baseType: !5, size: 32, elements: !6)
 !4 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_errno.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "3ff14ff6df19564f3d7caf1e8e622626")
@@ -811,7 +846,7 @@ attributes #8 = { nounwind }
 !42 = !{!43}
 !43 = !DIGlobalVariableExpression(var: !44, expr: !DIExpression(DW_OP_constu, 4517329193108106637, DW_OP_stack_value))
 !44 = distinct !DIGlobalVariable(name: "epsilon", scope: !0, file: !45, line: 58, type: !46, isLocal: true, isDefinition: true)
-!45 = !DIFile(filename: "module/src/Core/targetExample.cc", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "d0d454bd9224414a5b09e2f5a8f0085e")
+!45 = !DIFile(filename: "module/src/Core/targetExample.cc", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "22f3149c0273429f8208fdfd6a8feeac")
 !46 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !47)
 !47 = !DIBasicType(name: "double", size: 64, encoding: DW_ATE_float)
 !48 = !{!49, !56, !62, !64, !66, !70, !72, !74, !76, !78, !80, !82, !84, !89, !93, !95, !97, !102, !104, !106, !108, !110, !112, !114, !117, !120, !122, !126, !131, !133, !135, !137, !139, !141, !143, !145, !147, !149, !151, !155, !159, !161, !163, !165, !167, !169, !171, !173, !175, !177, !179, !181, !183, !185, !187, !189, !193, !197, !201, !203, !205, !207, !209, !211, !213, !215, !217, !219, !223, !227, !231, !233, !235, !237, !242, !246, !250, !252, !254, !256, !258, !260, !262, !264, !266, !268, !270, !272, !274, !279, !283, !287, !289, !291, !293, !300, !304, !308, !310, !312, !314, !316, !318, !320, !324, !328, !330, !332, !334, !336, !340, !344, !348, !350, !352, !354, !356, !358, !360, !364, !368, !372, !374, !378, !382, !384, !386, !388, !390, !392, !394, !398, !406, !424, !427, !432, !496, !504, !508, !515, !519, !523, !525, !527, !531, !538, !542, !548, !554, !556, !560, !564, !568, !572, !583, !585, !589, !593, !597, !599, !604, !608, !612, !614, !616, !620, !628, !632, !636, !640, !642, !648, !650, !656, !660, !664, !668, !672, !676, !680, !682, !684, !688, !692, !696, !698, !702, !706, !708, !710, !714, !719, !723, !728, !729, !730, !731, !732, !733, !734, !735, !736, !737, !738, !742, !746, !751, !755, !759, !764, !768, !770, !772, !774, !776, !778, !780, !782, !784, !786, !788, !790, !792, !794, !798, !804, !808, !812, !817, !819, !822, !826, !830, !841, !843, !847, !851, !855, !859, !863, !867, !871, !875, !879, !883, !887, !889, !893, !897, !901, !907, !911, !915, !917, !921, !925, !931, !933, !937, !941, !945, !949, !953, !957, !961, !962, !963, !964, !966, !967, !968, !969, !970, !971, !972, !976, !982, !987, !991, !993, !995, !997, !999, !1006, !1010, !1014, !1018, !1022, !1026, !1031, !1035, !1037, !1041, !1047, !1051, !1056, !1058, !1061, !1065, !1069, !1071, !1073, !1075, !1077, !1081, !1083, !1085, !1089, !1093, !1097, !1101, !1105, !1109, !1111, !1115, !1119, !1123, !1127, !1129, !1131, !1135, !1139, !1140, !1141, !1142, !1143, !1144, !1151, !1154, !1155, !1157, !1159, !1161, !1163, !1167, !1169, !1171, !1173, !1175, !1177, !1179, !1181, !1183, !1187, !1191, !1193, !1197, !1201, !1203, !1204, !1205, !1206, !1207, !1208, !1209, !1210, !1212, !1213, !1214, !1215, !1216, !1217, !1218, !1219, !1220, !1221, !1222, !1223, !1224, !1225, !1226, !1227, !1228, !1229, !1230, !1231, !1232, !1233, !1234, !1235}
@@ -2010,585 +2045,611 @@ attributes #8 = { nounwind }
 !1241 = !{i32 7, !"uwtable", i32 2}
 !1242 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !1243 = !{!"Ubuntu clang version 18.1.3 (1ubuntu1)"}
-!1244 = distinct !DISubprogram(name: "gsl_sf_bessel_I1_e_wrapper", linkageName: "_Z26gsl_sf_bessel_I1_e_wrapperd", scope: !45, file: !45, line: 65, type: !59, scopeLine: 65, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1245)
-!1245 = !{!1246, !1247}
-!1246 = !DILocalVariable(name: "x", arg: 1, scope: !1244, file: !45, line: 65, type: !47)
-!1247 = !DILocalVariable(name: "result", scope: !1244, file: !45, line: 65, type: !1248)
-!1248 = !DIDerivedType(tag: DW_TAG_typedef, name: "gsl_sf_result", file: !1249, line: 41, baseType: !1250)
-!1249 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_result.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "5b52deed011f1ffd07977b19a388d251")
-!1250 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "gsl_sf_result_struct", file: !1249, line: 37, size: 128, flags: DIFlagTypePassByValue, elements: !1251, identifier: "_ZTS20gsl_sf_result_struct")
-!1251 = !{!1252, !1253}
-!1252 = !DIDerivedType(tag: DW_TAG_member, name: "val", scope: !1250, file: !1249, line: 38, baseType: !47, size: 64)
-!1253 = !DIDerivedType(tag: DW_TAG_member, name: "err", scope: !1250, file: !1249, line: 39, baseType: !47, size: 64, offset: 64)
-!1254 = distinct !DIAssignID()
-!1255 = !DILocation(line: 0, scope: !1244)
-!1256 = !DILocation(line: 65, column: 1, scope: !1244)
-!1257 = !{!1258, !1259, i64 0}
-!1258 = !{!"_ZTS20gsl_sf_result_struct", !1259, i64 0, !1259, i64 8}
-!1259 = !{!"double", !1260, i64 0}
-!1260 = !{!"omnipotent char", !1261, i64 0}
-!1261 = !{!"Simple C++ TBAA"}
-!1262 = !DISubprogram(name: "gsl_sf_bessel_I1_e", scope: !1263, file: !1263, line: 121, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1263 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_bessel.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "45459f63edc3203df6c715a25160d493")
-!1264 = !DISubroutineType(types: !1265)
-!1265 = !{!5, !46, !1266}
-!1266 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1248, size: 64)
-!1267 = distinct !DISubprogram(name: "gsl_sf_exp_e_wrapper", linkageName: "_Z20gsl_sf_exp_e_wrapperd", scope: !45, file: !45, line: 66, type: !59, scopeLine: 66, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1268)
-!1268 = !{!1269, !1270}
-!1269 = !DILocalVariable(name: "x", arg: 1, scope: !1267, file: !45, line: 66, type: !47)
-!1270 = !DILocalVariable(name: "result", scope: !1267, file: !45, line: 66, type: !1248)
-!1271 = distinct !DIAssignID()
-!1272 = !DILocation(line: 0, scope: !1267)
-!1273 = !DILocation(line: 66, column: 1, scope: !1267)
-!1274 = !DISubprogram(name: "gsl_sf_exp_e", scope: !1275, file: !1275, line: 45, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1275 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_exp.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "c512f91507e79efdd09661b0faef2cde")
-!1276 = distinct !DISubprogram(name: "func_f1", linkageName: "_Z7func_f1dP20gsl_sf_result_struct", scope: !45, file: !45, line: 68, type: !1277, scopeLine: 68, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1279)
-!1277 = !DISubroutineType(types: !1278)
-!1278 = !{!5, !47, !1266}
-!1279 = !{!1280, !1281}
-!1280 = !DILocalVariable(name: "x", arg: 1, scope: !1276, file: !45, line: 68, type: !47)
-!1281 = !DILocalVariable(name: "result", arg: 2, scope: !1276, file: !45, line: 68, type: !1266)
-!1282 = !DILocation(line: 0, scope: !1276)
-!1283 = !DILocation(line: 69, column: 29, scope: !1276)
-!1284 = !DILocation(line: 69, column: 20, scope: !1276)
-!1285 = !DILocation(line: 69, column: 60, scope: !1276)
-!1286 = !DILocation(line: 69, column: 67, scope: !1276)
-!1287 = !DILocation(line: 69, column: 17, scope: !1276)
-!1288 = !DILocation(line: 70, column: 5, scope: !1276)
-!1289 = distinct !DISubprogram(name: "gsl_sf_bessel_J0_e_wrapper", linkageName: "_Z26gsl_sf_bessel_J0_e_wrapperd", scope: !45, file: !45, line: 74, type: !59, scopeLine: 74, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1290)
-!1290 = !{!1291, !1292}
-!1291 = !DILocalVariable(name: "x", arg: 1, scope: !1289, file: !45, line: 74, type: !47)
-!1292 = !DILocalVariable(name: "result", scope: !1289, file: !45, line: 74, type: !1248)
-!1293 = distinct !DIAssignID()
-!1294 = !DILocation(line: 0, scope: !1289)
-!1295 = !DILocation(line: 74, column: 1, scope: !1289)
-!1296 = !DISubprogram(name: "gsl_sf_bessel_J0_e", scope: !1263, file: !1263, line: 47, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1297 = distinct !DISubprogram(name: "gsl_sf_sin_e_wrapper", linkageName: "_Z20gsl_sf_sin_e_wrapperd", scope: !45, file: !45, line: 75, type: !59, scopeLine: 75, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1298)
-!1298 = !{!1299, !1300}
-!1299 = !DILocalVariable(name: "x", arg: 1, scope: !1297, file: !45, line: 75, type: !47)
-!1300 = !DILocalVariable(name: "result", scope: !1297, file: !45, line: 75, type: !1248)
-!1301 = distinct !DIAssignID()
-!1302 = !DILocation(line: 0, scope: !1297)
-!1303 = !DILocation(line: 75, column: 1, scope: !1297)
-!1304 = !DISubprogram(name: "gsl_sf_sin_e", scope: !1305, file: !1305, line: 45, type: !1277, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1305 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_trig.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "f99b323a60a985d2ebefccc97fb97d3a")
-!1306 = distinct !DISubprogram(name: "func_f2", linkageName: "_Z7func_f2dP20gsl_sf_result_struct", scope: !45, file: !45, line: 77, type: !1277, scopeLine: 77, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1307)
-!1307 = !{!1308, !1309}
-!1308 = !DILocalVariable(name: "x", arg: 1, scope: !1306, file: !45, line: 77, type: !47)
-!1309 = !DILocalVariable(name: "result", arg: 2, scope: !1306, file: !45, line: 77, type: !1266)
-!1310 = !DILocation(line: 0, scope: !1306)
-!1311 = !DILocation(line: 78, column: 26, scope: !1306)
-!1312 = !DILocation(line: 78, column: 24, scope: !1306)
-!1313 = !DILocation(line: 78, column: 59, scope: !1306)
-!1314 = !DILocation(line: 78, column: 57, scope: !1306)
-!1315 = !DILocation(line: 78, column: 17, scope: !1306)
-!1316 = !DILocation(line: 79, column: 5, scope: !1306)
-!1317 = distinct !DISubprogram(name: "gsl_sf_dilog_e_wrapper", linkageName: "_Z22gsl_sf_dilog_e_wrapperd", scope: !45, file: !45, line: 83, type: !59, scopeLine: 83, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1318)
-!1318 = !{!1319, !1320}
-!1319 = !DILocalVariable(name: "x", arg: 1, scope: !1317, file: !45, line: 83, type: !47)
-!1320 = !DILocalVariable(name: "result", scope: !1317, file: !45, line: 83, type: !1248)
-!1321 = distinct !DIAssignID()
-!1322 = !DILocation(line: 0, scope: !1317)
-!1323 = !DILocation(line: 83, column: 1, scope: !1317)
-!1324 = !DISubprogram(name: "gsl_sf_dilog_e", scope: !1325, file: !1325, line: 52, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1325 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_dilog.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "9b7ec859db6252cc15f7f2263c003a62")
-!1326 = distinct !DISubprogram(name: "func_f3", linkageName: "_Z7func_f3dP20gsl_sf_result_struct", scope: !45, file: !45, line: 85, type: !1277, scopeLine: 85, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1327)
-!1327 = !{!1328, !1329}
-!1328 = !DILocalVariable(name: "x", arg: 1, scope: !1326, file: !45, line: 85, type: !47)
-!1329 = !DILocalVariable(name: "result", arg: 2, scope: !1326, file: !45, line: 85, type: !1266)
-!1330 = !DILocation(line: 0, scope: !1326)
-!1331 = !DILocation(line: 86, column: 26, scope: !1326)
-!1332 = !DILocation(line: 86, column: 24, scope: !1326)
-!1333 = !DILocation(line: 86, column: 62, scope: !1326)
-!1334 = !DILocation(line: 86, column: 60, scope: !1326)
-!1335 = !DILocation(line: 86, column: 53, scope: !1326)
-!1336 = !DILocation(line: 86, column: 17, scope: !1326)
-!1337 = !DILocation(line: 87, column: 5, scope: !1326)
-!1338 = distinct !DISubprogram(name: "gsl_sf_erf_e_wrapper", linkageName: "_Z20gsl_sf_erf_e_wrapperd", scope: !45, file: !45, line: 91, type: !59, scopeLine: 91, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1339)
-!1339 = !{!1340, !1341}
-!1340 = !DILocalVariable(name: "x", arg: 1, scope: !1338, file: !45, line: 91, type: !47)
-!1341 = !DILocalVariable(name: "result", scope: !1338, file: !45, line: 91, type: !1248)
-!1342 = distinct !DIAssignID()
-!1343 = !DILocation(line: 0, scope: !1338)
-!1344 = !DILocation(line: 91, column: 1, scope: !1338)
-!1345 = !DISubprogram(name: "gsl_sf_erf_e", scope: !1346, file: !1346, line: 62, type: !1277, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1346 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_erf.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "cce330efcc426add009546150e943c76")
-!1347 = distinct !DISubprogram(name: "gsl_sf_log_e_wrapper", linkageName: "_Z20gsl_sf_log_e_wrapperd", scope: !45, file: !45, line: 92, type: !59, scopeLine: 92, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1348)
-!1348 = !{!1349, !1350}
-!1349 = !DILocalVariable(name: "x", arg: 1, scope: !1347, file: !45, line: 92, type: !47)
-!1350 = !DILocalVariable(name: "result", scope: !1347, file: !45, line: 92, type: !1248)
-!1351 = distinct !DIAssignID()
-!1352 = !DILocation(line: 0, scope: !1347)
-!1353 = !DILocation(line: 92, column: 1, scope: !1347)
-!1354 = !DISubprogram(name: "gsl_sf_log_e", scope: !1355, file: !1355, line: 44, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1355 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_log.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "f56b795d5c89d6a7f7c2549105288199")
-!1356 = distinct !DISubprogram(name: "gsl_sf_log_1plusx_e_wrapper", linkageName: "_Z27gsl_sf_log_1plusx_e_wrapperd", scope: !45, file: !45, line: 93, type: !59, scopeLine: 93, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1357)
-!1357 = !{!1358, !1359}
-!1358 = !DILocalVariable(name: "x", arg: 1, scope: !1356, file: !45, line: 93, type: !47)
-!1359 = !DILocalVariable(name: "result", scope: !1356, file: !45, line: 93, type: !1248)
-!1360 = distinct !DIAssignID()
-!1361 = !DILocation(line: 0, scope: !1356)
-!1362 = !DILocation(line: 93, column: 1, scope: !1356)
-!1363 = !DISubprogram(name: "gsl_sf_log_1plusx_e", scope: !1355, file: !1355, line: 69, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1364 = distinct !DISubprogram(name: "func_f4", linkageName: "_Z7func_f4dP20gsl_sf_result_struct", scope: !45, file: !45, line: 95, type: !1277, scopeLine: 95, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1365)
+!1244 = distinct !DISubprogram(name: "numerical_derivative", linkageName: "_Z20numerical_derivativePFidP20gsl_sf_result_structEd", scope: !45, file: !45, line: 60, type: !1245, scopeLine: 60, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1257)
+!1245 = !DISubroutineType(types: !1246)
+!1246 = !{!47, !1247, !47}
+!1247 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1248, size: 64)
+!1248 = !DISubroutineType(types: !1249)
+!1249 = !{!5, !47, !1250}
+!1250 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !1251, size: 64)
+!1251 = !DIDerivedType(tag: DW_TAG_typedef, name: "gsl_sf_result", file: !1252, line: 41, baseType: !1253)
+!1252 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_result.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "5b52deed011f1ffd07977b19a388d251")
+!1253 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "gsl_sf_result_struct", file: !1252, line: 37, size: 128, flags: DIFlagTypePassByValue, elements: !1254, identifier: "_ZTS20gsl_sf_result_struct")
+!1254 = !{!1255, !1256}
+!1255 = !DIDerivedType(tag: DW_TAG_member, name: "val", scope: !1253, file: !1252, line: 38, baseType: !47, size: 64)
+!1256 = !DIDerivedType(tag: DW_TAG_member, name: "err", scope: !1253, file: !1252, line: 39, baseType: !47, size: 64, offset: 64)
+!1257 = !{!1258, !1259, !1260, !1261, !1262, !1263, !1264}
+!1258 = !DILocalVariable(name: "func", arg: 1, scope: !1244, file: !45, line: 60, type: !1247)
+!1259 = !DILocalVariable(name: "x", arg: 2, scope: !1244, file: !45, line: 60, type: !47)
+!1260 = !DILocalVariable(name: "h", scope: !1244, file: !45, line: 61, type: !46)
+!1261 = !DILocalVariable(name: "result1", scope: !1244, file: !45, line: 62, type: !1251)
+!1262 = !DILocalVariable(name: "result2", scope: !1244, file: !45, line: 62, type: !1251)
+!1263 = !DILocalVariable(name: "status1", scope: !1244, file: !45, line: 65, type: !5)
+!1264 = !DILocalVariable(name: "status2", scope: !1244, file: !45, line: 71, type: !5)
+!1265 = distinct !DIAssignID()
+!1266 = !DILocation(line: 0, scope: !1244)
+!1267 = distinct !DIAssignID()
+!1268 = !DILocation(line: 62, column: 5, scope: !1244)
+!1269 = !DILocation(line: 65, column: 26, scope: !1244)
+!1270 = !DILocation(line: 65, column: 19, scope: !1244)
+!1271 = !DILocation(line: 66, column: 17, scope: !1272)
+!1272 = distinct !DILexicalBlock(scope: !1244, file: !45, line: 66, column: 9)
+!1273 = !DILocation(line: 66, column: 9, scope: !1244)
+!1274 = !DILocation(line: 71, column: 19, scope: !1244)
+!1275 = !DILocation(line: 72, column: 17, scope: !1276)
+!1276 = distinct !DILexicalBlock(scope: !1244, file: !45, line: 72, column: 9)
+!1277 = !DILocation(line: 72, column: 9, scope: !1244)
+!1278 = !DILocation(line: 78, column: 1, scope: !1244)
+!1279 = distinct !DISubprogram(name: "gsl_sf_bessel_I1_e_wrapper", linkageName: "_Z26gsl_sf_bessel_I1_e_wrapperd", scope: !45, file: !45, line: 84, type: !59, scopeLine: 84, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1280)
+!1280 = !{!1281, !1282}
+!1281 = !DILocalVariable(name: "x", arg: 1, scope: !1279, file: !45, line: 84, type: !47)
+!1282 = !DILocalVariable(name: "result", scope: !1279, file: !45, line: 84, type: !1251)
+!1283 = distinct !DIAssignID()
+!1284 = !DILocation(line: 0, scope: !1279)
+!1285 = !DILocation(line: 84, column: 1, scope: !1279)
+!1286 = !{!1287, !1288, i64 0}
+!1287 = !{!"_ZTS20gsl_sf_result_struct", !1288, i64 0, !1288, i64 8}
+!1288 = !{!"double", !1289, i64 0}
+!1289 = !{!"omnipotent char", !1290, i64 0}
+!1290 = !{!"Simple C++ TBAA"}
+!1291 = !DISubprogram(name: "gsl_sf_bessel_I1_e", scope: !1292, file: !1292, line: 121, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1292 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_bessel.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "45459f63edc3203df6c715a25160d493")
+!1293 = !DISubroutineType(types: !1294)
+!1294 = !{!5, !46, !1250}
+!1295 = distinct !DISubprogram(name: "gsl_sf_exp_e_wrapper", linkageName: "_Z20gsl_sf_exp_e_wrapperd", scope: !45, file: !45, line: 85, type: !59, scopeLine: 85, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1296)
+!1296 = !{!1297, !1298}
+!1297 = !DILocalVariable(name: "x", arg: 1, scope: !1295, file: !45, line: 85, type: !47)
+!1298 = !DILocalVariable(name: "result", scope: !1295, file: !45, line: 85, type: !1251)
+!1299 = distinct !DIAssignID()
+!1300 = !DILocation(line: 0, scope: !1295)
+!1301 = !DILocation(line: 85, column: 1, scope: !1295)
+!1302 = !DISubprogram(name: "gsl_sf_exp_e", scope: !1303, file: !1303, line: 45, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1303 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_exp.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "c512f91507e79efdd09661b0faef2cde")
+!1304 = distinct !DISubprogram(name: "func_f1", linkageName: "_Z7func_f1dP20gsl_sf_result_struct", scope: !45, file: !45, line: 87, type: !1248, scopeLine: 87, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1305)
+!1305 = !{!1306, !1307}
+!1306 = !DILocalVariable(name: "x", arg: 1, scope: !1304, file: !45, line: 87, type: !47)
+!1307 = !DILocalVariable(name: "result", arg: 2, scope: !1304, file: !45, line: 87, type: !1250)
+!1308 = !DILocation(line: 0, scope: !1304)
+!1309 = !DILocation(line: 88, column: 29, scope: !1304)
+!1310 = !DILocation(line: 88, column: 20, scope: !1304)
+!1311 = !DILocation(line: 88, column: 60, scope: !1304)
+!1312 = !DILocation(line: 88, column: 67, scope: !1304)
+!1313 = !DILocation(line: 88, column: 17, scope: !1304)
+!1314 = !DILocation(line: 89, column: 5, scope: !1304)
+!1315 = distinct !DISubprogram(name: "gsl_sf_bessel_J0_e_wrapper", linkageName: "_Z26gsl_sf_bessel_J0_e_wrapperd", scope: !45, file: !45, line: 93, type: !59, scopeLine: 93, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1316)
+!1316 = !{!1317, !1318}
+!1317 = !DILocalVariable(name: "x", arg: 1, scope: !1315, file: !45, line: 93, type: !47)
+!1318 = !DILocalVariable(name: "result", scope: !1315, file: !45, line: 93, type: !1251)
+!1319 = distinct !DIAssignID()
+!1320 = !DILocation(line: 0, scope: !1315)
+!1321 = !DILocation(line: 93, column: 1, scope: !1315)
+!1322 = !DISubprogram(name: "gsl_sf_bessel_J0_e", scope: !1292, file: !1292, line: 47, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1323 = distinct !DISubprogram(name: "gsl_sf_sin_e_wrapper", linkageName: "_Z20gsl_sf_sin_e_wrapperd", scope: !45, file: !45, line: 94, type: !59, scopeLine: 94, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1324)
+!1324 = !{!1325, !1326}
+!1325 = !DILocalVariable(name: "x", arg: 1, scope: !1323, file: !45, line: 94, type: !47)
+!1326 = !DILocalVariable(name: "result", scope: !1323, file: !45, line: 94, type: !1251)
+!1327 = distinct !DIAssignID()
+!1328 = !DILocation(line: 0, scope: !1323)
+!1329 = !DILocation(line: 94, column: 1, scope: !1323)
+!1330 = !DISubprogram(name: "gsl_sf_sin_e", scope: !1331, file: !1331, line: 45, type: !1248, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1331 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_trig.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "f99b323a60a985d2ebefccc97fb97d3a")
+!1332 = distinct !DISubprogram(name: "func_f2", linkageName: "_Z7func_f2dP20gsl_sf_result_struct", scope: !45, file: !45, line: 96, type: !1248, scopeLine: 96, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1333)
+!1333 = !{!1334, !1335}
+!1334 = !DILocalVariable(name: "x", arg: 1, scope: !1332, file: !45, line: 96, type: !47)
+!1335 = !DILocalVariable(name: "result", arg: 2, scope: !1332, file: !45, line: 96, type: !1250)
+!1336 = !DILocation(line: 0, scope: !1332)
+!1337 = !DILocation(line: 97, column: 26, scope: !1332)
+!1338 = !DILocation(line: 97, column: 24, scope: !1332)
+!1339 = !DILocation(line: 97, column: 59, scope: !1332)
+!1340 = !DILocation(line: 97, column: 57, scope: !1332)
+!1341 = !DILocation(line: 97, column: 17, scope: !1332)
+!1342 = !DILocation(line: 98, column: 5, scope: !1332)
+!1343 = distinct !DISubprogram(name: "gsl_sf_dilog_e_wrapper", linkageName: "_Z22gsl_sf_dilog_e_wrapperd", scope: !45, file: !45, line: 102, type: !59, scopeLine: 102, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1344)
+!1344 = !{!1345, !1346}
+!1345 = !DILocalVariable(name: "x", arg: 1, scope: !1343, file: !45, line: 102, type: !47)
+!1346 = !DILocalVariable(name: "result", scope: !1343, file: !45, line: 102, type: !1251)
+!1347 = distinct !DIAssignID()
+!1348 = !DILocation(line: 0, scope: !1343)
+!1349 = !DILocation(line: 102, column: 1, scope: !1343)
+!1350 = !DISubprogram(name: "gsl_sf_dilog_e", scope: !1351, file: !1351, line: 52, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1351 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_dilog.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "9b7ec859db6252cc15f7f2263c003a62")
+!1352 = distinct !DISubprogram(name: "func_f3", linkageName: "_Z7func_f3dP20gsl_sf_result_struct", scope: !45, file: !45, line: 104, type: !1248, scopeLine: 104, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1353)
+!1353 = !{!1354, !1355}
+!1354 = !DILocalVariable(name: "x", arg: 1, scope: !1352, file: !45, line: 104, type: !47)
+!1355 = !DILocalVariable(name: "result", arg: 2, scope: !1352, file: !45, line: 104, type: !1250)
+!1356 = !DILocation(line: 0, scope: !1352)
+!1357 = !DILocation(line: 105, column: 26, scope: !1352)
+!1358 = !DILocation(line: 105, column: 24, scope: !1352)
+!1359 = !DILocation(line: 105, column: 62, scope: !1352)
+!1360 = !DILocation(line: 105, column: 60, scope: !1352)
+!1361 = !DILocation(line: 105, column: 53, scope: !1352)
+!1362 = !DILocation(line: 105, column: 17, scope: !1352)
+!1363 = !DILocation(line: 106, column: 5, scope: !1352)
+!1364 = distinct !DISubprogram(name: "gsl_sf_erf_e_wrapper", linkageName: "_Z20gsl_sf_erf_e_wrapperd", scope: !45, file: !45, line: 110, type: !59, scopeLine: 110, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1365)
 !1365 = !{!1366, !1367}
-!1366 = !DILocalVariable(name: "x", arg: 1, scope: !1364, file: !45, line: 95, type: !47)
-!1367 = !DILocalVariable(name: "result", arg: 2, scope: !1364, file: !45, line: 95, type: !1266)
-!1368 = !DILocation(line: 0, scope: !1364)
-!1369 = !DILocation(line: 96, column: 46, scope: !1364)
-!1370 = !DILocation(line: 96, column: 44, scope: !1364)
-!1371 = !DILocation(line: 96, column: 19, scope: !1364)
-!1372 = !DILocation(line: 96, column: 73, scope: !1364)
-!1373 = !DILocation(line: 96, column: 71, scope: !1364)
-!1374 = !DILocation(line: 96, column: 17, scope: !1364)
-!1375 = !DILocation(line: 97, column: 5, scope: !1364)
-!1376 = distinct !DISubprogram(name: "gsl_sf_fermi_dirac_1_e_wrapper", linkageName: "_Z30gsl_sf_fermi_dirac_1_e_wrapperd", scope: !45, file: !45, line: 101, type: !59, scopeLine: 101, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1377)
-!1377 = !{!1378, !1379}
-!1378 = !DILocalVariable(name: "x", arg: 1, scope: !1376, file: !45, line: 101, type: !47)
-!1379 = !DILocalVariable(name: "result", scope: !1376, file: !45, line: 101, type: !1248)
-!1380 = distinct !DIAssignID()
-!1381 = !DILocation(line: 0, scope: !1376)
-!1382 = !DILocation(line: 101, column: 1, scope: !1376)
-!1383 = !DISubprogram(name: "gsl_sf_fermi_dirac_1_e", scope: !1384, file: !1384, line: 71, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1384 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_fermi_dirac.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "15d09131d95b25be99d6fc66bb905303")
-!1385 = distinct !DISubprogram(name: "func_f5", linkageName: "_Z7func_f5dP20gsl_sf_result_struct", scope: !45, file: !45, line: 103, type: !1277, scopeLine: 103, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1386)
-!1386 = !{!1387, !1388, !1389}
-!1387 = !DILocalVariable(name: "x", arg: 1, scope: !1385, file: !45, line: 103, type: !47)
-!1388 = !DILocalVariable(name: "result", arg: 2, scope: !1385, file: !45, line: 103, type: !1266)
-!1389 = !DILocalVariable(name: "acos_val", scope: !1385, file: !45, line: 104, type: !47)
-!1390 = !DILocation(line: 0, scope: !1385)
-!1391 = !DILocation(line: 104, column: 23, scope: !1385)
-!1392 = !DILocation(line: 105, column: 28, scope: !1385)
-!1393 = !DILocation(line: 105, column: 47, scope: !1385)
-!1394 = !DILocation(line: 105, column: 45, scope: !1385)
-!1395 = !DILocation(line: 105, column: 39, scope: !1385)
-!1396 = !DILocation(line: 105, column: 17, scope: !1385)
-!1397 = !DILocation(line: 106, column: 5, scope: !1385)
-!1398 = distinct !DISubprogram(name: "gsl_cdf_ugaussian_Pinv_wrapper", linkageName: "_Z30gsl_cdf_ugaussian_Pinv_wrapperd", scope: !45, file: !45, line: 110, type: !59, scopeLine: 110, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1399)
-!1399 = !{!1400}
-!1400 = !DILocalVariable(name: "x", arg: 1, scope: !1398, file: !45, line: 110, type: !47)
-!1401 = !DILocation(line: 0, scope: !1398)
-!1402 = !DILocation(line: 110, column: 1, scope: !1398)
-!1403 = !DISubprogram(name: "gsl_cdf_ugaussian_Pinv", scope: !1404, file: !1404, line: 40, type: !1405, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1404 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_cdf.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "bd2fc202ded2e4f4b02a0f3c989b2abe")
-!1405 = !DISubroutineType(types: !1406)
-!1406 = !{!47, !46}
-!1407 = distinct !DISubprogram(name: "gsl_sf_cos_e_wrapper", linkageName: "_Z20gsl_sf_cos_e_wrapperd", scope: !45, file: !45, line: 111, type: !59, scopeLine: 111, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1408)
-!1408 = !{!1409, !1410}
-!1409 = !DILocalVariable(name: "x", arg: 1, scope: !1407, file: !45, line: 111, type: !47)
-!1410 = !DILocalVariable(name: "result", scope: !1407, file: !45, line: 111, type: !1248)
-!1411 = distinct !DIAssignID()
-!1412 = !DILocation(line: 0, scope: !1407)
-!1413 = !DILocation(line: 111, column: 1, scope: !1407)
-!1414 = !DISubprogram(name: "gsl_sf_cos_e", scope: !1305, file: !1305, line: 51, type: !1277, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1415 = distinct !DISubprogram(name: "func_f6", linkageName: "_Z7func_f6dP20gsl_sf_result_struct", scope: !45, file: !45, line: 113, type: !1277, scopeLine: 113, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1416)
-!1416 = !{!1417, !1418, !1419}
-!1417 = !DILocalVariable(name: "x", arg: 1, scope: !1415, file: !45, line: 113, type: !47)
-!1418 = !DILocalVariable(name: "result", arg: 2, scope: !1415, file: !45, line: 113, type: !1266)
-!1419 = !DILocalVariable(name: "erf_inv_val", scope: !1415, file: !45, line: 114, type: !47)
-!1420 = !DILocation(line: 0, scope: !1415)
-!1421 = !DILocation(line: 114, column: 61, scope: !1415)
-!1422 = !DILocation(line: 114, column: 68, scope: !1415)
-!1423 = !DILocation(line: 114, column: 26, scope: !1415)
-!1424 = !DILocation(line: 114, column: 76, scope: !1415)
-!1425 = !DILocation(line: 115, column: 19, scope: !1415)
-!1426 = !DILocation(line: 115, column: 56, scope: !1415)
-!1427 = !DILocation(line: 115, column: 82, scope: !1415)
-!1428 = !DILocation(line: 115, column: 80, scope: !1415)
-!1429 = !DILocation(line: 115, column: 53, scope: !1415)
-!1430 = !DILocation(line: 115, column: 17, scope: !1415)
-!1431 = !DILocation(line: 116, column: 5, scope: !1415)
-!1432 = distinct !DISubprogram(name: "gsl_sf_legendre_Q1_e_wrapper", linkageName: "_Z28gsl_sf_legendre_Q1_e_wrapperd", scope: !45, file: !45, line: 120, type: !59, scopeLine: 120, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1433)
-!1433 = !{!1434, !1435}
-!1434 = !DILocalVariable(name: "x", arg: 1, scope: !1432, file: !45, line: 120, type: !47)
-!1435 = !DILocalVariable(name: "result", scope: !1432, file: !45, line: 120, type: !1248)
-!1436 = distinct !DIAssignID()
-!1437 = !DILocation(line: 0, scope: !1432)
-!1438 = !DILocation(line: 120, column: 1, scope: !1432)
-!1439 = !DISubprogram(name: "gsl_sf_legendre_Q1_e", scope: !1440, file: !1440, line: 93, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1440 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_legendre.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "d813561ffda8cd1a9abe9196cf770c77")
-!1441 = distinct !DISubprogram(name: "gsl_sf_lambert_W0_e_wrapper", linkageName: "_Z27gsl_sf_lambert_W0_e_wrapperd", scope: !45, file: !45, line: 121, type: !59, scopeLine: 121, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1442)
-!1442 = !{!1443, !1444}
-!1443 = !DILocalVariable(name: "x", arg: 1, scope: !1441, file: !45, line: 121, type: !47)
-!1444 = !DILocalVariable(name: "result", scope: !1441, file: !45, line: 121, type: !1248)
-!1445 = distinct !DIAssignID()
+!1366 = !DILocalVariable(name: "x", arg: 1, scope: !1364, file: !45, line: 110, type: !47)
+!1367 = !DILocalVariable(name: "result", scope: !1364, file: !45, line: 110, type: !1251)
+!1368 = distinct !DIAssignID()
+!1369 = !DILocation(line: 0, scope: !1364)
+!1370 = !DILocation(line: 110, column: 1, scope: !1364)
+!1371 = !DISubprogram(name: "gsl_sf_erf_e", scope: !1372, file: !1372, line: 62, type: !1248, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1372 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_erf.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "cce330efcc426add009546150e943c76")
+!1373 = distinct !DISubprogram(name: "gsl_sf_log_e_wrapper", linkageName: "_Z20gsl_sf_log_e_wrapperd", scope: !45, file: !45, line: 111, type: !59, scopeLine: 111, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1374)
+!1374 = !{!1375, !1376}
+!1375 = !DILocalVariable(name: "x", arg: 1, scope: !1373, file: !45, line: 111, type: !47)
+!1376 = !DILocalVariable(name: "result", scope: !1373, file: !45, line: 111, type: !1251)
+!1377 = distinct !DIAssignID()
+!1378 = !DILocation(line: 0, scope: !1373)
+!1379 = !DILocation(line: 111, column: 1, scope: !1373)
+!1380 = !DISubprogram(name: "gsl_sf_log_e", scope: !1381, file: !1381, line: 44, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1381 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_log.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "f56b795d5c89d6a7f7c2549105288199")
+!1382 = distinct !DISubprogram(name: "gsl_sf_log_1plusx_e_wrapper", linkageName: "_Z27gsl_sf_log_1plusx_e_wrapperd", scope: !45, file: !45, line: 112, type: !59, scopeLine: 112, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1383)
+!1383 = !{!1384, !1385}
+!1384 = !DILocalVariable(name: "x", arg: 1, scope: !1382, file: !45, line: 112, type: !47)
+!1385 = !DILocalVariable(name: "result", scope: !1382, file: !45, line: 112, type: !1251)
+!1386 = distinct !DIAssignID()
+!1387 = !DILocation(line: 0, scope: !1382)
+!1388 = !DILocation(line: 112, column: 1, scope: !1382)
+!1389 = !DISubprogram(name: "gsl_sf_log_1plusx_e", scope: !1381, file: !1381, line: 69, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1390 = distinct !DISubprogram(name: "func_f4", linkageName: "_Z7func_f4dP20gsl_sf_result_struct", scope: !45, file: !45, line: 114, type: !1248, scopeLine: 114, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1391)
+!1391 = !{!1392, !1393}
+!1392 = !DILocalVariable(name: "x", arg: 1, scope: !1390, file: !45, line: 114, type: !47)
+!1393 = !DILocalVariable(name: "result", arg: 2, scope: !1390, file: !45, line: 114, type: !1250)
+!1394 = !DILocation(line: 0, scope: !1390)
+!1395 = !DILocation(line: 115, column: 46, scope: !1390)
+!1396 = !DILocation(line: 115, column: 44, scope: !1390)
+!1397 = !DILocation(line: 115, column: 19, scope: !1390)
+!1398 = !DILocation(line: 115, column: 73, scope: !1390)
+!1399 = !DILocation(line: 115, column: 71, scope: !1390)
+!1400 = !DILocation(line: 115, column: 17, scope: !1390)
+!1401 = !DILocation(line: 116, column: 5, scope: !1390)
+!1402 = distinct !DISubprogram(name: "gsl_sf_fermi_dirac_1_e_wrapper", linkageName: "_Z30gsl_sf_fermi_dirac_1_e_wrapperd", scope: !45, file: !45, line: 120, type: !59, scopeLine: 120, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1403)
+!1403 = !{!1404, !1405}
+!1404 = !DILocalVariable(name: "x", arg: 1, scope: !1402, file: !45, line: 120, type: !47)
+!1405 = !DILocalVariable(name: "result", scope: !1402, file: !45, line: 120, type: !1251)
+!1406 = distinct !DIAssignID()
+!1407 = !DILocation(line: 0, scope: !1402)
+!1408 = !DILocation(line: 120, column: 1, scope: !1402)
+!1409 = !DISubprogram(name: "gsl_sf_fermi_dirac_1_e", scope: !1410, file: !1410, line: 71, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1410 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_fermi_dirac.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "15d09131d95b25be99d6fc66bb905303")
+!1411 = distinct !DISubprogram(name: "func_f5", linkageName: "_Z7func_f5dP20gsl_sf_result_struct", scope: !45, file: !45, line: 122, type: !1248, scopeLine: 122, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1412)
+!1412 = !{!1413, !1414, !1415}
+!1413 = !DILocalVariable(name: "x", arg: 1, scope: !1411, file: !45, line: 122, type: !47)
+!1414 = !DILocalVariable(name: "result", arg: 2, scope: !1411, file: !45, line: 122, type: !1250)
+!1415 = !DILocalVariable(name: "acos_val", scope: !1411, file: !45, line: 123, type: !47)
+!1416 = !DILocation(line: 0, scope: !1411)
+!1417 = !DILocation(line: 123, column: 23, scope: !1411)
+!1418 = !DILocation(line: 124, column: 28, scope: !1411)
+!1419 = !DILocation(line: 124, column: 47, scope: !1411)
+!1420 = !DILocation(line: 124, column: 45, scope: !1411)
+!1421 = !DILocation(line: 124, column: 39, scope: !1411)
+!1422 = !DILocation(line: 124, column: 17, scope: !1411)
+!1423 = !DILocation(line: 125, column: 5, scope: !1411)
+!1424 = distinct !DISubprogram(name: "gsl_cdf_ugaussian_Pinv_wrapper", linkageName: "_Z30gsl_cdf_ugaussian_Pinv_wrapperd", scope: !45, file: !45, line: 129, type: !59, scopeLine: 129, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1425)
+!1425 = !{!1426}
+!1426 = !DILocalVariable(name: "x", arg: 1, scope: !1424, file: !45, line: 129, type: !47)
+!1427 = !DILocation(line: 0, scope: !1424)
+!1428 = !DILocation(line: 129, column: 1, scope: !1424)
+!1429 = !DISubprogram(name: "gsl_cdf_ugaussian_Pinv", scope: !1430, file: !1430, line: 40, type: !1431, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1430 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_cdf.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "bd2fc202ded2e4f4b02a0f3c989b2abe")
+!1431 = !DISubroutineType(types: !1432)
+!1432 = !{!47, !46}
+!1433 = distinct !DISubprogram(name: "gsl_sf_cos_e_wrapper", linkageName: "_Z20gsl_sf_cos_e_wrapperd", scope: !45, file: !45, line: 130, type: !59, scopeLine: 130, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1434)
+!1434 = !{!1435, !1436}
+!1435 = !DILocalVariable(name: "x", arg: 1, scope: !1433, file: !45, line: 130, type: !47)
+!1436 = !DILocalVariable(name: "result", scope: !1433, file: !45, line: 130, type: !1251)
+!1437 = distinct !DIAssignID()
+!1438 = !DILocation(line: 0, scope: !1433)
+!1439 = !DILocation(line: 130, column: 1, scope: !1433)
+!1440 = !DISubprogram(name: "gsl_sf_cos_e", scope: !1331, file: !1331, line: 51, type: !1248, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1441 = distinct !DISubprogram(name: "func_f6", linkageName: "_Z7func_f6dP20gsl_sf_result_struct", scope: !45, file: !45, line: 132, type: !1248, scopeLine: 132, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1442)
+!1442 = !{!1443, !1444, !1445}
+!1443 = !DILocalVariable(name: "x", arg: 1, scope: !1441, file: !45, line: 132, type: !47)
+!1444 = !DILocalVariable(name: "result", arg: 2, scope: !1441, file: !45, line: 132, type: !1250)
+!1445 = !DILocalVariable(name: "erf_inv_val", scope: !1441, file: !45, line: 133, type: !47)
 !1446 = !DILocation(line: 0, scope: !1441)
-!1447 = !DILocation(line: 121, column: 1, scope: !1441)
-!1448 = !DISubprogram(name: "gsl_sf_lambert_W0_e", scope: !1449, file: !1449, line: 49, type: !1277, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1449 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_lambert.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "2cd7769bdc34320b683c78e35f4217f5")
-!1450 = distinct !DISubprogram(name: "func_f7", linkageName: "_Z7func_f7dP20gsl_sf_result_struct", scope: !45, file: !45, line: 123, type: !1277, scopeLine: 123, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1451)
-!1451 = !{!1452, !1453, !1454}
-!1452 = !DILocalVariable(name: "x", arg: 1, scope: !1450, file: !45, line: 123, type: !47)
-!1453 = !DILocalVariable(name: "result", arg: 2, scope: !1450, file: !45, line: 123, type: !1266)
-!1454 = !DILocalVariable(name: "w_val", scope: !1450, file: !45, line: 124, type: !47)
-!1455 = !DILocation(line: 0, scope: !1450)
-!1456 = !DILocation(line: 124, column: 20, scope: !1450)
-!1457 = !DILocation(line: 125, column: 26, scope: !1450)
-!1458 = !DILocation(line: 125, column: 24, scope: !1450)
-!1459 = !DILocation(line: 125, column: 68, scope: !1450)
-!1460 = !DILocation(line: 125, column: 59, scope: !1450)
-!1461 = !DILocation(line: 125, column: 17, scope: !1450)
-!1462 = !DILocation(line: 126, column: 5, scope: !1450)
-!1463 = distinct !DISubprogram(name: "gsl_sf_bessel_j0_wrapper", linkageName: "_Z24gsl_sf_bessel_j0_wrapperd", scope: !45, file: !45, line: 130, type: !59, scopeLine: 130, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1464)
-!1464 = !{!1465}
-!1465 = !DILocalVariable(name: "x", arg: 1, scope: !1463, file: !45, line: 130, type: !47)
-!1466 = !DILocation(line: 0, scope: !1463)
-!1467 = !DILocation(line: 130, column: 1, scope: !1463)
-!1468 = !DISubprogram(name: "gsl_sf_bessel_j0", scope: !1263, file: !1263, line: 255, type: !1405, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1469 = distinct !DISubprogram(name: "func_f8", linkageName: "_Z7func_f8dP20gsl_sf_result_struct", scope: !45, file: !45, line: 132, type: !1277, scopeLine: 132, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1470)
-!1470 = !{!1471, !1472}
-!1471 = !DILocalVariable(name: "x", arg: 1, scope: !1469, file: !45, line: 132, type: !47)
-!1472 = !DILocalVariable(name: "result", arg: 2, scope: !1469, file: !45, line: 132, type: !1266)
-!1473 = !DILocation(line: 0, scope: !1469)
-!1474 = !DILocation(line: 133, column: 26, scope: !1469)
-!1475 = !DILocation(line: 133, column: 24, scope: !1469)
-!1476 = !DILocation(line: 133, column: 62, scope: !1469)
-!1477 = !DILocation(line: 133, column: 60, scope: !1469)
-!1478 = !DILocation(line: 133, column: 55, scope: !1469)
-!1479 = !DILocation(line: 133, column: 17, scope: !1469)
-!1480 = !DILocation(line: 134, column: 5, scope: !1469)
-!1481 = distinct !DISubprogram(name: "gsl_sf_Si_e_wrapper", linkageName: "_Z19gsl_sf_Si_e_wrapperd", scope: !45, file: !45, line: 138, type: !59, scopeLine: 138, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1482)
-!1482 = !{!1483, !1484}
-!1483 = !DILocalVariable(name: "x", arg: 1, scope: !1481, file: !45, line: 138, type: !47)
-!1484 = !DILocalVariable(name: "result", scope: !1481, file: !45, line: 138, type: !1248)
-!1485 = distinct !DIAssignID()
-!1486 = !DILocation(line: 0, scope: !1481)
-!1487 = !DILocation(line: 138, column: 1, scope: !1481)
-!1488 = !DISubprogram(name: "gsl_sf_Si_e", scope: !1489, file: !1489, line: 143, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1489 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_expint.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "fa6433b039d5ce651e3386bd71654e9c")
-!1490 = distinct !DISubprogram(name: "func_f9", linkageName: "_Z7func_f9dP20gsl_sf_result_struct", scope: !45, file: !45, line: 140, type: !1277, scopeLine: 140, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1491)
-!1491 = !{!1492, !1493}
-!1492 = !DILocalVariable(name: "x", arg: 1, scope: !1490, file: !45, line: 140, type: !47)
-!1493 = !DILocalVariable(name: "result", arg: 2, scope: !1490, file: !45, line: 140, type: !1266)
-!1494 = !DILocation(line: 0, scope: !1490)
-!1495 = !DILocation(line: 141, column: 20, scope: !1490)
-!1496 = !DILocation(line: 141, column: 45, scope: !1490)
-!1497 = !DILocation(line: 141, column: 43, scope: !1490)
-!1498 = !DILocation(line: 141, column: 63, scope: !1490)
-!1499 = !DILocation(line: 141, column: 67, scope: !1490)
-!1500 = !DILocation(line: 141, column: 58, scope: !1490)
-!1501 = !DILocation(line: 141, column: 17, scope: !1490)
-!1502 = !DILocation(line: 142, column: 5, scope: !1490)
-!1503 = distinct !DISubprogram(name: "gsl_sf_bessel_y0_e_wrapper", linkageName: "_Z26gsl_sf_bessel_y0_e_wrapperd", scope: !45, file: !45, line: 146, type: !59, scopeLine: 146, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1504)
-!1504 = !{!1505, !1506}
-!1505 = !DILocalVariable(name: "x", arg: 1, scope: !1503, file: !45, line: 146, type: !47)
-!1506 = !DILocalVariable(name: "result", scope: !1503, file: !45, line: 146, type: !1248)
-!1507 = distinct !DIAssignID()
-!1508 = !DILocation(line: 0, scope: !1503)
-!1509 = !DILocation(line: 146, column: 1, scope: !1503)
-!1510 = !DISubprogram(name: "gsl_sf_bessel_y0_e", scope: !1263, file: !1263, line: 302, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1511 = distinct !DISubprogram(name: "gsl_sf_psi_1_e_wrapper", linkageName: "_Z22gsl_sf_psi_1_e_wrapperd", scope: !45, file: !45, line: 147, type: !59, scopeLine: 147, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1512)
-!1512 = !{!1513, !1514}
-!1513 = !DILocalVariable(name: "x", arg: 1, scope: !1511, file: !45, line: 147, type: !47)
-!1514 = !DILocalVariable(name: "result", scope: !1511, file: !45, line: 147, type: !1248)
-!1515 = distinct !DIAssignID()
-!1516 = !DILocation(line: 0, scope: !1511)
-!1517 = !DILocation(line: 147, column: 1, scope: !1511)
-!1518 = !DISubprogram(name: "gsl_sf_psi_1_e", scope: !1519, file: !1519, line: 98, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1519 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_psi.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "991a41b1033bad74a63fe4c86bbfa6a4")
-!1520 = distinct !DISubprogram(name: "func_f10", linkageName: "_Z8func_f10dP20gsl_sf_result_struct", scope: !45, file: !45, line: 149, type: !1277, scopeLine: 149, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1521)
-!1521 = !{!1522, !1523, !1524}
-!1522 = !DILocalVariable(name: "x", arg: 1, scope: !1520, file: !45, line: 149, type: !47)
-!1523 = !DILocalVariable(name: "result", arg: 2, scope: !1520, file: !45, line: 149, type: !1266)
-!1524 = !DILocalVariable(name: "y0_val", scope: !1520, file: !45, line: 150, type: !47)
-!1525 = !DILocation(line: 0, scope: !1520)
-!1526 = !DILocation(line: 150, column: 24, scope: !1520)
-!1527 = !DILocation(line: 150, column: 21, scope: !1520)
-!1528 = !DILocation(line: 150, column: 32, scope: !1520)
-!1529 = !DILocation(line: 150, column: 72, scope: !1520)
-!1530 = !DILocation(line: 150, column: 55, scope: !1520)
-!1531 = !DILocation(line: 150, column: 54, scope: !1520)
-!1532 = !DILocation(line: 151, column: 26, scope: !1520)
-!1533 = !DILocation(line: 151, column: 37, scope: !1520)
-!1534 = !DILocation(line: 151, column: 35, scope: !1520)
-!1535 = !DILocation(line: 151, column: 17, scope: !1520)
-!1536 = !DILocation(line: 152, column: 5, scope: !1520)
-!1537 = !DISubprogram(name: "gsl_sf_bessel_y0", scope: !1263, file: !1263, line: 303, type: !1405, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1538 = distinct !DISubprogram(name: "gsl_sf_fermi_dirac_m1_e_wrapper", linkageName: "_Z31gsl_sf_fermi_dirac_m1_e_wrapperd", scope: !45, file: !45, line: 156, type: !59, scopeLine: 156, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1539)
-!1539 = !{!1540, !1541}
-!1540 = !DILocalVariable(name: "x", arg: 1, scope: !1538, file: !45, line: 156, type: !47)
-!1541 = !DILocalVariable(name: "result", scope: !1538, file: !45, line: 156, type: !1248)
-!1542 = distinct !DIAssignID()
-!1543 = !DILocation(line: 0, scope: !1538)
-!1544 = !DILocation(line: 156, column: 1, scope: !1538)
-!1545 = !DISubprogram(name: "gsl_sf_fermi_dirac_m1_e", scope: !1384, file: !1384, line: 55, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1546 = distinct !DISubprogram(name: "func_f11", linkageName: "_Z8func_f11dP20gsl_sf_result_struct", scope: !45, file: !45, line: 158, type: !1277, scopeLine: 158, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1547)
-!1547 = !{!1548, !1549}
-!1548 = !DILocalVariable(name: "x", arg: 1, scope: !1546, file: !45, line: 158, type: !47)
-!1549 = !DILocalVariable(name: "result", arg: 2, scope: !1546, file: !45, line: 158, type: !1266)
-!1550 = !DILocation(line: 0, scope: !1546)
-!1551 = !DILocation(line: 159, column: 26, scope: !1546)
-!1552 = !DILocation(line: 159, column: 24, scope: !1546)
-!1553 = !DILocation(line: 159, column: 61, scope: !1546)
-!1554 = !DILocation(line: 159, column: 70, scope: !1546)
-!1555 = !DILocation(line: 159, column: 68, scope: !1546)
-!1556 = !DILocation(line: 159, column: 17, scope: !1546)
-!1557 = !DILocation(line: 160, column: 5, scope: !1546)
-!1558 = distinct !DISubprogram(name: "gsl_sf_erf_Q_e_wrapper", linkageName: "_Z22gsl_sf_erf_Q_e_wrapperd", scope: !45, file: !45, line: 164, type: !59, scopeLine: 164, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1559)
-!1559 = !{!1560, !1561}
-!1560 = !DILocalVariable(name: "x", arg: 1, scope: !1558, file: !45, line: 164, type: !47)
-!1561 = !DILocalVariable(name: "result", scope: !1558, file: !45, line: 164, type: !1248)
-!1562 = distinct !DIAssignID()
-!1563 = !DILocation(line: 0, scope: !1558)
-!1564 = !DILocation(line: 164, column: 1, scope: !1558)
-!1565 = !DISubprogram(name: "gsl_sf_erf_Q_e", scope: !1346, file: !1346, line: 73, type: !1277, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1566 = distinct !DISubprogram(name: "func_f12", linkageName: "_Z8func_f12dP20gsl_sf_result_struct", scope: !45, file: !45, line: 166, type: !1277, scopeLine: 166, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1567)
-!1567 = !{!1568, !1569}
-!1568 = !DILocalVariable(name: "x", arg: 1, scope: !1566, file: !45, line: 166, type: !47)
-!1569 = !DILocalVariable(name: "result", arg: 2, scope: !1566, file: !45, line: 166, type: !1266)
-!1570 = !DILocation(line: 0, scope: !1566)
-!1571 = !DILocation(line: 167, column: 26, scope: !1566)
-!1572 = !DILocation(line: 167, column: 24, scope: !1566)
-!1573 = !DILocation(line: 167, column: 68, scope: !1566)
-!1574 = !DILocation(line: 167, column: 54, scope: !1566)
-!1575 = !DILocation(line: 167, column: 52, scope: !1566)
-!1576 = !DILocation(line: 167, column: 73, scope: !1566)
-!1577 = !DILocation(line: 167, column: 17, scope: !1566)
-!1578 = !DILocation(line: 168, column: 5, scope: !1566)
-!1579 = distinct !DISubprogram(name: "func_f13", linkageName: "_Z8func_f13dP20gsl_sf_result_struct", scope: !45, file: !45, line: 173, type: !1277, scopeLine: 173, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1580)
-!1580 = !{!1581, !1582, !1583}
-!1581 = !DILocalVariable(name: "x", arg: 1, scope: !1579, file: !45, line: 173, type: !47)
-!1582 = !DILocalVariable(name: "result", arg: 2, scope: !1579, file: !45, line: 173, type: !1266)
-!1583 = !DILocalVariable(name: "w", scope: !1579, file: !45, line: 174, type: !47)
-!1584 = !DILocation(line: 0, scope: !1579)
-!1585 = !DILocation(line: 174, column: 16, scope: !1579)
-!1586 = !DILocation(line: 175, column: 22, scope: !1579)
-!1587 = !DILocation(line: 175, column: 34, scope: !1579)
-!1588 = !DILocation(line: 175, column: 38, scope: !1579)
-!1589 = !DILocation(line: 175, column: 29, scope: !1579)
-!1590 = !DILocation(line: 175, column: 17, scope: !1579)
-!1591 = !DILocation(line: 176, column: 5, scope: !1579)
-!1592 = distinct !DISubprogram(name: "func_f14", linkageName: "_Z8func_f14dP20gsl_sf_result_struct", scope: !45, file: !45, line: 181, type: !1277, scopeLine: 181, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1593)
-!1593 = !{!1594, !1595, !1596}
-!1594 = !DILocalVariable(name: "x", arg: 1, scope: !1592, file: !45, line: 181, type: !47)
-!1595 = !DILocalVariable(name: "result", arg: 2, scope: !1592, file: !45, line: 181, type: !1266)
-!1596 = !DILocalVariable(name: "w", scope: !1592, file: !45, line: 182, type: !47)
-!1597 = !DILocation(line: 0, scope: !1592)
-!1598 = !DILocation(line: 182, column: 16, scope: !1592)
-!1599 = !DILocation(line: 183, column: 22, scope: !1592)
-!1600 = !DILocation(line: 183, column: 36, scope: !1592)
-!1601 = !DILocation(line: 183, column: 34, scope: !1592)
-!1602 = !DILocation(line: 183, column: 60, scope: !1592)
-!1603 = !DILocation(line: 183, column: 29, scope: !1592)
-!1604 = !DILocation(line: 183, column: 17, scope: !1592)
-!1605 = !DILocation(line: 184, column: 5, scope: !1592)
-!1606 = distinct !DISubprogram(name: "gsl_sf_dawson_e_wrapper", linkageName: "_Z23gsl_sf_dawson_e_wrapperd", scope: !45, file: !45, line: 188, type: !59, scopeLine: 188, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1607)
-!1607 = !{!1608, !1609}
-!1608 = !DILocalVariable(name: "x", arg: 1, scope: !1606, file: !45, line: 188, type: !47)
-!1609 = !DILocalVariable(name: "result", scope: !1606, file: !45, line: 188, type: !1248)
-!1610 = distinct !DIAssignID()
-!1611 = !DILocation(line: 0, scope: !1606)
-!1612 = !DILocation(line: 188, column: 1, scope: !1606)
-!1613 = !DISubprogram(name: "gsl_sf_dawson_e", scope: !1614, file: !1614, line: 46, type: !1277, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1614 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_dawson.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "481a18b29c23ff240beef8d183dbbe08")
-!1615 = distinct !DISubprogram(name: "func_f15", linkageName: "_Z8func_f15dP20gsl_sf_result_struct", scope: !45, file: !45, line: 190, type: !1277, scopeLine: 190, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1616)
-!1616 = !{!1617, !1618, !1619, !1620}
-!1617 = !DILocalVariable(name: "x", arg: 1, scope: !1615, file: !45, line: 190, type: !47)
-!1618 = !DILocalVariable(name: "result", arg: 2, scope: !1615, file: !45, line: 190, type: !1266)
-!1619 = !DILocalVariable(name: "base", scope: !1615, file: !45, line: 191, type: !47)
-!1620 = !DILocalVariable(name: "exponent", scope: !1615, file: !45, line: 192, type: !47)
-!1621 = !DILocation(line: 0, scope: !1615)
-!1622 = !DILocation(line: 191, column: 25, scope: !1615)
-!1623 = !DILocation(line: 191, column: 23, scope: !1615)
-!1624 = !DILocation(line: 192, column: 27, scope: !1615)
-!1625 = !DILocation(line: 193, column: 19, scope: !1615)
-!1626 = !DILocation(line: 193, column: 17, scope: !1615)
-!1627 = !DILocation(line: 194, column: 5, scope: !1615)
-!1628 = distinct !DISubprogram(name: "gsl_sf_Chi_e_wrapper", linkageName: "_Z20gsl_sf_Chi_e_wrapperd", scope: !45, file: !45, line: 198, type: !59, scopeLine: 198, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1629)
-!1629 = !{!1630, !1631}
-!1630 = !DILocalVariable(name: "x", arg: 1, scope: !1628, file: !45, line: 198, type: !47)
-!1631 = !DILocalVariable(name: "result", scope: !1628, file: !45, line: 198, type: !1248)
-!1632 = distinct !DIAssignID()
-!1633 = !DILocation(line: 0, scope: !1628)
-!1634 = !DILocation(line: 198, column: 1, scope: !1628)
-!1635 = !DISubprogram(name: "gsl_sf_Chi_e", scope: !1489, file: !1489, line: 126, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1636 = distinct !DISubprogram(name: "gsl_sf_Ci_e_wrapper", linkageName: "_Z19gsl_sf_Ci_e_wrapperd", scope: !45, file: !45, line: 199, type: !59, scopeLine: 199, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1637)
-!1637 = !{!1638, !1639}
-!1638 = !DILocalVariable(name: "x", arg: 1, scope: !1636, file: !45, line: 199, type: !47)
-!1639 = !DILocalVariable(name: "result", scope: !1636, file: !45, line: 199, type: !1248)
-!1640 = distinct !DIAssignID()
-!1641 = !DILocation(line: 0, scope: !1636)
-!1642 = !DILocation(line: 199, column: 1, scope: !1636)
-!1643 = !DISubprogram(name: "gsl_sf_Ci_e", scope: !1489, file: !1489, line: 152, type: !1264, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
-!1644 = distinct !DISubprogram(name: "func_f16", linkageName: "_Z8func_f16dP20gsl_sf_result_struct", scope: !45, file: !45, line: 201, type: !1277, scopeLine: 201, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1645)
-!1645 = !{!1646, !1647}
-!1646 = !DILocalVariable(name: "x", arg: 1, scope: !1644, file: !45, line: 201, type: !47)
-!1647 = !DILocalVariable(name: "result", arg: 2, scope: !1644, file: !45, line: 201, type: !1266)
-!1648 = !DILocation(line: 0, scope: !1644)
-!1649 = !DILocation(line: 202, column: 20, scope: !1644)
-!1650 = !DILocation(line: 202, column: 46, scope: !1644)
-!1651 = !DILocation(line: 202, column: 44, scope: !1644)
-!1652 = !DILocation(line: 202, column: 75, scope: !1644)
-!1653 = !DILocation(line: 202, column: 70, scope: !1644)
-!1654 = !DILocation(line: 202, column: 17, scope: !1644)
-!1655 = !DILocation(line: 203, column: 5, scope: !1644)
-!1656 = distinct !DISubprogram(name: "func_s1", linkageName: "_Z7func_s1dP20gsl_sf_result_struct", scope: !45, file: !45, line: 222, type: !1277, scopeLine: 222, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1657)
-!1657 = !{!1658, !1659}
-!1658 = !DILocalVariable(name: "x", arg: 1, scope: !1656, file: !45, line: 222, type: !47)
-!1659 = !DILocalVariable(name: "result", arg: 2, scope: !1656, file: !45, line: 222, type: !1266)
-!1660 = !DILocation(line: 0, scope: !1656)
-!1661 = !DILocation(line: 223, column: 26, scope: !1656)
-!1662 = !DILocation(line: 223, column: 24, scope: !1656)
-!1663 = !DILocation(line: 223, column: 56, scope: !1656)
-!1664 = !DILocation(line: 223, column: 51, scope: !1656)
-!1665 = !DILocation(line: 223, column: 17, scope: !1656)
-!1666 = !DILocation(line: 224, column: 5, scope: !1656)
-!1667 = distinct !DISubprogram(name: "func_s2", linkageName: "_Z7func_s2dP20gsl_sf_result_struct", scope: !45, file: !45, line: 229, type: !1277, scopeLine: 229, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1668)
-!1668 = !{!1669, !1670}
-!1669 = !DILocalVariable(name: "x", arg: 1, scope: !1667, file: !45, line: 229, type: !47)
-!1670 = !DILocalVariable(name: "result", arg: 2, scope: !1667, file: !45, line: 229, type: !1266)
-!1671 = !DILocation(line: 0, scope: !1667)
-!1672 = !DILocation(line: 230, column: 20, scope: !1667)
-!1673 = !DILocation(line: 230, column: 44, scope: !1667)
-!1674 = !DILocation(line: 230, column: 73, scope: !1667)
-!1675 = !DILocation(line: 230, column: 52, scope: !1667)
-!1676 = !DILocation(line: 230, column: 50, scope: !1667)
-!1677 = !DILocation(line: 230, column: 83, scope: !1667)
-!1678 = !DILocation(line: 230, column: 78, scope: !1667)
-!1679 = !DILocation(line: 230, column: 17, scope: !1667)
-!1680 = !DILocation(line: 231, column: 5, scope: !1667)
-!1681 = distinct !DISubprogram(name: "func_s3", linkageName: "_Z7func_s3dP20gsl_sf_result_struct", scope: !45, file: !45, line: 236, type: !1277, scopeLine: 236, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1682)
-!1682 = !{!1683, !1684}
-!1683 = !DILocalVariable(name: "x", arg: 1, scope: !1681, file: !45, line: 236, type: !47)
-!1684 = !DILocalVariable(name: "result", arg: 2, scope: !1681, file: !45, line: 236, type: !1266)
-!1685 = !DILocation(line: 0, scope: !1681)
-!1686 = !DILocation(line: 237, column: 26, scope: !1681)
-!1687 = !DILocation(line: 237, column: 24, scope: !1681)
-!1688 = !DILocation(line: 237, column: 53, scope: !1681)
-!1689 = !DILocation(line: 237, column: 51, scope: !1681)
-!1690 = !DILocation(line: 237, column: 17, scope: !1681)
-!1691 = !DILocation(line: 238, column: 5, scope: !1681)
-!1692 = distinct !DISubprogram(name: "func_s4", linkageName: "_Z7func_s4dP20gsl_sf_result_struct", scope: !45, file: !45, line: 243, type: !1277, scopeLine: 243, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1693)
-!1693 = !{!1694, !1695}
-!1694 = !DILocalVariable(name: "x", arg: 1, scope: !1692, file: !45, line: 243, type: !47)
-!1695 = !DILocalVariable(name: "result", arg: 2, scope: !1692, file: !45, line: 243, type: !1266)
-!1696 = !DILocation(line: 0, scope: !1692)
-!1697 = !DILocation(line: 244, column: 42, scope: !1692)
-!1698 = !DILocation(line: 244, column: 19, scope: !1692)
-!1699 = !DILocation(line: 244, column: 55, scope: !1692)
-!1700 = !DILocation(line: 244, column: 53, scope: !1692)
-!1701 = !DILocation(line: 244, column: 17, scope: !1692)
-!1702 = !DILocation(line: 245, column: 5, scope: !1692)
-!1703 = distinct !DISubprogram(name: "func_s5", linkageName: "_Z7func_s5dP20gsl_sf_result_struct", scope: !45, file: !45, line: 250, type: !1277, scopeLine: 250, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1704)
-!1704 = !{!1705, !1706}
-!1705 = !DILocalVariable(name: "x", arg: 1, scope: !1703, file: !45, line: 250, type: !47)
-!1706 = !DILocalVariable(name: "result", arg: 2, scope: !1703, file: !45, line: 250, type: !1266)
-!1707 = !DILocation(line: 0, scope: !1703)
-!1708 = !DILocation(line: 251, column: 30, scope: !1703)
-!1709 = !DILocation(line: 251, column: 19, scope: !1703)
-!1710 = !DILocation(line: 251, column: 43, scope: !1703)
-!1711 = !DILocation(line: 251, column: 41, scope: !1703)
-!1712 = !DILocation(line: 251, column: 17, scope: !1703)
-!1713 = !DILocation(line: 252, column: 5, scope: !1703)
-!1714 = distinct !DISubprogram(name: "func_s6", linkageName: "_Z7func_s6dP20gsl_sf_result_struct", scope: !45, file: !45, line: 257, type: !1277, scopeLine: 257, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1715)
-!1715 = !{!1716, !1717}
-!1716 = !DILocalVariable(name: "x", arg: 1, scope: !1714, file: !45, line: 257, type: !47)
-!1717 = !DILocalVariable(name: "result", arg: 2, scope: !1714, file: !45, line: 257, type: !1266)
-!1718 = !DILocation(line: 0, scope: !1714)
-!1719 = !DILocation(line: 258, column: 42, scope: !1714)
-!1720 = !DILocation(line: 258, column: 19, scope: !1714)
-!1721 = !DILocation(line: 258, column: 55, scope: !1714)
-!1722 = !DILocation(line: 258, column: 53, scope: !1714)
-!1723 = !DILocation(line: 258, column: 17, scope: !1714)
-!1724 = !DILocation(line: 259, column: 5, scope: !1714)
-!1725 = distinct !DISubprogram(name: "func_s7", linkageName: "_Z7func_s7dP20gsl_sf_result_struct", scope: !45, file: !45, line: 264, type: !1277, scopeLine: 264, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1726)
-!1726 = !{!1727, !1728}
-!1727 = !DILocalVariable(name: "x", arg: 1, scope: !1725, file: !45, line: 264, type: !47)
-!1728 = !DILocalVariable(name: "result", arg: 2, scope: !1725, file: !45, line: 264, type: !1266)
-!1729 = !DILocation(line: 0, scope: !1725)
-!1730 = !DILocation(line: 265, column: 19, scope: !1725)
-!1731 = !DILocation(line: 265, column: 66, scope: !1725)
-!1732 = !DILocation(line: 265, column: 45, scope: !1725)
-!1733 = !DILocation(line: 265, column: 43, scope: !1725)
-!1734 = !DILocation(line: 265, column: 17, scope: !1725)
-!1735 = !DILocation(line: 266, column: 5, scope: !1725)
-!1736 = distinct !DISubprogram(name: "func_s8", linkageName: "_Z7func_s8dP20gsl_sf_result_struct", scope: !45, file: !45, line: 271, type: !1277, scopeLine: 271, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1737)
-!1737 = !{!1738, !1739}
-!1738 = !DILocalVariable(name: "x", arg: 1, scope: !1736, file: !45, line: 271, type: !47)
-!1739 = !DILocalVariable(name: "result", arg: 2, scope: !1736, file: !45, line: 271, type: !1266)
-!1740 = !DILocation(line: 0, scope: !1736)
-!1741 = !DILocation(line: 272, column: 19, scope: !1736)
-!1742 = !DILocation(line: 272, column: 42, scope: !1736)
-!1743 = !DILocation(line: 272, column: 17, scope: !1736)
-!1744 = !DILocation(line: 273, column: 5, scope: !1736)
-!1745 = distinct !DISubprogram(name: "func_s9", linkageName: "_Z7func_s9dP20gsl_sf_result_struct", scope: !45, file: !45, line: 278, type: !1277, scopeLine: 278, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1746)
-!1746 = !{!1747, !1748}
-!1747 = !DILocalVariable(name: "x", arg: 1, scope: !1745, file: !45, line: 278, type: !47)
-!1748 = !DILocalVariable(name: "result", arg: 2, scope: !1745, file: !45, line: 278, type: !1266)
-!1749 = !DILocation(line: 0, scope: !1745)
-!1750 = !DILocation(line: 279, column: 24, scope: !1745)
-!1751 = !DILocation(line: 279, column: 38, scope: !1745)
-!1752 = !DILocation(line: 279, column: 36, scope: !1745)
-!1753 = !DILocation(line: 279, column: 29, scope: !1745)
-!1754 = !DILocation(line: 279, column: 17, scope: !1745)
-!1755 = !DILocation(line: 280, column: 5, scope: !1745)
-!1756 = distinct !DISubprogram(name: "func_s10", linkageName: "_Z8func_s10dP20gsl_sf_result_struct", scope: !45, file: !45, line: 285, type: !1277, scopeLine: 285, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1757)
-!1757 = !{!1758, !1759}
-!1758 = !DILocalVariable(name: "x", arg: 1, scope: !1756, file: !45, line: 285, type: !47)
-!1759 = !DILocalVariable(name: "result", arg: 2, scope: !1756, file: !45, line: 285, type: !1266)
-!1760 = !DILocation(line: 0, scope: !1756)
-!1761 = !DILocation(line: 286, column: 44, scope: !1756)
-!1762 = !DILocation(line: 286, column: 19, scope: !1756)
-!1763 = !DILocation(line: 286, column: 76, scope: !1756)
-!1764 = !DILocation(line: 286, column: 51, scope: !1756)
-!1765 = !DILocation(line: 286, column: 49, scope: !1756)
-!1766 = !DILocation(line: 286, column: 17, scope: !1756)
-!1767 = !DILocation(line: 287, column: 5, scope: !1756)
-!1768 = distinct !DISubprogram(name: "func_s11", linkageName: "_Z8func_s11dP20gsl_sf_result_struct", scope: !45, file: !45, line: 292, type: !1277, scopeLine: 292, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1769)
-!1769 = !{!1770, !1771}
-!1770 = !DILocalVariable(name: "x", arg: 1, scope: !1768, file: !45, line: 292, type: !47)
-!1771 = !DILocalVariable(name: "result", arg: 2, scope: !1768, file: !45, line: 292, type: !1266)
-!1772 = !DILocation(line: 0, scope: !1768)
-!1773 = !DILocation(line: 293, column: 45, scope: !1768)
-!1774 = !DILocation(line: 293, column: 57, scope: !1768)
-!1775 = !DILocation(line: 293, column: 50, scope: !1768)
-!1776 = !DILocation(line: 293, column: 19, scope: !1768)
-!1777 = !DILocation(line: 293, column: 17, scope: !1768)
-!1778 = !DILocation(line: 294, column: 5, scope: !1768)
-!1779 = distinct !DISubprogram(name: "func_s12", linkageName: "_Z8func_s12dP20gsl_sf_result_struct", scope: !45, file: !45, line: 299, type: !1277, scopeLine: 299, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1780)
-!1780 = !{!1781, !1782}
-!1781 = !DILocalVariable(name: "x", arg: 1, scope: !1779, file: !45, line: 299, type: !47)
-!1782 = !DILocalVariable(name: "result", arg: 2, scope: !1779, file: !45, line: 299, type: !1266)
-!1783 = !DILocation(line: 0, scope: !1779)
-!1784 = !DILocation(line: 300, column: 55, scope: !1779)
-!1785 = !DILocation(line: 300, column: 30, scope: !1779)
-!1786 = !DILocation(line: 300, column: 59, scope: !1779)
-!1787 = !DILocation(line: 300, column: 68, scope: !1779)
-!1788 = !DILocation(line: 300, column: 91, scope: !1779)
-!1789 = !DILocation(line: 300, column: 65, scope: !1779)
-!1790 = !DILocation(line: 300, column: 19, scope: !1779)
-!1791 = !DILocation(line: 300, column: 17, scope: !1779)
-!1792 = !DILocation(line: 301, column: 5, scope: !1779)
-!1793 = distinct !DISubprogram(name: "func_s13", linkageName: "_Z8func_s13dP20gsl_sf_result_struct", scope: !45, file: !45, line: 306, type: !1277, scopeLine: 306, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1794)
-!1794 = !{!1795, !1796}
-!1795 = !DILocalVariable(name: "x", arg: 1, scope: !1793, file: !45, line: 306, type: !47)
-!1796 = !DILocalVariable(name: "result", arg: 2, scope: !1793, file: !45, line: 306, type: !1266)
-!1797 = !DILocation(line: 0, scope: !1793)
-!1798 = !DILocation(line: 307, column: 24, scope: !1793)
-!1799 = !DILocation(line: 307, column: 22, scope: !1793)
-!1800 = !DILocation(line: 307, column: 56, scope: !1793)
-!1801 = !DILocation(line: 307, column: 54, scope: !1793)
-!1802 = !DILocation(line: 307, column: 49, scope: !1793)
-!1803 = !DILocation(line: 307, column: 17, scope: !1793)
-!1804 = !DILocation(line: 308, column: 5, scope: !1793)
-!1805 = distinct !DISubprogram(name: "func_s14", linkageName: "_Z8func_s14dP20gsl_sf_result_struct", scope: !45, file: !45, line: 313, type: !1277, scopeLine: 313, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1806)
+!1447 = !DILocation(line: 133, column: 61, scope: !1441)
+!1448 = !DILocation(line: 133, column: 68, scope: !1441)
+!1449 = !DILocation(line: 133, column: 26, scope: !1441)
+!1450 = !DILocation(line: 133, column: 76, scope: !1441)
+!1451 = !DILocation(line: 134, column: 19, scope: !1441)
+!1452 = !DILocation(line: 134, column: 56, scope: !1441)
+!1453 = !DILocation(line: 134, column: 82, scope: !1441)
+!1454 = !DILocation(line: 134, column: 80, scope: !1441)
+!1455 = !DILocation(line: 134, column: 53, scope: !1441)
+!1456 = !DILocation(line: 134, column: 17, scope: !1441)
+!1457 = !DILocation(line: 135, column: 5, scope: !1441)
+!1458 = distinct !DISubprogram(name: "gsl_sf_legendre_Q1_e_wrapper", linkageName: "_Z28gsl_sf_legendre_Q1_e_wrapperd", scope: !45, file: !45, line: 139, type: !59, scopeLine: 139, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1459)
+!1459 = !{!1460, !1461}
+!1460 = !DILocalVariable(name: "x", arg: 1, scope: !1458, file: !45, line: 139, type: !47)
+!1461 = !DILocalVariable(name: "result", scope: !1458, file: !45, line: 139, type: !1251)
+!1462 = distinct !DIAssignID()
+!1463 = !DILocation(line: 0, scope: !1458)
+!1464 = !DILocation(line: 139, column: 1, scope: !1458)
+!1465 = !DISubprogram(name: "gsl_sf_legendre_Q1_e", scope: !1466, file: !1466, line: 93, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1466 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_legendre.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "d813561ffda8cd1a9abe9196cf770c77")
+!1467 = distinct !DISubprogram(name: "gsl_sf_lambert_W0_e_wrapper", linkageName: "_Z27gsl_sf_lambert_W0_e_wrapperd", scope: !45, file: !45, line: 140, type: !59, scopeLine: 140, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1468)
+!1468 = !{!1469, !1470}
+!1469 = !DILocalVariable(name: "x", arg: 1, scope: !1467, file: !45, line: 140, type: !47)
+!1470 = !DILocalVariable(name: "result", scope: !1467, file: !45, line: 140, type: !1251)
+!1471 = distinct !DIAssignID()
+!1472 = !DILocation(line: 0, scope: !1467)
+!1473 = !DILocation(line: 140, column: 1, scope: !1467)
+!1474 = !DISubprogram(name: "gsl_sf_lambert_W0_e", scope: !1475, file: !1475, line: 49, type: !1248, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1475 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_lambert.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "2cd7769bdc34320b683c78e35f4217f5")
+!1476 = distinct !DISubprogram(name: "func_f7", linkageName: "_Z7func_f7dP20gsl_sf_result_struct", scope: !45, file: !45, line: 142, type: !1248, scopeLine: 142, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1477)
+!1477 = !{!1478, !1479, !1480}
+!1478 = !DILocalVariable(name: "x", arg: 1, scope: !1476, file: !45, line: 142, type: !47)
+!1479 = !DILocalVariable(name: "result", arg: 2, scope: !1476, file: !45, line: 142, type: !1250)
+!1480 = !DILocalVariable(name: "w_val", scope: !1476, file: !45, line: 143, type: !47)
+!1481 = !DILocation(line: 0, scope: !1476)
+!1482 = !DILocation(line: 143, column: 20, scope: !1476)
+!1483 = !DILocation(line: 144, column: 26, scope: !1476)
+!1484 = !DILocation(line: 144, column: 24, scope: !1476)
+!1485 = !DILocation(line: 144, column: 68, scope: !1476)
+!1486 = !DILocation(line: 144, column: 59, scope: !1476)
+!1487 = !DILocation(line: 144, column: 17, scope: !1476)
+!1488 = !DILocation(line: 145, column: 5, scope: !1476)
+!1489 = distinct !DISubprogram(name: "gsl_sf_bessel_j0_wrapper", linkageName: "_Z24gsl_sf_bessel_j0_wrapperd", scope: !45, file: !45, line: 149, type: !59, scopeLine: 149, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1490)
+!1490 = !{!1491}
+!1491 = !DILocalVariable(name: "x", arg: 1, scope: !1489, file: !45, line: 149, type: !47)
+!1492 = !DILocation(line: 0, scope: !1489)
+!1493 = !DILocation(line: 149, column: 1, scope: !1489)
+!1494 = !DISubprogram(name: "gsl_sf_bessel_j0", scope: !1292, file: !1292, line: 255, type: !1431, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1495 = distinct !DISubprogram(name: "func_f8", linkageName: "_Z7func_f8dP20gsl_sf_result_struct", scope: !45, file: !45, line: 151, type: !1248, scopeLine: 151, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1496)
+!1496 = !{!1497, !1498}
+!1497 = !DILocalVariable(name: "x", arg: 1, scope: !1495, file: !45, line: 151, type: !47)
+!1498 = !DILocalVariable(name: "result", arg: 2, scope: !1495, file: !45, line: 151, type: !1250)
+!1499 = !DILocation(line: 0, scope: !1495)
+!1500 = !DILocation(line: 152, column: 26, scope: !1495)
+!1501 = !DILocation(line: 152, column: 24, scope: !1495)
+!1502 = !DILocation(line: 152, column: 62, scope: !1495)
+!1503 = !DILocation(line: 152, column: 60, scope: !1495)
+!1504 = !DILocation(line: 152, column: 55, scope: !1495)
+!1505 = !DILocation(line: 152, column: 17, scope: !1495)
+!1506 = !DILocation(line: 153, column: 5, scope: !1495)
+!1507 = distinct !DISubprogram(name: "gsl_sf_Si_e_wrapper", linkageName: "_Z19gsl_sf_Si_e_wrapperd", scope: !45, file: !45, line: 157, type: !59, scopeLine: 157, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1508)
+!1508 = !{!1509, !1510}
+!1509 = !DILocalVariable(name: "x", arg: 1, scope: !1507, file: !45, line: 157, type: !47)
+!1510 = !DILocalVariable(name: "result", scope: !1507, file: !45, line: 157, type: !1251)
+!1511 = distinct !DIAssignID()
+!1512 = !DILocation(line: 0, scope: !1507)
+!1513 = !DILocation(line: 157, column: 1, scope: !1507)
+!1514 = !DISubprogram(name: "gsl_sf_Si_e", scope: !1515, file: !1515, line: 143, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1515 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_expint.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "fa6433b039d5ce651e3386bd71654e9c")
+!1516 = distinct !DISubprogram(name: "func_f9", linkageName: "_Z7func_f9dP20gsl_sf_result_struct", scope: !45, file: !45, line: 159, type: !1248, scopeLine: 159, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1517)
+!1517 = !{!1518, !1519}
+!1518 = !DILocalVariable(name: "x", arg: 1, scope: !1516, file: !45, line: 159, type: !47)
+!1519 = !DILocalVariable(name: "result", arg: 2, scope: !1516, file: !45, line: 159, type: !1250)
+!1520 = !DILocation(line: 0, scope: !1516)
+!1521 = !DILocation(line: 160, column: 20, scope: !1516)
+!1522 = !DILocation(line: 160, column: 45, scope: !1516)
+!1523 = !DILocation(line: 160, column: 43, scope: !1516)
+!1524 = !DILocation(line: 160, column: 63, scope: !1516)
+!1525 = !DILocation(line: 160, column: 67, scope: !1516)
+!1526 = !DILocation(line: 160, column: 58, scope: !1516)
+!1527 = !DILocation(line: 160, column: 17, scope: !1516)
+!1528 = !DILocation(line: 161, column: 5, scope: !1516)
+!1529 = distinct !DISubprogram(name: "gsl_sf_bessel_y0_e_wrapper", linkageName: "_Z26gsl_sf_bessel_y0_e_wrapperd", scope: !45, file: !45, line: 165, type: !59, scopeLine: 165, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1530)
+!1530 = !{!1531, !1532}
+!1531 = !DILocalVariable(name: "x", arg: 1, scope: !1529, file: !45, line: 165, type: !47)
+!1532 = !DILocalVariable(name: "result", scope: !1529, file: !45, line: 165, type: !1251)
+!1533 = distinct !DIAssignID()
+!1534 = !DILocation(line: 0, scope: !1529)
+!1535 = !DILocation(line: 165, column: 1, scope: !1529)
+!1536 = !DISubprogram(name: "gsl_sf_bessel_y0_e", scope: !1292, file: !1292, line: 302, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1537 = distinct !DISubprogram(name: "gsl_sf_psi_1_e_wrapper", linkageName: "_Z22gsl_sf_psi_1_e_wrapperd", scope: !45, file: !45, line: 166, type: !59, scopeLine: 166, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1538)
+!1538 = !{!1539, !1540}
+!1539 = !DILocalVariable(name: "x", arg: 1, scope: !1537, file: !45, line: 166, type: !47)
+!1540 = !DILocalVariable(name: "result", scope: !1537, file: !45, line: 166, type: !1251)
+!1541 = distinct !DIAssignID()
+!1542 = !DILocation(line: 0, scope: !1537)
+!1543 = !DILocation(line: 166, column: 1, scope: !1537)
+!1544 = !DISubprogram(name: "gsl_sf_psi_1_e", scope: !1545, file: !1545, line: 98, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1545 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_psi.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "991a41b1033bad74a63fe4c86bbfa6a4")
+!1546 = distinct !DISubprogram(name: "func_f10", linkageName: "_Z8func_f10dP20gsl_sf_result_struct", scope: !45, file: !45, line: 168, type: !1248, scopeLine: 168, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1547)
+!1547 = !{!1548, !1549, !1550}
+!1548 = !DILocalVariable(name: "x", arg: 1, scope: !1546, file: !45, line: 168, type: !47)
+!1549 = !DILocalVariable(name: "result", arg: 2, scope: !1546, file: !45, line: 168, type: !1250)
+!1550 = !DILocalVariable(name: "y0_val", scope: !1546, file: !45, line: 169, type: !47)
+!1551 = !DILocation(line: 0, scope: !1546)
+!1552 = !DILocation(line: 169, column: 24, scope: !1546)
+!1553 = !DILocation(line: 169, column: 21, scope: !1546)
+!1554 = !DILocation(line: 169, column: 32, scope: !1546)
+!1555 = !DILocation(line: 169, column: 72, scope: !1546)
+!1556 = !DILocation(line: 169, column: 55, scope: !1546)
+!1557 = !DILocation(line: 169, column: 54, scope: !1546)
+!1558 = !DILocation(line: 170, column: 26, scope: !1546)
+!1559 = !DILocation(line: 170, column: 37, scope: !1546)
+!1560 = !DILocation(line: 170, column: 35, scope: !1546)
+!1561 = !DILocation(line: 170, column: 17, scope: !1546)
+!1562 = !DILocation(line: 171, column: 5, scope: !1546)
+!1563 = !DISubprogram(name: "gsl_sf_bessel_y0", scope: !1292, file: !1292, line: 303, type: !1431, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1564 = distinct !DISubprogram(name: "gsl_sf_fermi_dirac_m1_e_wrapper", linkageName: "_Z31gsl_sf_fermi_dirac_m1_e_wrapperd", scope: !45, file: !45, line: 175, type: !59, scopeLine: 175, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1565)
+!1565 = !{!1566, !1567}
+!1566 = !DILocalVariable(name: "x", arg: 1, scope: !1564, file: !45, line: 175, type: !47)
+!1567 = !DILocalVariable(name: "result", scope: !1564, file: !45, line: 175, type: !1251)
+!1568 = distinct !DIAssignID()
+!1569 = !DILocation(line: 0, scope: !1564)
+!1570 = !DILocation(line: 175, column: 1, scope: !1564)
+!1571 = !DISubprogram(name: "gsl_sf_fermi_dirac_m1_e", scope: !1410, file: !1410, line: 55, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1572 = distinct !DISubprogram(name: "func_f11", linkageName: "_Z8func_f11dP20gsl_sf_result_struct", scope: !45, file: !45, line: 177, type: !1248, scopeLine: 177, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1573)
+!1573 = !{!1574, !1575}
+!1574 = !DILocalVariable(name: "x", arg: 1, scope: !1572, file: !45, line: 177, type: !47)
+!1575 = !DILocalVariable(name: "result", arg: 2, scope: !1572, file: !45, line: 177, type: !1250)
+!1576 = !DILocation(line: 0, scope: !1572)
+!1577 = !DILocation(line: 178, column: 26, scope: !1572)
+!1578 = !DILocation(line: 178, column: 24, scope: !1572)
+!1579 = !DILocation(line: 178, column: 61, scope: !1572)
+!1580 = !DILocation(line: 178, column: 70, scope: !1572)
+!1581 = !DILocation(line: 178, column: 68, scope: !1572)
+!1582 = !DILocation(line: 178, column: 17, scope: !1572)
+!1583 = !DILocation(line: 179, column: 5, scope: !1572)
+!1584 = distinct !DISubprogram(name: "gsl_sf_erf_Q_e_wrapper", linkageName: "_Z22gsl_sf_erf_Q_e_wrapperd", scope: !45, file: !45, line: 183, type: !59, scopeLine: 183, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1585)
+!1585 = !{!1586, !1587}
+!1586 = !DILocalVariable(name: "x", arg: 1, scope: !1584, file: !45, line: 183, type: !47)
+!1587 = !DILocalVariable(name: "result", scope: !1584, file: !45, line: 183, type: !1251)
+!1588 = distinct !DIAssignID()
+!1589 = !DILocation(line: 0, scope: !1584)
+!1590 = !DILocation(line: 183, column: 1, scope: !1584)
+!1591 = !DISubprogram(name: "gsl_sf_erf_Q_e", scope: !1372, file: !1372, line: 73, type: !1248, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1592 = distinct !DISubprogram(name: "func_f12", linkageName: "_Z8func_f12dP20gsl_sf_result_struct", scope: !45, file: !45, line: 185, type: !1248, scopeLine: 185, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1593)
+!1593 = !{!1594, !1595}
+!1594 = !DILocalVariable(name: "x", arg: 1, scope: !1592, file: !45, line: 185, type: !47)
+!1595 = !DILocalVariable(name: "result", arg: 2, scope: !1592, file: !45, line: 185, type: !1250)
+!1596 = !DILocation(line: 0, scope: !1592)
+!1597 = !DILocation(line: 186, column: 26, scope: !1592)
+!1598 = !DILocation(line: 186, column: 24, scope: !1592)
+!1599 = !DILocation(line: 186, column: 68, scope: !1592)
+!1600 = !DILocation(line: 186, column: 54, scope: !1592)
+!1601 = !DILocation(line: 186, column: 52, scope: !1592)
+!1602 = !DILocation(line: 186, column: 73, scope: !1592)
+!1603 = !DILocation(line: 186, column: 17, scope: !1592)
+!1604 = !DILocation(line: 187, column: 5, scope: !1592)
+!1605 = distinct !DISubprogram(name: "func_f13", linkageName: "_Z8func_f13dP20gsl_sf_result_struct", scope: !45, file: !45, line: 192, type: !1248, scopeLine: 192, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1606)
+!1606 = !{!1607, !1608, !1609}
+!1607 = !DILocalVariable(name: "x", arg: 1, scope: !1605, file: !45, line: 192, type: !47)
+!1608 = !DILocalVariable(name: "result", arg: 2, scope: !1605, file: !45, line: 192, type: !1250)
+!1609 = !DILocalVariable(name: "w", scope: !1605, file: !45, line: 193, type: !47)
+!1610 = !DILocation(line: 0, scope: !1605)
+!1611 = !DILocation(line: 193, column: 16, scope: !1605)
+!1612 = !DILocation(line: 194, column: 22, scope: !1605)
+!1613 = !DILocation(line: 194, column: 34, scope: !1605)
+!1614 = !DILocation(line: 194, column: 38, scope: !1605)
+!1615 = !DILocation(line: 194, column: 29, scope: !1605)
+!1616 = !DILocation(line: 194, column: 17, scope: !1605)
+!1617 = !DILocation(line: 195, column: 5, scope: !1605)
+!1618 = distinct !DISubprogram(name: "func_f14", linkageName: "_Z8func_f14dP20gsl_sf_result_struct", scope: !45, file: !45, line: 200, type: !1248, scopeLine: 200, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1619)
+!1619 = !{!1620, !1621, !1622}
+!1620 = !DILocalVariable(name: "x", arg: 1, scope: !1618, file: !45, line: 200, type: !47)
+!1621 = !DILocalVariable(name: "result", arg: 2, scope: !1618, file: !45, line: 200, type: !1250)
+!1622 = !DILocalVariable(name: "w", scope: !1618, file: !45, line: 201, type: !47)
+!1623 = !DILocation(line: 0, scope: !1618)
+!1624 = !DILocation(line: 201, column: 16, scope: !1618)
+!1625 = !DILocation(line: 202, column: 22, scope: !1618)
+!1626 = !DILocation(line: 202, column: 36, scope: !1618)
+!1627 = !DILocation(line: 202, column: 34, scope: !1618)
+!1628 = !DILocation(line: 202, column: 60, scope: !1618)
+!1629 = !DILocation(line: 202, column: 29, scope: !1618)
+!1630 = !DILocation(line: 202, column: 17, scope: !1618)
+!1631 = !DILocation(line: 203, column: 5, scope: !1618)
+!1632 = distinct !DISubprogram(name: "gsl_sf_dawson_e_wrapper", linkageName: "_Z23gsl_sf_dawson_e_wrapperd", scope: !45, file: !45, line: 207, type: !59, scopeLine: 207, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1633)
+!1633 = !{!1634, !1635}
+!1634 = !DILocalVariable(name: "x", arg: 1, scope: !1632, file: !45, line: 207, type: !47)
+!1635 = !DILocalVariable(name: "result", scope: !1632, file: !45, line: 207, type: !1251)
+!1636 = distinct !DIAssignID()
+!1637 = !DILocation(line: 0, scope: !1632)
+!1638 = !DILocation(line: 207, column: 1, scope: !1632)
+!1639 = !DISubprogram(name: "gsl_sf_dawson_e", scope: !1640, file: !1640, line: 46, type: !1248, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1640 = !DIFile(filename: "external/gsl/build/include/gsl/gsl_sf_dawson.h", directory: "/PI-detector", checksumkind: CSK_MD5, checksum: "481a18b29c23ff240beef8d183dbbe08")
+!1641 = distinct !DISubprogram(name: "func_f15", linkageName: "_Z8func_f15dP20gsl_sf_result_struct", scope: !45, file: !45, line: 209, type: !1248, scopeLine: 209, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1642)
+!1642 = !{!1643, !1644, !1645, !1646}
+!1643 = !DILocalVariable(name: "x", arg: 1, scope: !1641, file: !45, line: 209, type: !47)
+!1644 = !DILocalVariable(name: "result", arg: 2, scope: !1641, file: !45, line: 209, type: !1250)
+!1645 = !DILocalVariable(name: "base", scope: !1641, file: !45, line: 210, type: !47)
+!1646 = !DILocalVariable(name: "exponent", scope: !1641, file: !45, line: 211, type: !47)
+!1647 = !DILocation(line: 0, scope: !1641)
+!1648 = !DILocation(line: 210, column: 25, scope: !1641)
+!1649 = !DILocation(line: 210, column: 23, scope: !1641)
+!1650 = !DILocation(line: 211, column: 27, scope: !1641)
+!1651 = !DILocation(line: 212, column: 19, scope: !1641)
+!1652 = !DILocation(line: 212, column: 17, scope: !1641)
+!1653 = !DILocation(line: 213, column: 5, scope: !1641)
+!1654 = distinct !DISubprogram(name: "gsl_sf_Chi_e_wrapper", linkageName: "_Z20gsl_sf_Chi_e_wrapperd", scope: !45, file: !45, line: 217, type: !59, scopeLine: 217, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1655)
+!1655 = !{!1656, !1657}
+!1656 = !DILocalVariable(name: "x", arg: 1, scope: !1654, file: !45, line: 217, type: !47)
+!1657 = !DILocalVariable(name: "result", scope: !1654, file: !45, line: 217, type: !1251)
+!1658 = distinct !DIAssignID()
+!1659 = !DILocation(line: 0, scope: !1654)
+!1660 = !DILocation(line: 217, column: 1, scope: !1654)
+!1661 = !DISubprogram(name: "gsl_sf_Chi_e", scope: !1515, file: !1515, line: 126, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1662 = distinct !DISubprogram(name: "gsl_sf_Ci_e_wrapper", linkageName: "_Z19gsl_sf_Ci_e_wrapperd", scope: !45, file: !45, line: 218, type: !59, scopeLine: 218, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1663)
+!1663 = !{!1664, !1665}
+!1664 = !DILocalVariable(name: "x", arg: 1, scope: !1662, file: !45, line: 218, type: !47)
+!1665 = !DILocalVariable(name: "result", scope: !1662, file: !45, line: 218, type: !1251)
+!1666 = distinct !DIAssignID()
+!1667 = !DILocation(line: 0, scope: !1662)
+!1668 = !DILocation(line: 218, column: 1, scope: !1662)
+!1669 = !DISubprogram(name: "gsl_sf_Ci_e", scope: !1515, file: !1515, line: 152, type: !1293, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+!1670 = distinct !DISubprogram(name: "func_f16", linkageName: "_Z8func_f16dP20gsl_sf_result_struct", scope: !45, file: !45, line: 220, type: !1248, scopeLine: 220, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1671)
+!1671 = !{!1672, !1673}
+!1672 = !DILocalVariable(name: "x", arg: 1, scope: !1670, file: !45, line: 220, type: !47)
+!1673 = !DILocalVariable(name: "result", arg: 2, scope: !1670, file: !45, line: 220, type: !1250)
+!1674 = !DILocation(line: 0, scope: !1670)
+!1675 = !DILocation(line: 221, column: 20, scope: !1670)
+!1676 = !DILocation(line: 221, column: 46, scope: !1670)
+!1677 = !DILocation(line: 221, column: 44, scope: !1670)
+!1678 = !DILocation(line: 221, column: 75, scope: !1670)
+!1679 = !DILocation(line: 221, column: 70, scope: !1670)
+!1680 = !DILocation(line: 221, column: 17, scope: !1670)
+!1681 = !DILocation(line: 222, column: 5, scope: !1670)
+!1682 = distinct !DISubprogram(name: "func_s1", linkageName: "_Z7func_s1dP20gsl_sf_result_struct", scope: !45, file: !45, line: 241, type: !1248, scopeLine: 241, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1683)
+!1683 = !{!1684, !1685}
+!1684 = !DILocalVariable(name: "x", arg: 1, scope: !1682, file: !45, line: 241, type: !47)
+!1685 = !DILocalVariable(name: "result", arg: 2, scope: !1682, file: !45, line: 241, type: !1250)
+!1686 = !DILocation(line: 0, scope: !1682)
+!1687 = !DILocation(line: 242, column: 26, scope: !1682)
+!1688 = !DILocation(line: 242, column: 24, scope: !1682)
+!1689 = !DILocation(line: 242, column: 56, scope: !1682)
+!1690 = !DILocation(line: 242, column: 51, scope: !1682)
+!1691 = !DILocation(line: 242, column: 17, scope: !1682)
+!1692 = !DILocation(line: 243, column: 5, scope: !1682)
+!1693 = distinct !DISubprogram(name: "func_s2", linkageName: "_Z7func_s2dP20gsl_sf_result_struct", scope: !45, file: !45, line: 248, type: !1248, scopeLine: 248, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1694)
+!1694 = !{!1695, !1696}
+!1695 = !DILocalVariable(name: "x", arg: 1, scope: !1693, file: !45, line: 248, type: !47)
+!1696 = !DILocalVariable(name: "result", arg: 2, scope: !1693, file: !45, line: 248, type: !1250)
+!1697 = !DILocation(line: 0, scope: !1693)
+!1698 = !DILocation(line: 249, column: 20, scope: !1693)
+!1699 = !DILocation(line: 249, column: 44, scope: !1693)
+!1700 = !DILocation(line: 249, column: 73, scope: !1693)
+!1701 = !DILocation(line: 249, column: 52, scope: !1693)
+!1702 = !DILocation(line: 249, column: 50, scope: !1693)
+!1703 = !DILocation(line: 249, column: 83, scope: !1693)
+!1704 = !DILocation(line: 249, column: 78, scope: !1693)
+!1705 = !DILocation(line: 249, column: 17, scope: !1693)
+!1706 = !DILocation(line: 250, column: 5, scope: !1693)
+!1707 = distinct !DISubprogram(name: "func_s3", linkageName: "_Z7func_s3dP20gsl_sf_result_struct", scope: !45, file: !45, line: 255, type: !1248, scopeLine: 255, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1708)
+!1708 = !{!1709, !1710}
+!1709 = !DILocalVariable(name: "x", arg: 1, scope: !1707, file: !45, line: 255, type: !47)
+!1710 = !DILocalVariable(name: "result", arg: 2, scope: !1707, file: !45, line: 255, type: !1250)
+!1711 = !DILocation(line: 0, scope: !1707)
+!1712 = !DILocation(line: 256, column: 26, scope: !1707)
+!1713 = !DILocation(line: 256, column: 24, scope: !1707)
+!1714 = !DILocation(line: 256, column: 53, scope: !1707)
+!1715 = !DILocation(line: 256, column: 51, scope: !1707)
+!1716 = !DILocation(line: 256, column: 17, scope: !1707)
+!1717 = !DILocation(line: 257, column: 5, scope: !1707)
+!1718 = distinct !DISubprogram(name: "func_s4", linkageName: "_Z7func_s4dP20gsl_sf_result_struct", scope: !45, file: !45, line: 262, type: !1248, scopeLine: 262, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1719)
+!1719 = !{!1720, !1721}
+!1720 = !DILocalVariable(name: "x", arg: 1, scope: !1718, file: !45, line: 262, type: !47)
+!1721 = !DILocalVariable(name: "result", arg: 2, scope: !1718, file: !45, line: 262, type: !1250)
+!1722 = !DILocation(line: 0, scope: !1718)
+!1723 = !DILocation(line: 263, column: 42, scope: !1718)
+!1724 = !DILocation(line: 263, column: 19, scope: !1718)
+!1725 = !DILocation(line: 263, column: 55, scope: !1718)
+!1726 = !DILocation(line: 263, column: 53, scope: !1718)
+!1727 = !DILocation(line: 263, column: 17, scope: !1718)
+!1728 = !DILocation(line: 264, column: 5, scope: !1718)
+!1729 = distinct !DISubprogram(name: "func_s5", linkageName: "_Z7func_s5dP20gsl_sf_result_struct", scope: !45, file: !45, line: 269, type: !1248, scopeLine: 269, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1730)
+!1730 = !{!1731, !1732}
+!1731 = !DILocalVariable(name: "x", arg: 1, scope: !1729, file: !45, line: 269, type: !47)
+!1732 = !DILocalVariable(name: "result", arg: 2, scope: !1729, file: !45, line: 269, type: !1250)
+!1733 = !DILocation(line: 0, scope: !1729)
+!1734 = !DILocation(line: 270, column: 30, scope: !1729)
+!1735 = !DILocation(line: 270, column: 19, scope: !1729)
+!1736 = !DILocation(line: 270, column: 43, scope: !1729)
+!1737 = !DILocation(line: 270, column: 41, scope: !1729)
+!1738 = !DILocation(line: 270, column: 17, scope: !1729)
+!1739 = !DILocation(line: 271, column: 5, scope: !1729)
+!1740 = distinct !DISubprogram(name: "func_s6", linkageName: "_Z7func_s6dP20gsl_sf_result_struct", scope: !45, file: !45, line: 276, type: !1248, scopeLine: 276, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1741)
+!1741 = !{!1742, !1743}
+!1742 = !DILocalVariable(name: "x", arg: 1, scope: !1740, file: !45, line: 276, type: !47)
+!1743 = !DILocalVariable(name: "result", arg: 2, scope: !1740, file: !45, line: 276, type: !1250)
+!1744 = !DILocation(line: 0, scope: !1740)
+!1745 = !DILocation(line: 277, column: 42, scope: !1740)
+!1746 = !DILocation(line: 277, column: 19, scope: !1740)
+!1747 = !DILocation(line: 277, column: 55, scope: !1740)
+!1748 = !DILocation(line: 277, column: 53, scope: !1740)
+!1749 = !DILocation(line: 277, column: 17, scope: !1740)
+!1750 = !DILocation(line: 278, column: 5, scope: !1740)
+!1751 = distinct !DISubprogram(name: "func_s7", linkageName: "_Z7func_s7dP20gsl_sf_result_struct", scope: !45, file: !45, line: 283, type: !1248, scopeLine: 283, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1752)
+!1752 = !{!1753, !1754}
+!1753 = !DILocalVariable(name: "x", arg: 1, scope: !1751, file: !45, line: 283, type: !47)
+!1754 = !DILocalVariable(name: "result", arg: 2, scope: !1751, file: !45, line: 283, type: !1250)
+!1755 = !DILocation(line: 0, scope: !1751)
+!1756 = !DILocation(line: 284, column: 19, scope: !1751)
+!1757 = !DILocation(line: 284, column: 66, scope: !1751)
+!1758 = !DILocation(line: 284, column: 45, scope: !1751)
+!1759 = !DILocation(line: 284, column: 43, scope: !1751)
+!1760 = !DILocation(line: 284, column: 17, scope: !1751)
+!1761 = !DILocation(line: 285, column: 5, scope: !1751)
+!1762 = distinct !DISubprogram(name: "func_s8", linkageName: "_Z7func_s8dP20gsl_sf_result_struct", scope: !45, file: !45, line: 290, type: !1248, scopeLine: 290, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1763)
+!1763 = !{!1764, !1765}
+!1764 = !DILocalVariable(name: "x", arg: 1, scope: !1762, file: !45, line: 290, type: !47)
+!1765 = !DILocalVariable(name: "result", arg: 2, scope: !1762, file: !45, line: 290, type: !1250)
+!1766 = !DILocation(line: 0, scope: !1762)
+!1767 = !DILocation(line: 291, column: 19, scope: !1762)
+!1768 = !DILocation(line: 291, column: 42, scope: !1762)
+!1769 = !DILocation(line: 291, column: 17, scope: !1762)
+!1770 = !DILocation(line: 292, column: 5, scope: !1762)
+!1771 = distinct !DISubprogram(name: "func_s9", linkageName: "_Z7func_s9dP20gsl_sf_result_struct", scope: !45, file: !45, line: 297, type: !1248, scopeLine: 297, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1772)
+!1772 = !{!1773, !1774}
+!1773 = !DILocalVariable(name: "x", arg: 1, scope: !1771, file: !45, line: 297, type: !47)
+!1774 = !DILocalVariable(name: "result", arg: 2, scope: !1771, file: !45, line: 297, type: !1250)
+!1775 = !DILocation(line: 0, scope: !1771)
+!1776 = !DILocation(line: 298, column: 24, scope: !1771)
+!1777 = !DILocation(line: 298, column: 38, scope: !1771)
+!1778 = !DILocation(line: 298, column: 36, scope: !1771)
+!1779 = !DILocation(line: 298, column: 29, scope: !1771)
+!1780 = !DILocation(line: 298, column: 17, scope: !1771)
+!1781 = !DILocation(line: 299, column: 5, scope: !1771)
+!1782 = distinct !DISubprogram(name: "func_s10", linkageName: "_Z8func_s10dP20gsl_sf_result_struct", scope: !45, file: !45, line: 304, type: !1248, scopeLine: 304, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1783)
+!1783 = !{!1784, !1785}
+!1784 = !DILocalVariable(name: "x", arg: 1, scope: !1782, file: !45, line: 304, type: !47)
+!1785 = !DILocalVariable(name: "result", arg: 2, scope: !1782, file: !45, line: 304, type: !1250)
+!1786 = !DILocation(line: 0, scope: !1782)
+!1787 = !DILocation(line: 305, column: 44, scope: !1782)
+!1788 = !DILocation(line: 305, column: 19, scope: !1782)
+!1789 = !DILocation(line: 305, column: 76, scope: !1782)
+!1790 = !DILocation(line: 305, column: 51, scope: !1782)
+!1791 = !DILocation(line: 305, column: 49, scope: !1782)
+!1792 = !DILocation(line: 305, column: 17, scope: !1782)
+!1793 = !DILocation(line: 306, column: 5, scope: !1782)
+!1794 = distinct !DISubprogram(name: "func_s11", linkageName: "_Z8func_s11dP20gsl_sf_result_struct", scope: !45, file: !45, line: 311, type: !1248, scopeLine: 311, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1795)
+!1795 = !{!1796, !1797}
+!1796 = !DILocalVariable(name: "x", arg: 1, scope: !1794, file: !45, line: 311, type: !47)
+!1797 = !DILocalVariable(name: "result", arg: 2, scope: !1794, file: !45, line: 311, type: !1250)
+!1798 = !DILocation(line: 0, scope: !1794)
+!1799 = !DILocation(line: 312, column: 45, scope: !1794)
+!1800 = !DILocation(line: 312, column: 57, scope: !1794)
+!1801 = !DILocation(line: 312, column: 50, scope: !1794)
+!1802 = !DILocation(line: 312, column: 19, scope: !1794)
+!1803 = !DILocation(line: 312, column: 17, scope: !1794)
+!1804 = !DILocation(line: 313, column: 5, scope: !1794)
+!1805 = distinct !DISubprogram(name: "func_s12", linkageName: "_Z8func_s12dP20gsl_sf_result_struct", scope: !45, file: !45, line: 318, type: !1248, scopeLine: 318, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1806)
 !1806 = !{!1807, !1808}
-!1807 = !DILocalVariable(name: "x", arg: 1, scope: !1805, file: !45, line: 313, type: !47)
-!1808 = !DILocalVariable(name: "result", arg: 2, scope: !1805, file: !45, line: 313, type: !1266)
+!1807 = !DILocalVariable(name: "x", arg: 1, scope: !1805, file: !45, line: 318, type: !47)
+!1808 = !DILocalVariable(name: "result", arg: 2, scope: !1805, file: !45, line: 318, type: !1250)
 !1809 = !DILocation(line: 0, scope: !1805)
-!1810 = !DILocation(line: 314, column: 20, scope: !1805)
-!1811 = !DILocation(line: 314, column: 43, scope: !1805)
-!1812 = !DILocation(line: 314, column: 49, scope: !1805)
-!1813 = !DILocation(line: 314, column: 17, scope: !1805)
-!1814 = !DILocation(line: 315, column: 5, scope: !1805)
-!1815 = distinct !DISubprogram(name: "func_s15", linkageName: "_Z8func_s15dP20gsl_sf_result_struct", scope: !45, file: !45, line: 320, type: !1277, scopeLine: 320, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1816)
-!1816 = !{!1817, !1818}
-!1817 = !DILocalVariable(name: "x", arg: 1, scope: !1815, file: !45, line: 320, type: !47)
-!1818 = !DILocalVariable(name: "result", arg: 2, scope: !1815, file: !45, line: 320, type: !1266)
-!1819 = !DILocation(line: 0, scope: !1815)
-!1820 = !DILocation(line: 321, column: 22, scope: !1815)
-!1821 = !DILocation(line: 321, column: 34, scope: !1815)
-!1822 = !DILocation(line: 321, column: 38, scope: !1815)
-!1823 = !DILocation(line: 321, column: 29, scope: !1815)
-!1824 = !DILocation(line: 321, column: 17, scope: !1815)
-!1825 = !DILocation(line: 322, column: 5, scope: !1815)
+!1810 = !DILocation(line: 319, column: 55, scope: !1805)
+!1811 = !DILocation(line: 319, column: 30, scope: !1805)
+!1812 = !DILocation(line: 319, column: 59, scope: !1805)
+!1813 = !DILocation(line: 319, column: 68, scope: !1805)
+!1814 = !DILocation(line: 319, column: 91, scope: !1805)
+!1815 = !DILocation(line: 319, column: 65, scope: !1805)
+!1816 = !DILocation(line: 319, column: 19, scope: !1805)
+!1817 = !DILocation(line: 319, column: 17, scope: !1805)
+!1818 = !DILocation(line: 320, column: 5, scope: !1805)
+!1819 = distinct !DISubprogram(name: "func_s13", linkageName: "_Z8func_s13dP20gsl_sf_result_struct", scope: !45, file: !45, line: 325, type: !1248, scopeLine: 325, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1820)
+!1820 = !{!1821, !1822}
+!1821 = !DILocalVariable(name: "x", arg: 1, scope: !1819, file: !45, line: 325, type: !47)
+!1822 = !DILocalVariable(name: "result", arg: 2, scope: !1819, file: !45, line: 325, type: !1250)
+!1823 = !DILocation(line: 0, scope: !1819)
+!1824 = !DILocation(line: 326, column: 24, scope: !1819)
+!1825 = !DILocation(line: 326, column: 22, scope: !1819)
+!1826 = !DILocation(line: 326, column: 56, scope: !1819)
+!1827 = !DILocation(line: 326, column: 54, scope: !1819)
+!1828 = !DILocation(line: 326, column: 49, scope: !1819)
+!1829 = !DILocation(line: 326, column: 17, scope: !1819)
+!1830 = !DILocation(line: 327, column: 5, scope: !1819)
+!1831 = distinct !DISubprogram(name: "func_s14", linkageName: "_Z8func_s14dP20gsl_sf_result_struct", scope: !45, file: !45, line: 332, type: !1248, scopeLine: 332, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1832)
+!1832 = !{!1833, !1834}
+!1833 = !DILocalVariable(name: "x", arg: 1, scope: !1831, file: !45, line: 332, type: !47)
+!1834 = !DILocalVariable(name: "result", arg: 2, scope: !1831, file: !45, line: 332, type: !1250)
+!1835 = !DILocation(line: 0, scope: !1831)
+!1836 = !DILocation(line: 333, column: 20, scope: !1831)
+!1837 = !DILocation(line: 333, column: 43, scope: !1831)
+!1838 = !DILocation(line: 333, column: 49, scope: !1831)
+!1839 = !DILocation(line: 333, column: 17, scope: !1831)
+!1840 = !DILocation(line: 334, column: 5, scope: !1831)
+!1841 = distinct !DISubprogram(name: "func_s15", linkageName: "_Z8func_s15dP20gsl_sf_result_struct", scope: !45, file: !45, line: 339, type: !1248, scopeLine: 339, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !1842)
+!1842 = !{!1843, !1844}
+!1843 = !DILocalVariable(name: "x", arg: 1, scope: !1841, file: !45, line: 339, type: !47)
+!1844 = !DILocalVariable(name: "result", arg: 2, scope: !1841, file: !45, line: 339, type: !1250)
+!1845 = !DILocation(line: 0, scope: !1841)
+!1846 = !DILocation(line: 340, column: 22, scope: !1841)
+!1847 = !DILocation(line: 340, column: 34, scope: !1841)
+!1848 = !DILocation(line: 340, column: 38, scope: !1841)
+!1849 = !DILocation(line: 340, column: 29, scope: !1841)
+!1850 = !DILocation(line: 340, column: 17, scope: !1841)
+!1851 = !DILocation(line: 341, column: 5, scope: !1841)

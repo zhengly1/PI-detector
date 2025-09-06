@@ -42,4 +42,4 @@ extern "C" int func_s12(double x, gsl_sf_result* result);
 extern "C" int func_s13(double x, gsl_sf_result* result);
 extern "C" int func_s14(double x, gsl_sf_result* result);
 extern "C" int func_s15(double x, gsl_sf_result* result);
-
+extern "C" double numerical_derivative(int (*func)(double, gsl_sf_result*), double x);
