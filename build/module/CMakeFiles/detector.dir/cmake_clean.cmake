@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "../bin/detector"
   "../bin/detector.pdb"
+  "CMakeFiles/detector.dir/link.d"
   "CMakeFiles/detector.dir/src/main.cc.o"
   "CMakeFiles/detector.dir/src/main.cc.o.d"
 )
