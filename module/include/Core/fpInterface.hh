@@ -8,7 +8,7 @@
 #include <iostream>
 #include <functional>
 
-#include <hsed/hsed.h> 
+#include <hsed.h> 
 #include <gsl/gsl_sf.h>
 
 #include <gsl/gsl_matrix.h>

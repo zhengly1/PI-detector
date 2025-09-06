@@ -15,7 +15,7 @@ For more information, see https://apt.llvm.org/.
 
 ## Option
 ```
-Usage: detector [--help] [--version] [--relerr] lib mode input output
+Usage: detector [--help] [--version] [--relerr] [--derivatives] lib mode input output
 
 Positional arguments:
   lib            Specify the library to use (gsl/hsed/matrix) [required]
@@ -27,7 +27,10 @@ Optional arguments:
   -h, --help     shows help message and exits 
   -v, --version  prints version information and exits 
   --relerr       Calculate relative error instead of ulp error 
+  --derivatives  Compute numerical derivatives and backward errors (only with --relerr)
 ```
+
+**Note**: Backward errors are calculated as `relative_error / condition_number` and are only computed when both `--relerr` and `--derivatives` flags are used.
 
 ## Usage
 ### **For the details about result reproduction, see [result_reproduction](script/result_reproduction.ipynb).**

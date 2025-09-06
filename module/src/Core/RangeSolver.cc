@@ -31,13 +31,9 @@ void RangeSolver::runOneFuncWithInputs(Ptr<FloatingPointFunction> &func,
     errors = _calculateULPErrors(results, resultsP);
   }
   
-  // 修改：无论误差类型，都计算后向误差
-  if (computeDerivatives) {
-    if (relativeError) {
-      backwardErrors = _calculateBackwardErrors(relErrors, conditionNumbers);
-    } else {
-      backwardErrors = _calculateBackwardErrors(errors, conditionNumbers);
-    }
+  // 修改：只在相对误差模式下计算后向误差
+  if (computeDerivatives && relativeError) {
+    backwardErrors = _calculateBackwardErrors(relErrors, conditionNumbers);
   }
 
   finishTime = std::chrono::steady_clock::now();
@@ -186,7 +182,7 @@ FloatVec RangeSolver::_calculateConditionNumbers(const FloatVec &inputs,
   return conditionNumbers;
 }
 
-// 新增重载：支持 FloatVec 类型的误差（用于相对误差模式）
+// 计算后向误差：相对误差/条件数（仅在相对误差模式下）
 FloatVec RangeSolver::_calculateBackwardErrors(const FloatVec &errors,
                                               const FloatVec &conditionNumbers) {
   FloatVec backwardErrors(errors.size());
@@ -197,26 +193,8 @@ FloatVec RangeSolver::_calculateBackwardErrors(const FloatVec &errors,
         if (condNum == 0.0) {
           return 0.0; // If condition number is 0, backward error is 0
         }
-        // Calculate backward error: error / condition_number
+        // Calculate backward error: relative error / condition_number
         return error / condNum;
-      });
-  return backwardErrors;
-}
-
-// 原有绝对误差版本，保留
-FloatVec RangeSolver::_calculateBackwardErrors(const Vec<BitsType> &errors,
-                                              const FloatVec &conditionNumbers) {
-  FloatVec backwardErrors(errors.size());
-  std::transform(
-      errors.begin(), errors.end(), conditionNumbers.begin(), backwardErrors.begin(),
-      [](BitsType error, FloatType condNum) {
-        // Handle special cases
-        if (condNum == 0.0) {
-          return 0.0; // If condition number is 0, backward error is 0
-        }
-        
-        // Calculate backward error: error / condition_number
-        return static_cast<FloatType>(error) / condNum;
       });
   return backwardErrors;
 }
