@@ -31,3 +31,22 @@ Optional arguments:
 
 ## Usage
 ### **For the details about result reproduction, see [result_reproduction](script/result_reproduction.ipynb).**
+
+## Additional Documentation
+
+### Tensor Core FP16 Accumulation Analysis
+This repository includes research and analysis on NVIDIA Tensor Core FP16 accumulation capabilities:
+
+- **[Tensor Core FP16 Analysis](docs/tensor_core_fp16_analysis.md)** - Comprehensive analysis answering the question "Do Tensor Cores support FP16 accumulation?"
+- **[CUDA Examples](examples/cuda/)** - Practical CUDA code demonstrating Tensor Core FP16 vs FP32 accumulation
+
+### Key Findings
+
+**Question**: Tensor Cores是不是不支持fp16累加？ (Do Tensor Cores not support fp16 accumulation?)
+
+**Answer**: The support for FP16 accumulation in Tensor Cores **depends on the GPU architecture**:
+
+- ❌ **Early architectures do NOT support**: Volta (V100) and Turing (RTX 20xx) - FP32 accumulation only
+- ✅ **Modern architectures DO support**: Ampere (A100, RTX 30xx) and newer - Both FP16 and FP32 accumulation
+
+Therefore, the statement "Tensor Cores do not support FP16 accumulation" is **inaccurate** - it depends on the specific hardware generation.
