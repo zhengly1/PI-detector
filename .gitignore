@@ -1,0 +1,72 @@
+# Build directories
+build/
+bin/
+obj/
+lib/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Compiled Object files
+*.o
+*.obj
+*.lo
+*.ko
+*.elf
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.a
+*.la
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+detector
+
+# CUDA compiled files
+*.ptx
+*.cubin
+*.fatbin
+
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Archive files
+*.tar.gz
+*.zip
+*.rar
+
+# Generated documentation
+doxygen/
+doc/generated/
+
+# Test results
+test_results/
+*.test

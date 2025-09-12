@@ -1,2 +1,0 @@
-/usr/bin/ar qc libhsed.a .libs/hsed.o hsed.o ../../module/src/Util/CMakeFiles/Util_OBJECT.dir/fpUtil.cc.o ../../module/src/Util/CMakeFiles/Util_OBJECT.dir/handler.cc.o
-/usr/bin/ranlib libhsed.a
